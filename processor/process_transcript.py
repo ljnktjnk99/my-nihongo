@@ -44,9 +44,45 @@ def extract_date_from_filename(filepath: str) -> str:
 
 
 def read_transcript(filepath: str) -> str:
-    """Read transcript file."""
+    """Read transcript file. Supports .txt, .rtf, .rtfd"""
+    path = Path(filepath)
+
+    # .rtfd is a directory (Apple Notes with attachments)
+    if path.suffix.lower() == ".rtfd":
+        rtf_file = path / "TXT.rtf"
+        if rtf_file.exists():
+            return _extract_text_from_rtf(str(rtf_file))
+        else:
+            raise FileNotFoundError(f"TXT.rtf not found inside {filepath}")
+
+    # .rtf file
+    if path.suffix.lower() == ".rtf":
+        return _extract_text_from_rtf(filepath)
+
+    # .txt or other text files
     with open(filepath, "r", encoding="utf-8") as f:
         return f.read()
+
+
+def _extract_text_from_rtf(filepath: str) -> str:
+    """Extract plain text from RTF file using macOS textutil."""
+    try:
+        result = subprocess.run(
+            ["textutil", "-convert", "txt", "-stdout", filepath],
+            capture_output=True, text=True, timeout=30,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout
+    except (subprocess.TimeoutExpired, FileNotFoundError):
+        pass
+
+    # Fallback: strip RTF tags manually
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+    # Basic RTF tag removal
+    text = re.sub(r'\\[a-z]+\d*\s?', '', content)
+    text = re.sub(r'[{}]', '', text)
+    return text.strip()
 
 
 def build_prompt(transcript: str) -> str:
@@ -85,17 +121,32 @@ def extract_json(response: str) -> dict:
     # Try to find JSON block in response
     json_patterns = [
         r"```json\s*\n(.*?)\n\s*```",
+        r"```json\s*(.*?)\s*```",
         r"```\s*\n(.*?)\n\s*```",
-        r"(\{.*\})",
+        r"(\{[\s\S]*\})",
     ]
     for pattern in json_patterns:
         match = re.search(pattern, response, re.DOTALL)
         if match:
-            try:
-                return json.loads(match.group(1))
-            except json.JSONDecodeError:
-                continue
+            json_str = match.group(1).strip()
 
+            # Try to parse as-is
+            try:
+                return json.loads(json_str)
+            except json.JSONDecodeError:
+                # If parsing fails, try removing excess closing braces
+                # This handles cases where Claude adds extra braces
+                json_str_stripped = json_str.rstrip()
+                for excess_count in range(1, 5):
+                    try_str = json_str_stripped[:-excess_count] if excess_count > 0 else json_str_stripped
+                    try:
+                        return json.loads(try_str)
+                    except json.JSONDecodeError:
+                        continue
+
+    # If all patterns fail, print debug info
+    print(f"⚠️  JSON extraction failed. Response length: {len(response)}")
+    print(f"   First 500 chars: {response[:500]}")
     raise ValueError("Could not extract valid JSON from Claude's response")
 
 
@@ -243,6 +294,13 @@ if __name__ == "__main__":
     if not os.path.exists(filepath):
         print(f"❌ File not found: {filepath}")
         sys.exit(1)
+
+    # .rtfd is a directory - check for TXT.rtf inside
+    if filepath.endswith(".rtfd"):
+        rtf_inside = os.path.join(filepath, "TXT.rtf")
+        if not os.path.exists(rtf_inside):
+            print(f"❌ TXT.rtf not found inside {filepath}")
+            sys.exit(1)
 
     auto_push = "--no-push" not in sys.argv
     success = process(filepath, auto_push=auto_push)
