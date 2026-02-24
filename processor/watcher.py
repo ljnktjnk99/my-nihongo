@@ -36,18 +36,27 @@ class TranscriptHandler(FileSystemEventHandler):
         self.processed = get_processed_files()
 
     def on_created(self, event):
+        path = Path(event.src_path)
+        # .rtfd is a directory, so handle it specially
+        if event.is_directory and path.suffix.lower() == ".rtfd":
+            self._handle_file(event.src_path)
+            return
         if event.is_directory:
             return
         self._handle_file(event.src_path)
 
     def on_modified(self, event):
+        path = Path(event.src_path)
+        if event.is_directory and path.suffix.lower() == ".rtfd":
+            self._handle_file(event.src_path)
+            return
         if event.is_directory:
             return
         self._handle_file(event.src_path)
 
     def _handle_file(self, filepath):
         path = Path(filepath)
-        if path.suffix.lower() not in [".txt", ".docx"]:
+        if path.suffix.lower() not in [".txt", ".docx", ".rtf", ".rtfd"]:
             return
         if path.name.startswith(".") or path.name.startswith("~"):
             return
@@ -91,10 +100,11 @@ def main():
     handler = TranscriptHandler()
 
     # Process existing unprocessed files
-    for f in MEETING_DIR.glob("*.txt"):
-        if str(f) not in handler.processed:
-            print(f"📄 Tìm thấy file chưa xử lý: {f.name}")
-            handler._handle_file(str(f))
+    for pattern in ["*.txt", "*.rtf", "*.rtfd"]:
+        for f in MEETING_DIR.glob(pattern):
+            if str(f) not in handler.processed:
+                print(f"📄 Tìm thấy file chưa xử lý: {f.name}")
+                handler._handle_file(str(f))
 
     observer = Observer()
     observer.schedule(handler, str(MEETING_DIR), recursive=False)

@@ -43,6 +43,11 @@ def extract_date_from_filename(filepath: str) -> str:
     return datetime.now().strftime("%Y-%m-%d")
 
 
+def extract_slug_from_filename(filepath: str) -> str:
+    """Extract slug from filename (basename without extension)."""
+    return Path(filepath).stem
+
+
 def read_transcript(filepath: str) -> str:
     """Read transcript file. Supports .txt, .rtf, .rtfd"""
     path = Path(filepath)
@@ -244,9 +249,11 @@ def process(filepath: str, auto_push: bool = True):
     transcript = read_transcript(filepath)
     print(f"📖 Đọc transcript: {len(transcript)} ký tự")
 
-    # 2. Extract date
+    # 2. Extract date and slug
     date = extract_date_from_filename(filepath)
+    slug = extract_slug_from_filename(filepath)
     print(f"📅 Ngày: {date}")
+    print(f"📝 Slug: {slug}")
 
     # 3. Build prompt & call Claude
     prompt = build_prompt(transcript)
@@ -266,7 +273,7 @@ def process(filepath: str, auto_push: bool = True):
         return False
 
     # 6. Save JSON
-    output_file = DATA_DIR / f"{date}.json"
+    output_file = DATA_DIR / f"{slug}.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"💾 Saved: {output_file}")
