@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>NihonGo Meeting</title>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0f0f14">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0f0f14;
+  --bg-secondary: #1a1a24;
+  --bg-card: #22222e;
+  --bg-card-hover: #2a2a38;
+  --accent: #e8564a;
+  --accent-soft: rgba(232, 86, 74, 0.15);
+  --accent-2: #4a9ce8;
+  --accent-2-soft: rgba(74, 156, 232, 0.15);
+  --accent-3: #4ae8a0;
+  --accent-3-soft: rgba(74, 232, 160, 0.15);
+  --accent-4: #e8c44a;
+  --accent-4-soft: rgba(232, 196, 74, 0.15);
+  --text-primary: #e8e6e3;
+  --text-secondary: #8a8a9a;
+  --text-muted: #555566;
+  --border: #2a2a3a;
+  --success: #4ae8a0;
+  --error: #e8564a;
+  --warning: #e8c44a;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body {
+  font-family: 'Be Vietnam Pro','Noto Sans JP',sans-serif;
+  background: var(--bg-primary); color: var(--text-primary);
+  min-height:100dvh; overflow-x:hidden;
+}
+
+/* NAV */
+.nav-bottom {
+  position:fixed; bottom:0; left:0; right:0;
+  background:rgba(15,15,20,0.95); backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);
+  display:flex; justify-content:space-around; align-items:center;
+  padding:8px 0 max(8px, env(safe-area-inset-bottom)); z-index:100;
+}
+.nav-item {
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  padding:6px 16px; border-radius:12px; cursor:pointer;
+  transition:all 0.2s; color:var(--text-muted); text-decoration:none;
+  user-select:none;
+}
+.nav-item.active { color:var(--accent); }
+.nav-item svg { width:22px; height:22px; }
+.nav-item span { font-size:10px; font-weight:500; letter-spacing:0.3px; }
+
+/* PAGES */
+.page { display:none; padding:20px 16px 100px; max-width:480px; margin:0 auto; min-height:100dvh; }
+.page.active { display:block; }
+
+/* HEADER */
+.page-header { padding:12px 0 24px; }
+.page-title {
+  font-size:26px; font-weight:700; letter-spacing:-0.5px;
+  background:linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.page-subtitle { font-size:13px; color:var(--text-secondary); margin-top:4px; }
+
+/* STATS */
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
+.stat-card {
+  background:var(--bg-card); border-radius:var(--radius); padding:18px;
+  border:1px solid var(--border); position:relative; overflow:hidden;
+}
+.stat-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.stat-card.red::after { background:var(--accent); }
+.stat-card.blue::after { background:var(--accent-2); }
+.stat-card.green::after { background:var(--accent-3); }
+.stat-card.yellow::after { background:var(--accent-4); }
+.stat-number { font-size:32px; font-weight:700; line-height:1; }
+.stat-card.red .stat-number { color:var(--accent); }
+.stat-card.blue .stat-number { color:var(--accent-2); }
+.stat-card.green .stat-number { color:var(--accent-3); }
+.stat-card.yellow .stat-number { color:var(--accent-4); }
+.stat-label { font-size:12px; color:var(--text-secondary); margin-top:6px; }
+
+.streak-banner {
+  background:linear-gradient(135deg,#1a1028,#28102a);
+  border:1px solid rgba(232,86,74,0.2);
+  border-radius:var(--radius); padding:20px; margin-bottom:24px;
+  display:flex; align-items:center; gap:16px;
+}
+.streak-fire { font-size:40px; }
+.streak-info h3 { font-size:18px; font-weight:600; }
+.streak-info p { font-size:13px; color:var(--text-secondary); margin-top:2px; }
+
+.section-title { font-size:16px; font-weight:600; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+
+/* MEETING LIST */
+.meeting-list { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+.meeting-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:14px 16px;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; transition:all 0.2s;
+}
+.meeting-card:active { background:var(--bg-card-hover); transform:scale(0.98); }
+.meeting-date { font-size:12px; color:var(--text-secondary); }
+.meeting-topic { font-size:14px; font-weight:500; margin-top:2px; }
+.meeting-meta { display:flex; gap:6px; margin-top:6px; }
+.meeting-tag {
+  font-size:10px; padding:2px 8px; border-radius:10px; font-weight:500;
+}
+.tag-items { background:var(--accent-soft); color:var(--accent); }
+.tag-new { background:var(--accent-2-soft); color:var(--accent-2); }
+.tag-learning { background:var(--accent-4-soft); color:var(--accent-4); }
+.tag-mastered { background:var(--accent-3-soft); color:var(--accent-3); }
+
+/* MEETING DETAIL */
+.detail-header {
+  display:flex; align-items:center; gap:12px; margin-bottom:20px;
+}
+.back-btn {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:10px; width:36px; height:36px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; color:var(--text-primary); transition:all 0.15s;
+  font-size:16px;
+}
+.back-btn:active { transform:scale(0.9); }
+
+.detail-actions {
+  display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:24px;
+}
+.detail-action-btn {
+  padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border);
+  cursor:pointer; text-align:center; transition:all 0.2s;
+  background:var(--bg-card);
+}
+.detail-action-btn:active { transform:scale(0.97); }
+.detail-action-btn .action-icon { font-size:24px; margin-bottom:6px; }
+.detail-action-btn .action-label { font-size:13px; font-weight:600; }
+.detail-action-btn .action-desc { font-size:11px; color:var(--text-secondary); margin-top:2px; }
+.detail-action-btn.primary { border-color:rgba(232,86,74,0.3); background:var(--accent-soft); }
+
+.detail-tabs {
+  display:flex; gap:0; margin-bottom:16px; background:var(--bg-card);
+  border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--border);
+}
+.detail-tab {
+  flex:1; padding:10px; text-align:center; font-size:12px; font-weight:600;
+  cursor:pointer; transition:all 0.2s; color:var(--text-muted);
+  border-right:1px solid var(--border);
+}
+.detail-tab:last-child { border-right:none; }
+.detail-tab.active { background:var(--accent-soft); color:var(--accent); }
+.detail-tab .tab-count {
+  font-size:10px; display:block; margin-top:2px; opacity:0.7;
+}
+
+/* WEEKLY CHART */
+.weekly-chart {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:20px; margin-bottom:24px;
+}
+.chart-bars { display:flex; align-items:end; justify-content:space-between; height:100px; gap:8px; margin-top:12px; }
+.chart-day { display:flex; flex-direction:column; align-items:center; gap:6px; flex:1; }
+.chart-bar {
+  width:100%; border-radius:4px 4px 0 0;
+  background:linear-gradient(to top, var(--accent), #e87a6a);
+  transition:height 0.5s cubic-bezier(0.34,1.56,0.64,1); min-height:4px;
+}
+.chart-bar.today { background:linear-gradient(to top, var(--accent-2), #6ab8e8); }
+.chart-label { font-size:10px; color:var(--text-muted); }
+
+/* FLASHCARD */
+.flashcard-meeting-filter {
+  display:flex; gap:8px; margin-bottom:16px; overflow-x:auto;
+  padding-bottom:4px; -webkit-overflow-scrolling:touch;
+}
+.filter-chip {
+  padding:6px 14px; border-radius:20px; font-size:12px; font-weight:500;
+  white-space:nowrap; cursor:pointer; transition:all 0.2s;
+  background:var(--bg-card); border:1px solid var(--border); color:var(--text-secondary);
+}
+.filter-chip.active { background:var(--accent-soft); border-color:var(--accent); color:var(--accent); }
+
+.flashcard-container { perspective:1200px; margin:10px 0; height:360px; position:relative; }
+.flashcard-progress { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.progress-bar-bg { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+.progress-bar-fill { height:100%; background:var(--accent); border-radius:2px; transition:width 0.3s ease; }
+.progress-text { font-size:12px; color:var(--text-secondary); white-space:nowrap; }
+
+.flashcard {
+  width:100%; height:100%; position:relative;
+  transform-style:preserve-3d; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  cursor:pointer;
+}
+.flashcard.flipped { transform:rotateY(180deg); }
+.flashcard-face {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  backface-visibility:hidden; border-radius:var(--radius);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  padding:28px; text-align:center; border:1px solid var(--border);
+}
+.flashcard-front { background:linear-gradient(145deg,#1e1e2e,#24243a); }
+.flashcard-back { background:linear-gradient(145deg,#1a2828,#1e3030); transform:rotateY(180deg); }
+
+.card-type-badge {
+  position:absolute; top:14px; left:14px;
+  font-size:10px; font-weight:600; padding:4px 10px;
+  border-radius:20px; text-transform:uppercase; letter-spacing:0.5px;
+}
+.card-meeting-badge {
+  position:absolute; top:14px; right:14px;
+  font-size:9px; font-weight:500; padding:3px 8px;
+  border-radius:10px; background:rgba(255,255,255,0.05);
+  color:var(--text-muted); max-width:120px; overflow:hidden;
+  text-overflow:ellipsis; white-space:nowrap;
+}
+.badge-vocab { background:var(--accent-soft); color:var(--accent); }
+.badge-phrase { background:var(--accent-2-soft); color:var(--accent-2); }
+.badge-grammar { background:var(--accent-3-soft); color:var(--accent-3); }
+.card-hint { position:absolute; bottom:14px; font-size:11px; color:var(--text-muted); }
+.card-vi { font-size:20px; font-weight:500; line-height:1.5; }
+.card-ja { font-size:26px; font-weight:700; font-family:'Noto Sans JP',sans-serif; line-height:1.4; }
+.card-reading { font-size:15px; color:var(--accent-2); margin-top:6px; font-family:'Noto Sans JP'; }
+.card-context {
+  font-size:12px; color:var(--text-secondary); margin-top:14px;
+  padding-top:14px; border-top:1px solid var(--border);
+  line-height:1.6; font-family:'Noto Sans JP','Be Vietnam Pro',sans-serif;
+}
+.card-usage {
+  font-size:11px; color:var(--text-muted); margin-top:8px;
+  font-style:italic;
+}
+.flashcard-actions { display:flex; gap:12px; justify-content:center; margin-top:16px; }
+.fc-btn {
+  flex:1; max-width:160px; padding:14px; border:none; border-radius:var(--radius-sm);
+  font-size:14px; font-weight:600; cursor:pointer;
+  transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.fc-btn:active { transform:scale(0.95); }
+.btn-forgot { background:rgba(232,86,74,0.15); color:var(--error); border:1px solid rgba(232,86,74,0.3); }
+.btn-knew { background:rgba(74,232,160,0.15); color:var(--success); border:1px solid rgba(74,232,160,0.3); }
+
+.empty-state { text-align:center; padding:60px 20px; }
+.empty-state .emoji { font-size:48px; margin-bottom:16px; }
+.empty-state h3 { font-size:18px; margin-bottom:8px; }
+.empty-state p { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+
+/* PRACTICE */
+.exercise-types { display:flex; flex-direction:column; gap:12px; margin-bottom:20px; }
+.exercise-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:18px; cursor:pointer;
+  display:flex; align-items:center; gap:14px; transition:all 0.2s;
+}
+.exercise-card:active { background:var(--bg-card-hover); transform:scale(0.98); }
+.exercise-icon {
+  width:48px; height:48px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.exercise-icon.t1 { background:var(--accent-soft); }
+.exercise-icon.t2 { background:var(--accent-2-soft); }
+.exercise-icon.t3 { background:var(--accent-3-soft); }
+.exercise-icon.t4 { background:var(--accent-4-soft); }
+.exercise-info h3 { font-size:15px; font-weight:600; }
+.exercise-info p { font-size:12px; color:var(--text-secondary); margin-top:2px; }
+.exercise-arrow { color:var(--text-muted); margin-left:auto; }
+
+.exercise-meeting-banner {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.emb-info { font-size:13px; }
+.emb-info strong { color:var(--accent); }
+.emb-clear {
+  font-size:11px; color:var(--text-muted); cursor:pointer;
+  padding:4px 10px; border-radius:8px; background:var(--bg-primary);
+}
+
+.exercise-header { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+.exercise-title { font-size:16px; font-weight:600; }
+.exercise-subtitle { font-size:12px; color:var(--text-secondary); }
+
+.question-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:24px; margin-bottom:16px;
+}
+.question-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+.question-text { font-size:18px; line-height:1.7; font-family:'Noto Sans JP','Be Vietnam Pro',sans-serif; }
+
+.answer-input {
+  width:100%; padding:16px; background:var(--bg-card);
+  border:2px solid var(--border); border-radius:var(--radius-sm);
+  color:var(--text-primary); font-size:16px;
+  font-family:'Noto Sans JP','Be Vietnam Pro',sans-serif;
+  resize:none; outline:none; transition:border-color 0.2s; min-height:80px;
+}
+.answer-input:focus { border-color:var(--accent-2); }
+.answer-input::placeholder { color:var(--text-muted); }
+
+.submit-btn {
+  width:100%; padding:16px; border:none; border-radius:var(--radius-sm);
+  background:var(--accent); color:white; font-size:15px; font-weight:600;
+  cursor:pointer; transition:all 0.2s; margin-top:12px;
+}
+.submit-btn:active { transform:scale(0.98); opacity:0.9; }
+.submit-btn:disabled { opacity:0.4; cursor:not-allowed; }
+
+.result-card { border-radius:var(--radius); padding:20px; margin-top:16px; display:none; }
+.result-card.correct { background:rgba(74,232,160,0.08); border:1px solid rgba(74,232,160,0.2); }
+.result-card.incorrect { background:rgba(232,86,74,0.08); border:1px solid rgba(232,86,74,0.2); }
+.result-header { display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:600; }
+.result-card.correct .result-header { color:var(--success); }
+.result-card.incorrect .result-header { color:var(--error); }
+.result-answer { font-size:15px; line-height:1.6; }
+.result-answer strong { color:var(--accent-2); font-family:'Noto Sans JP'; }
+.next-btn {
+  width:100%; padding:14px; border:2px solid var(--border);
+  border-radius:var(--radius-sm); background:transparent;
+  color:var(--text-primary); font-size:14px; font-weight:600;
+  cursor:pointer; margin-top:12px; transition:all 0.2s;
+}
+.next-btn:active { background:var(--bg-card); }
+
+.blank-word {
+  display:inline-block; min-width:80px; border-bottom:2px dashed var(--accent);
+  text-align:center; margin:0 4px; padding:2px 8px; color:var(--accent); font-weight:600;
+}
+.options-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px; }
+.option-btn {
+  padding:14px; background:var(--bg-card); border:2px solid var(--border);
+  border-radius:var(--radius-sm); color:var(--text-primary);
+  font-size:16px; font-family:'Noto Sans JP','Be Vietnam Pro',sans-serif;
+  cursor:pointer; transition:all 0.2s; text-align:center;
+}
+.option-btn:active { transform:scale(0.97); }
+.option-btn.correct-answer { border-color:var(--success); background:var(--accent-3-soft); }
+.option-btn.wrong-answer { border-color:var(--error); background:var(--accent-soft); }
+
+.reorder-area {
+  min-height:56px; background:var(--bg-card); border:2px dashed var(--border);
+  border-radius:var(--radius-sm); padding:10px; margin-bottom:12px;
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+}
+.reorder-area.has-items { border-style:solid; }
+.reorder-pool { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.reorder-chip {
+  padding:10px 16px; background:var(--bg-card); border:1px solid var(--border);
+  border-radius:8px; font-size:15px; cursor:pointer;
+  font-family:'Noto Sans JP','Be Vietnam Pro',sans-serif;
+  transition:all 0.15s; user-select:none;
+}
+.reorder-chip:active { transform:scale(0.95); }
+.reorder-chip.in-answer { background:var(--accent-2-soft); border-color:rgba(74,156,232,0.3); }
+
+/* PROGRESS */
+.progress-overview {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:20px; margin-bottom:20px;
+}
+.progress-ring-container { display:flex; justify-content:center; margin-bottom:16px; }
+.progress-ring { position:relative; width:140px; height:140px; }
+.progress-ring svg { transform:rotate(-90deg); }
+.progress-ring circle { fill:none; stroke-width:8; stroke-linecap:round; }
+.progress-ring .bg { stroke:var(--border); }
+.progress-ring .fill { stroke:var(--accent); transition:stroke-dashoffset 1s ease; }
+.progress-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; }
+.progress-percent { font-size:32px; font-weight:700; color:var(--accent); }
+.progress-label-text { font-size:11px; color:var(--text-secondary); }
+
+.mastery-levels { display:flex; flex-direction:column; gap:10px; }
+.mastery-row { display:flex; align-items:center; gap:12px; }
+.mastery-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.mastery-name { font-size:13px; flex:1; }
+.mastery-bar-bg { width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+.mastery-bar-fill { height:100%; border-radius:3px; transition:width 0.5s ease; }
+.mastery-count { font-size:12px; color:var(--text-secondary); width:30px; text-align:right; }
+
+.accuracy-cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:20px; }
+.accuracy-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:14px; text-align:center;
+}
+.accuracy-value { font-size:24px; font-weight:700; }
+.accuracy-label { font-size:11px; color:var(--text-secondary); margin-top:4px; }
+
+/* SEARCH */
+.search-box { position:relative; margin-bottom:16px; }
+.search-input {
+  width:100%; padding:14px 14px 14px 44px;
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-sm); color:var(--text-primary);
+  font-size:15px; outline:none; transition:border-color 0.2s;
+}
+.search-input:focus { border-color:var(--accent-2); }
+.search-input::placeholder { color:var(--text-muted); }
+.search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted); }
+.filter-pills {
+  display:flex; gap:8px; margin-bottom:16px; overflow-x:auto;
+  padding-bottom:4px; -webkit-overflow-scrolling:touch;
+}
+.filter-pill {
+  padding:6px 14px; border-radius:20px; font-size:12px; font-weight:500;
+  white-space:nowrap; cursor:pointer; transition:all 0.2s;
+  background:var(--bg-card); border:1px solid var(--border); color:var(--text-secondary);
+}
+.filter-pill.active { background:var(--accent-soft); border-color:var(--accent); color:var(--accent); }
+
+.vocab-list { display:flex; flex-direction:column; gap:8px; }
+.vocab-item {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:14px; cursor:pointer; transition:all 0.2s;
+}
+.vocab-item:active { background:var(--bg-card-hover); }
+.vocab-top { display:flex; justify-content:space-between; align-items:center; }
+.vocab-word { font-size:18px; font-weight:600; font-family:'Noto Sans JP'; }
+.vocab-reading { font-size:12px; color:var(--accent-2); margin-left:8px; }
+.vocab-meaning { font-size:13px; color:var(--text-secondary); margin-top:4px; }
+.vocab-context-preview {
+  font-size:12px; color:var(--text-muted); margin-top:8px; padding-top:8px;
+  border-top:1px solid var(--border); line-height:1.5;
+  font-family:'Noto Sans JP','Be Vietnam Pro',sans-serif;
+}
+.vocab-tags { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.vocab-tag { font-size:10px; padding:2px 8px; border-radius:10px; background:var(--bg-primary); color:var(--text-muted); }
+.vocab-status { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.status-new { background:var(--accent-2); }
+.status-learning { background:var(--warning); }
+.status-mastered { background:var(--success); }
+
+/* ANIMATIONS */
+@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.animate-in { animation:fadeIn 0.3s ease forwards; }
+
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+</style>
+</head>
+<body>
+
+<!-- DASHBOARD -->
+<div class="page active" id="page-dashboard">
+  <div class="page-header">
+    <div class="page-title">NihonGo Meeting</div>
+    <div class="page-subtitle">Học tiếng Nhật từ cuộc họp thực tế</div>
+  </div>
+  <div class="streak-banner animate-in">
+    <div class="streak-fire">🔥</div>
+    <div class="streak-info"><h3>5 ngày liên tục!</h3><p>Giữ vững streak, bạn đang tiến bộ rất tốt</p></div>
+  </div>
+  <div class="stats-grid" id="dashboard-stats"></div>
+  <div class="weekly-chart animate-in">
+    <div class="section-title">📊 Tuần này</div>
+    <div class="chart-bars" id="weekly-chart"></div>
+  </div>
+  <div class="section-title">📋 Cuộc họp gần đây</div>
+  <div class="meeting-list" id="meeting-list"></div>
+</div>
+
+<!-- MEETING DETAIL -->
+<div class="page" id="page-meeting-detail">
+  <div class="detail-header">
+    <div class="back-btn" onclick="showPage('dashboard')">←</div>
+    <div>
+      <div class="page-title" id="md-title" style="font-size:20px">Sprint Review #24</div>
+      <div class="page-subtitle" id="md-date">2025-02-20</div>
+    </div>
+  </div>
+
+  <div class="detail-actions">
+    <div class="detail-action-btn primary" onclick="startMeetingFlashcard()">
+      <div class="action-icon">🎴</div>
+      <div class="action-label">Flashcard</div>
+      <div class="action-desc" id="md-fc-count">20 cards</div>
+    </div>
+    <div class="detail-action-btn" onclick="startMeetingPractice()">
+      <div class="action-icon">✍️</div>
+      <div class="action-label">Luyện tập</div>
+      <div class="action-desc">Tất cả bài tập</div>
+    </div>
+  </div>
+
+  <div class="stats-grid" style="margin-bottom:16px">
+    <div class="stat-card blue" id="md-stat-new"><div class="stat-number">0</div><div class="stat-label">Mới</div></div>
+    <div class="stat-card yellow" id="md-stat-learning"><div class="stat-number">0</div><div class="stat-label">Đang học</div></div>
+    <div class="stat-card green" id="md-stat-mastered"><div class="stat-number">0</div><div class="stat-label">Đã master</div></div>
+    <div class="stat-card red" id="md-stat-total"><div class="stat-number">0</div><div class="stat-label">Tổng</div></div>
+  </div>
+
+  <div class="detail-tabs" id="md-tabs">
+    <div class="detail-tab active" onclick="setDetailTab('all',this)">Tất cả<span class="tab-count" id="md-tab-all">0</span></div>
+    <div class="detail-tab" onclick="setDetailTab('vocab',this)">Từ vựng<span class="tab-count" id="md-tab-vocab">0</span></div>
+    <div class="detail-tab" onclick="setDetailTab('phrase',this)">Cụm từ<span class="tab-count" id="md-tab-phrase">0</span></div>
+    <div class="detail-tab" onclick="setDetailTab('grammar',this)">Ngữ pháp<span class="tab-count" id="md-tab-grammar">0</span></div>
+  </div>
+  <div class="vocab-list" id="md-vocab-list"></div>
+</div>
+
+<!-- FLASHCARD -->
+<div class="page" id="page-flashcard">
+  <div class="page-header">
+    <div class="page-title">Flashcard</div>
+    <div class="page-subtitle" id="fc-subtitle">Ôn tập với Spaced Repetition</div>
+  </div>
+  <div class="flashcard-meeting-filter" id="fc-filter"></div>
+  <div class="flashcard-progress">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="fc-progress-bar" style="width:0%"></div></div>
+    <div class="progress-text" id="fc-progress-text">0/0</div>
+  </div>
+  <div class="flashcard-container" id="fc-container">
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="flashcard-face flashcard-front">
+        <span class="card-type-badge badge-vocab" id="fc-badge">Từ vựng</span>
+        <span class="card-meeting-badge" id="fc-meeting-badge"></span>
+        <div class="card-vi" id="fc-front-text"></div>
+        <span class="card-hint">Chạm để xem đáp án</span>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <span class="card-type-badge badge-vocab" id="fc-badge-back">Từ vựng</span>
+        <div class="card-ja" id="fc-back-word"></div>
+        <div class="card-reading" id="fc-back-reading"></div>
+        <div class="card-context" id="fc-back-context"></div>
+        <div class="card-usage" id="fc-back-usage"></div>
+      </div>
+    </div>
+  </div>
+  <div class="flashcard-actions" id="fc-actions" style="display:none">
+    <button class="fc-btn btn-forgot" onclick="rateCard(1)">✕ Chưa nhớ</button>
+    <button class="fc-btn btn-knew" onclick="rateCard(5)">✓ Đã nhớ</button>
+  </div>
+</div>
+
+<!-- PRACTICE -->
+<div class="page" id="page-practice">
+  <div class="page-header">
+    <div class="page-title">Luyện tập</div>
+    <div class="page-subtitle">Luyện dịch & ngữ pháp từ cuộc họp</div>
+  </div>
+
+  <div id="practice-meeting-banner" style="display:none"></div>
+
+  <div id="exercise-menu">
+    <div class="exercise-types">
+      <div class="exercise-card" onclick="startExercise('translate-vj')">
+        <div class="exercise-icon t1">🇻🇳→🇯🇵</div>
+        <div class="exercise-info"><h3>Dịch Việt → Nhật</h3><p>Luyện viết tiếng Nhật từ câu Việt</p></div>
+        <div class="exercise-arrow">→</div>
+      </div>
+      <div class="exercise-card" onclick="startExercise('translate-jv')">
+        <div class="exercise-icon t2">🇯🇵→🇻🇳</div>
+        <div class="exercise-info"><h3>Dịch Nhật → Việt</h3><p>Luyện đọc hiểu câu tiếng Nhật</p></div>
+        <div class="exercise-arrow">→</div>
+      </div>
+      <div class="exercise-card" onclick="startExercise('fill-blank')">
+        <div class="exercise-icon t3">📝</div>
+        <div class="exercise-info"><h3>Điền từ</h3><p>Chọn từ đúng để hoàn thành câu</p></div>
+        <div class="exercise-arrow">→</div>
+      </div>
+      <div class="exercise-card" onclick="startExercise('reorder')">
+        <div class="exercise-icon t4">🔀</div>
+        <div class="exercise-info"><h3>Sắp xếp câu</h3><p>Sắp xếp thành câu hoàn chỉnh</p></div>
+        <div class="exercise-arrow">→</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise areas -->
+  <div id="exercise-translate-vj" style="display:none">
+    <div class="exercise-header">
+      <div class="back-btn" onclick="backToMenu()">←</div>
+      <div><div class="exercise-title">Dịch Việt → Nhật</div><div class="exercise-subtitle" id="tvj-progress">Câu 1/5</div></div>
+    </div>
+    <div class="question-card">
+      <div class="question-label">Dịch sang tiếng Nhật</div>
+      <div class="question-text" id="tvj-question"></div>
+    </div>
+    <textarea class="answer-input" id="tvj-answer" placeholder="Nhập câu tiếng Nhật..."></textarea>
+    <button class="submit-btn" id="tvj-submit" onclick="checkTranslateVJ()">Kiểm tra</button>
+    <div class="result-card" id="tvj-result">
+      <div class="result-header" id="tvj-result-header"></div>
+      <div class="result-answer" id="tvj-result-answer"></div>
+      <button class="next-btn" onclick="nextTranslateVJ()">Câu tiếp theo →</button>
+    </div>
+  </div>
+
+  <div id="exercise-translate-jv" style="display:none">
+    <div class="exercise-header">
+      <div class="back-btn" onclick="backToMenu()">←</div>
+      <div><div class="exercise-title">Dịch Nhật → Việt</div><div class="exercise-subtitle" id="tjv-progress">Câu 1/5</div></div>
+    </div>
+    <div class="question-card">
+      <div class="question-label">Dịch sang tiếng Việt</div>
+      <div class="question-text" id="tjv-question"></div>
+    </div>
+    <textarea class="answer-input" id="tjv-answer" placeholder="Nhập câu tiếng Việt..."></textarea>
+    <button class="submit-btn" id="tjv-submit" onclick="checkTranslateJV()">Kiểm tra</button>
+    <div class="result-card" id="tjv-result">
+      <div class="result-header" id="tjv-result-header"></div>
+      <div class="result-answer" id="tjv-result-answer"></div>
+      <button class="next-btn" onclick="nextTranslateJV()">Câu tiếp theo →</button>
+    </div>
+  </div>
+
+  <div id="exercise-fill-blank" style="display:none">
+    <div class="exercise-header">
+      <div class="back-btn" onclick="backToMenu()">←</div>
+      <div><div class="exercise-title">Điền từ</div><div class="exercise-subtitle" id="fb-progress">Câu 1/5</div></div>
+    </div>
+    <div class="question-card">
+      <div class="question-label">Chọn từ phù hợp</div>
+      <div class="question-text" id="fb-question"></div>
+    </div>
+    <div class="options-grid" id="fb-options"></div>
+    <div class="result-card" id="fb-result">
+      <div class="result-header" id="fb-result-header"></div>
+      <div class="result-answer" id="fb-result-answer"></div>
+      <button class="next-btn" onclick="nextFillBlank()">Câu tiếp theo →</button>
+    </div>
+  </div>
+
+  <div id="exercise-reorder" style="display:none">
+    <div class="exercise-header">
+      <div class="back-btn" onclick="backToMenu()">←</div>
+      <div><div class="exercise-title">Sắp xếp câu</div><div class="exercise-subtitle" id="ro-progress">Câu 1/5</div></div>
+    </div>
+    <div class="question-card">
+      <div class="question-label">Sắp xếp thành câu đúng</div>
+      <div class="question-text" id="ro-meaning" style="font-size:15px; color:var(--text-secondary)"></div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="question-label">Đáp án của bạn</div>
+      <div class="reorder-area" id="ro-answer-area"></div>
+    </div>
+    <div class="question-label">Các phần tử</div>
+    <div class="reorder-pool" id="ro-pool"></div>
+    <button class="submit-btn" id="ro-submit" onclick="checkReorder()">Kiểm tra</button>
+    <div class="result-card" id="ro-result">
+      <div class="result-header" id="ro-result-header"></div>
+      <div class="result-answer" id="ro-result-answer"></div>
+      <button class="next-btn" onclick="nextReorder()">Câu tiếp theo →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="page" id="page-progress">
+  <div class="page-header">
+    <div class="page-title">Tiến độ</div>
+    <div class="page-subtitle">Theo dõi quá trình học tập</div>
+  </div>
+  <div class="progress-overview animate-in">
+    <div class="progress-ring-container">
+      <div class="progress-ring">
+        <svg width="140" height="140">
+          <circle class="bg" cx="70" cy="70" r="58"/>
+          <circle class="fill" cx="70" cy="70" r="58" stroke-dasharray="364.42" stroke-dashoffset="198" id="progress-circle"/>
+        </svg>
+        <div class="progress-center">
+          <div class="progress-percent" id="mastery-percent">46%</div>
+          <div class="progress-label-text">Mastered</div>
+        </div>
+      </div>
+    </div>
+    <div class="mastery-levels" id="mastery-levels"></div>
+  </div>
+  <div class="accuracy-cards">
+    <div class="accuracy-card"><div class="accuracy-value" style="color:var(--accent)">78%</div><div class="accuracy-label">Việt→Nhật</div></div>
+    <div class="accuracy-card"><div class="accuracy-value" style="color:var(--accent-2)">85%</div><div class="accuracy-label">Nhật→Việt</div></div>
+    <div class="accuracy-card"><div class="accuracy-value" style="color:var(--accent-3)">92%</div><div class="accuracy-label">Điền từ</div></div>
+    <div class="accuracy-card"><div class="accuracy-value" style="color:var(--accent-4)">71%</div><div class="accuracy-label">Sắp xếp</div></div>
+  </div>
+  <div class="section-title">🏆 Từ khó nhất</div>
+  <div class="vocab-list" id="hardest-words"></div>
+</div>
+
+<!-- SEARCH -->
+<div class="page" id="page-search">
+  <div class="page-header">
+    <div class="page-title">Từ điển</div>
+    <div class="page-subtitle">Tìm kiếm trong kho từ vựng</div>
+  </div>
+  <div class="search-box">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" class="search-input" id="search-input" placeholder="Tìm kiếm từ vựng, cụm từ..." oninput="searchVocab()">
+  </div>
+  <div class="filter-pills" id="search-filters"></div>
+  <div class="vocab-list" id="vocab-search-list"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bottom">
+  <a class="nav-item active" data-page="dashboard" onclick="showPage('dashboard',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Tổng quan</span>
+  </a>
+  <a class="nav-item" data-page="flashcard" onclick="showPage('flashcard',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <span>Flashcard</span>
+  </a>
+  <a class="nav-item" data-page="practice" onclick="showPage('practice',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    <span>Luyện tập</span>
+  </a>
+  <a class="nav-item" data-page="progress" onclick="showPage('progress',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    <span>Tiến độ</span>
+  </a>
+  <a class="nav-item" data-page="search" onclick="showPage('search',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <span>Từ điển</span>
+  </a>
+</nav>
+
+<script>
+// ======= DATA =======
+const DATA = {
+  meetings: [
+    { id:"m1", topic:"Sprint Review #24", date:"2025-02-20" },
+    { id:"m2", topic:"Design Discussion", date:"2025-02-18" },
+    { id:"m3", topic:"Quarterly Planning", date:"2025-02-14" },
+    { id:"m4", topic:"Client Meeting", date:"2025-02-10" },
+  ],
+  vocabulary: [
+    { id:"v1", word:"進捗", reading:"しんちょく", meaning:"tiến độ, tiến triển", type:"vocab", status:"learning", jlpt:"N2", meeting:"m1",
+      context:"[人物A]が[プロジェクトX]の進捗について報告しました。", context_vi:"[Người A] đã báo cáo về tiến độ của [Dự án X].",
+      usage:"Thường dùng với 確認する hoặc 報告する", collocations:["進捗確認","進捗報告","進捗状況"], errors:3 },
+    { id:"v2", word:"検討", reading:"けんとう", meaning:"xem xét, cân nhắc", type:"vocab", status:"new", jlpt:"N2", meeting:"m2",
+      context:"この案について検討させていただきます。", context_vi:"Cho phép tôi được xem xét về phương án này.",
+      usage:"Formal hơn 考える. Dùng nhiều trong business", collocations:["検討する","検討中","ご検討"], errors:0 },
+    { id:"v3", word:"対応", reading:"たいおう", meaning:"đối ứng, xử lý", type:"vocab", status:"mastered", jlpt:"N2", meeting:"m1",
+      context:"[人物B]が問題に対応しています。", context_vi:"[Người B] đang xử lý vấn đề.",
+      usage:"Rất phổ biến trong IT: バグ対応, 顧客対応", collocations:["対応する","対応済み","対応中"], errors:1 },
+    { id:"v4", word:"納期", reading:"のうき", meaning:"deadline, hạn giao hàng", type:"vocab", status:"learning", jlpt:"N1", meeting:"m4",
+      context:"納期に間に合うように調整してください。", context_vi:"Hãy điều chỉnh sao cho kịp deadline.",
+      usage:"Dùng trong manufacturing & IT delivery", collocations:["納期を守る","納期遅延","納期調整"], errors:5 },
+    { id:"v5", word:"共有", reading:"きょうゆう", meaning:"chia sẻ (thông tin)", type:"vocab", status:"mastered", jlpt:"N2", meeting:"m1",
+      context:"資料を共有していただけますか。", context_vi:"Bạn có thể chia sẻ tài liệu được không?",
+      usage:"画面共有 = share screen, 情報共有 = share info", collocations:["情報共有","画面共有","ファイル共有"], errors:0 },
+    { id:"v6", word:"方針", reading:"ほうしん", meaning:"phương châm, chính sách", type:"vocab", status:"new", jlpt:"N2", meeting:"m3",
+      context:"今後の方針について話し合いましょう。", context_vi:"Hãy thảo luận về phương châm sắp tới.",
+      usage:"Dùng khi nói về hướng đi, chiến lược", collocations:["基本方針","方針を決める"], errors:0 },
+    { id:"v7", word:"見積もり", reading:"みつもり", meaning:"báo giá, ước tính", type:"vocab", status:"learning", jlpt:"N2", meeting:"m4",
+      context:"見積もりを出していただけますか。", context_vi:"Bạn có thể đưa ra báo giá được không?",
+      usage:"見積書 = bản báo giá (document)", collocations:["見積もりを出す","見積書","概算見積もり"], errors:2 },
+    { id:"p1", word:"ご確認いただけますでしょうか", reading:"ごかくにんいただけますでしょうか", meaning:"Bạn có thể xác nhận giúp được không ạ?", type:"phrase", status:"learning", jlpt:"-", meeting:"m4",
+      context:"この資料をご確認いただけますでしょうか。", context_vi:"Bạn có thể xác nhận tài liệu này giúp được không ạ?",
+      usage:"Rất lịch sự. Dùng với cấp trên/khách hàng. Casual: 確認してもらえる？", collocations:[], errors:2 },
+    { id:"p2", word:"議題に移ります", reading:"ぎだいにうつります", meaning:"Chuyển sang đề mục tiếp theo", type:"phrase", status:"new", jlpt:"-", meeting:"m3",
+      context:"それでは次の議題に移ります。", context_vi:"Vậy thì chúng ta chuyển sang đề mục tiếp theo.",
+      usage:"MC hay chairperson thường dùng để chuyển topic", collocations:[], errors:0 },
+    { id:"p3", word:"お手数ですが", reading:"おてすうですが", meaning:"Xin lỗi đã làm phiền nhưng...", type:"phrase", status:"mastered", jlpt:"N2", meeting:"m2",
+      context:"お手数ですが、もう一度送っていただけますか。", context_vi:"Xin lỗi đã làm phiền, bạn có thể gửi lại một lần nữa được không?",
+      usage:"Cushion word phổ biến khi nhờ vả. Tương tự: 恐れ入りますが", collocations:[], errors:0 },
+    { id:"p4", word:"～の件ですが", reading:"～のけんですが", meaning:"Về vấn đề ~", type:"phrase", status:"new", jlpt:"-", meeting:"m1",
+      context:"先日の会議の件ですが、結論が出ましたので共有します。", context_vi:"Về vấn đề cuộc họp hôm trước, đã có kết luận nên tôi chia sẻ.",
+      usage:"Dùng để mở đầu topic mới trong email/meeting", collocations:[], errors:0 },
+    { id:"g1", word:"～させていただきます", reading:"～させていただきます", meaning:"Cho phép tôi được làm~ (khiêm nhường)", type:"grammar", status:"learning", jlpt:"N3", meeting:"m1",
+      context:"それでは、説明させていただきます。", context_vi:"Vậy thì, cho phép tôi được giải thích.",
+      usage:"⚠️ Cẩn thận không dùng quá nhiều, sẽ bị coi là awkward", collocations:[], errors:4 },
+    { id:"g2", word:"～ということですね", reading:"～ということですね", meaning:"Nghĩa là ~ phải không? (xác nhận)", type:"grammar", status:"new", jlpt:"N3", meeting:"m4",
+      context:"つまり、来週までに完了するということですね。", context_vi:"Nghĩa là sẽ hoàn thành trước tuần sau phải không?",
+      usage:"Dùng để confirm lại ý người nói. Rất hữu ích trong meeting!", collocations:[], errors:0 },
+    { id:"g3", word:"～に基づいて", reading:"～にもとづいて", meaning:"Dựa trên ~", type:"grammar", status:"learning", jlpt:"N2", meeting:"m3",
+      context:"データに基づいて判断しましょう。", context_vi:"Hãy đưa ra quyết định dựa trên dữ liệu.",
+      usage:"Formal. Tương tự nhưng casual hơn: ～をもとに", collocations:[], errors:1 },
+  ],
+  exercises: {
+    translate_vj: [
+      { prompt:"Bạn có thể xác nhận tài liệu này giúp được không ạ?", answers:["この資料をご確認いただけますでしょうか","この資料を確認していただけますか"], keys:["確認","いただ"], meeting:"m4" },
+      { prompt:"Cho phép tôi được giải thích.", answers:["説明させていただきます","説明いたします"], keys:["説明","させていただ"], meeting:"m1" },
+      { prompt:"Hãy điều chỉnh sao cho kịp deadline.", answers:["納期に間に合うように調整してください"], keys:["納期","調整"], meeting:"m4" },
+      { prompt:"[Người A] đã báo cáo về tiến độ của [Dự án X].", answers:["[人物A]が[プロジェクトX]の進捗について報告しました"], keys:["進捗","報告"], meeting:"m1" },
+      { prompt:"Bạn có thể chia sẻ tài liệu được không?", answers:["資料を共有していただけますか","資料を共有してもらえますか"], keys:["共有","資料"], meeting:"m1" },
+      { prompt:"Hãy thảo luận về phương châm sắp tới.", answers:["今後の方針について話し合いましょう"], keys:["方針","話し合"], meeting:"m3" },
+      { prompt:"Hãy đưa ra quyết định dựa trên dữ liệu.", answers:["データに基づいて判断しましょう"], keys:["基づいて","判断"], meeting:"m3" },
+    ],
+    translate_jv: [
+      { prompt:"それでは、説明させていただきます。", answers:["cho phép tôi được giải thích","tôi xin phép giải thích"], keys:["giải thích"], meeting:"m1" },
+      { prompt:"この資料をご確認いただけますでしょうか。", answers:["xác nhận tài liệu","kiểm tra tài liệu"], keys:["xác nhận","tài liệu"], meeting:"m4" },
+      { prompt:"納期に間に合うように調整してください。", answers:["điều chỉnh","kịp deadline"], keys:["deadline","điều chỉnh"], meeting:"m4" },
+      { prompt:"つまり、来週までに完了するということですね。", answers:["hoàn thành","tuần sau","trước tuần sau"], keys:["hoàn thành","tuần sau"], meeting:"m4" },
+      { prompt:"お手数ですが、もう一度送っていただけますか。", answers:["gửi lại","một lần nữa","làm phiền"], keys:["gửi lại","làm phiền"], meeting:"m2" },
+      { prompt:"今後の方針について話し合いましょう。", answers:["thảo luận","phương châm","chính sách"], keys:["thảo luận","phương châm"], meeting:"m3" },
+    ],
+    fill_blank: [
+      { sentence:"[人物A]が[プロジェクトX]の___について報告しました。", answer:"進捗", options:["進捗","予定","結果","問題"], hint:"tiến độ", meeting:"m1" },
+      { sentence:"この案について___させていただきます。", answer:"検討", options:["検討","説明","確認","報告"], hint:"xem xét", meeting:"m2" },
+      { sentence:"___に間に合うように調整してください。", answer:"納期", options:["納期","期限","日程","予定"], hint:"deadline", meeting:"m4" },
+      { sentence:"資料を___していただけますか。", answer:"共有", options:["共有","送信","確認","作成"], hint:"chia sẻ", meeting:"m1" },
+      { sentence:"それでは次の___に移ります。", answer:"議題", options:["議題","話題","問題","課題"], hint:"đề mục", meeting:"m3" },
+      { sentence:"データに___判断しましょう。", answer:"基づいて", options:["基づいて","よって","対して","ついて"], hint:"dựa trên", meeting:"m3" },
+    ],
+    reorder: [
+      { fragments:["いただけます","この資料を","でしょうか","ご確認"], correct:["この資料を","ご確認","いただけます","でしょうか"], meaning:"Bạn có thể xác nhận tài liệu này giúp được không ạ?", meeting:"m4" },
+      { fragments:["させていただきます","それでは","説明"], correct:["それでは","説明","させていただきます"], meaning:"Vậy thì, cho phép tôi được giải thích.", meeting:"m1" },
+      { fragments:["調整してください","間に合うように","納期に"], correct:["納期に","間に合うように","調整してください"], meaning:"Hãy điều chỉnh sao cho kịp deadline.", meeting:"m4" },
+      { fragments:["話し合いましょう","今後の","について","方針"], correct:["今後の","方針","について","話し合いましょう"], meaning:"Hãy thảo luận về phương châm sắp tới.", meeting:"m3" },
+      { fragments:["もう一度","お手数ですが","いただけますか","送って"], correct:["お手数ですが","もう一度","送って","いただけますか"], meaning:"Xin lỗi đã làm phiền, gửi lại được không?", meeting:"m2" },
+    ]
+  },
+  weeklyStudy: [15,22,18,30,25,12,8]
+};
+
+// ======= STATE =======
+let currentMeetingFilter = null; // null = all meetings
+let currentDetailTab = 'all';
+let fcIndex = 0, fcItems = [];
+let tvjIndex = 0, tjvIndex = 0, fbIndex = 0, roIndex = 0;
+let roSelected = [];
+let currentExercises = {};
+
+// ======= HELPERS =======
+function getMeetingById(id) { return DATA.meetings.find(m => m.id === id); }
+function getVocabForMeeting(meetingId) { return DATA.vocabulary.filter(v => v.meeting === meetingId); }
+function getExercisesForMeeting(type, meetingId) {
+  if (!meetingId) return DATA.exercises[type];
+  return DATA.exercises[type].filter(e => e.meeting === meetingId);
+}
+function countByStatus(items, status) { return items.filter(v => v.status === status).length; }
+function countByType(items, type) { return items.filter(v => v.type === type).length; }
+
+// ======= NAVIGATION =======
+function showPage(pageId, navEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  if (navEl) {
+    navEl.classList.add('active');
+  } else {
+    const nav = document.querySelector(`.nav-item[data-page="${pageId}"]`);
+    if (nav) nav.classList.add('active');
+  }
+  if (pageId === 'flashcard') initFlashcards();
+  if (pageId === 'practice') { backToMenu(); renderPracticeBanner(); }
+  if (pageId === 'search') searchVocab();
+  if (pageId === 'progress') renderProgress();
+  window.scrollTo(0,0);
+}
+
+// ======= DASHBOARD =======
+function renderDashboard() {
+  const v = DATA.vocabulary;
+  document.getElementById('dashboard-stats').innerHTML = `
+    <div class="stat-card red animate-in"><div class="stat-number">${countByStatus(v,'learning')}</div><div class="stat-label">Cần ôn hôm nay</div></div>
+    <div class="stat-card blue animate-in"><div class="stat-number">${countByStatus(v,'new')}</div><div class="stat-label">Từ mới</div></div>
+    <div class="stat-card green animate-in"><div class="stat-number">${countByStatus(v,'mastered')}</div><div class="stat-label">Đã master</div></div>
+    <div class="stat-card yellow animate-in"><div class="stat-number">${v.length}</div><div class="stat-label">Tổng từ vựng</div></div>
+  `;
+
+  const days = ['T2','T3','T4','T5','T6','T7','CN'];
+  const max = Math.max(...DATA.weeklyStudy);
+  document.getElementById('weekly-chart').innerHTML = DATA.weeklyStudy.map((val,i) => {
+    const h = Math.max(4,(val/max)*80);
+    const today = i === (new Date().getDay()+6)%7;
+    return `<div class="chart-day"><div class="chart-bar ${today?'today':''}" style="height:${h}px"></div><div class="chart-label">${days[i]}</div></div>`;
+  }).join('');
+
+  document.getElementById('meeting-list').innerHTML = DATA.meetings.map(m => {
+    const items = getVocabForMeeting(m.id);
+    const nw = countByStatus(items,'new'), lr = countByStatus(items,'learning'), ms = countByStatus(items,'mastered');
+    return `<div class="meeting-card animate-in" onclick="openMeetingDetail('${m.id}')">
+      <div>
+        <div class="meeting-date">${m.date}</div>
+        <div class="meeting-topic">${m.topic}</div>
+        <div class="meeting-meta">
+          <span class="meeting-tag tag-items">${items.length} items</span>
+          ${nw?`<span class="meeting-tag tag-new">${nw} mới</span>`:''}
+          ${lr?`<span class="meeting-tag tag-learning">${lr} đang học</span>`:''}
+          ${ms?`<span class="meeting-tag tag-mastered">${ms} master</span>`:''}
+        </div>
+      </div>
+      <div style="color:var(--text-muted);font-size:18px">→</div>
+    </div>`;
+  }).join('');
+}
+
+// ======= MEETING DETAIL =======
+function openMeetingDetail(meetingId) {
+  const m = getMeetingById(meetingId);
+  const items = getVocabForMeeting(meetingId);
+  currentMeetingFilter = meetingId;
+
+  document.getElementById('md-title').textContent = m.topic;
+  document.getElementById('md-date').textContent = m.date;
+  document.getElementById('md-fc-count').textContent = `${items.filter(i=>i.status!=='mastered').length} cards`;
+
+  document.getElementById('md-stat-new').querySelector('.stat-number').textContent = countByStatus(items,'new');
+  document.getElementById('md-stat-learning').querySelector('.stat-number').textContent = countByStatus(items,'learning');
+  document.getElementById('md-stat-mastered').querySelector('.stat-number').textContent = countByStatus(items,'mastered');
+  document.getElementById('md-stat-total').querySelector('.stat-number').textContent = items.length;
+
+  document.getElementById('md-tab-all').textContent = items.length;
+  document.getElementById('md-tab-vocab').textContent = countByType(items,'vocab');
+  document.getElementById('md-tab-phrase').textContent = countByType(items,'phrase');
+  document.getElementById('md-tab-grammar').textContent = countByType(items,'grammar');
+
+  currentDetailTab = 'all';
+  document.querySelectorAll('#md-tabs .detail-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+  renderMeetingVocab(items);
+
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-meeting-detail').classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  window.scrollTo(0,0);
+}
+
+function setDetailTab(tab, el) {
+  currentDetailTab = tab;
+  document.querySelectorAll('#md-tabs .detail-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  let items = getVocabForMeeting(currentMeetingFilter);
+  if (tab !== 'all') items = items.filter(v => v.type === tab);
+  renderMeetingVocab(items);
+}
+
+function renderMeetingVocab(items) {
+  document.getElementById('md-vocab-list').innerHTML = items.map(v => renderVocabItem(v, true)).join('');
+}
+
+function renderVocabItem(v, showContext) {
+  const sc = v.status==='new'?'status-new':v.status==='learning'?'status-learning':'status-mastered';
+  const tl = v.type==='vocab'?'Từ vựng':v.type==='phrase'?'Cụm từ':'Ngữ pháp';
+  const meeting = getMeetingById(v.meeting);
+  return `<div class="vocab-item">
+    <div class="vocab-top">
+      <div><span class="vocab-word">${v.word}</span><span class="vocab-reading">${v.reading}</span></div>
+      <div class="vocab-status ${sc}"></div>
+    </div>
+    <div class="vocab-meaning">${v.meaning}</div>
+    ${showContext && v.context ? `<div class="vocab-context-preview">${v.context}</div>` : ''}
+    ${v.usage ? `<div style="font-size:11px;color:var(--accent-4);margin-top:6px;font-style:italic">💡 ${v.usage}</div>` : ''}
+    ${v.collocations && v.collocations.length ? `<div style="font-size:11px;color:var(--text-muted);margin-top:4px">🔗 ${v.collocations.join('、')}</div>` : ''}
+    <div class="vocab-tags">
+      <span class="vocab-tag">${tl}</span>
+      ${v.jlpt && v.jlpt!=='-' ? `<span class="vocab-tag">${v.jlpt}</span>` : ''}
+      <span class="vocab-tag">${meeting ? meeting.topic : ''}</span>
+    </div>
+  </div>`;
+}
+
+function startMeetingFlashcard() {
+  showPage('flashcard');
+}
+
+function startMeetingPractice() {
+  showPage('practice');
+}
+
+// ======= FLASHCARD =======
+function initFlashcards() {
+  renderFcFilter();
+  let items = DATA.vocabulary.filter(v => v.status !== 'mastered');
+  if (currentMeetingFilter) items = items.filter(v => v.meeting === currentMeetingFilter);
+  fcItems = items.sort(() => Math.random() - 0.5);
+  fcIndex = 0;
+
+  const m = currentMeetingFilter ? getMeetingById(currentMeetingFilter) : null;
+  document.getElementById('fc-subtitle').textContent = m ? `📋 ${m.topic}` : 'Ôn tập với Spaced Repetition';
+  showFlashcard();
+}
+
+function renderFcFilter() {
+  const el = document.getElementById('fc-filter');
+  el.innerHTML = `<div class="filter-chip ${!currentMeetingFilter?'active':''}" onclick="setFcFilter(null)">Tất cả</div>` +
+    DATA.meetings.map(m => 
+      `<div class="filter-chip ${currentMeetingFilter===m.id?'active':''}" onclick="setFcFilter('${m.id}')">${m.topic}</div>`
+    ).join('');
+}
+
+function setFcFilter(meetingId) {
+  currentMeetingFilter = meetingId;
+  initFlashcards();
+}
+
+function showFlashcard() {
+  if (fcIndex >= fcItems.length) {
+    document.getElementById('fc-container').innerHTML = `<div class="empty-state">
+      <div class="emoji">🎉</div><h3>Hoàn thành!</h3>
+      <p>Bạn đã ôn hết ${fcItems.length > 0 ? fcItems.length + ' flashcard' : 'tất cả'}. Quay lại sau nhé!</p>
+    </div>`;
+    document.getElementById('fc-actions').style.display = 'none';
+    return;
+  }
+  // Ensure flashcard structure exists
+  if (!document.getElementById('flashcard')) {
+    document.getElementById('fc-container').innerHTML = `<div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="flashcard-face flashcard-front">
+        <span class="card-type-badge badge-vocab" id="fc-badge"></span>
+        <span class="card-meeting-badge" id="fc-meeting-badge"></span>
+        <div class="card-vi" id="fc-front-text"></div>
+        <span class="card-hint">Chạm để xem đáp án</span>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <span class="card-type-badge badge-vocab" id="fc-badge-back"></span>
+        <div class="card-ja" id="fc-back-word"></div>
+        <div class="card-reading" id="fc-back-reading"></div>
+        <div class="card-context" id="fc-back-context"></div>
+        <div class="card-usage" id="fc-back-usage"></div>
+      </div>
+    </div>`;
+  }
+
+  const item = fcItems[fcIndex];
+  const card = document.getElementById('flashcard');
+  card.classList.remove('flipped');
+  document.getElementById('fc-actions').style.display = 'none';
+
+  const bc = item.type==='vocab'?'badge-vocab':item.type==='phrase'?'badge-phrase':'badge-grammar';
+  const bt = item.type==='vocab'?'Từ vựng':item.type==='phrase'?'Cụm từ':'Ngữ pháp';
+  const meeting = getMeetingById(item.meeting);
+
+  document.getElementById('fc-badge').className = 'card-type-badge ' + bc;
+  document.getElementById('fc-badge').textContent = bt;
+  document.getElementById('fc-badge-back').className = 'card-type-badge ' + bc;
+  document.getElementById('fc-badge-back').textContent = bt;
+  document.getElementById('fc-meeting-badge').textContent = meeting ? meeting.topic : '';
+  document.getElementById('fc-front-text').textContent = item.meaning;
+  document.getElementById('fc-back-word').textContent = item.word;
+  document.getElementById('fc-back-reading').textContent = item.reading;
+  document.getElementById('fc-back-context').innerHTML = item.context.replace(new RegExp(item.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), `<strong>${item.word}</strong>`);
+  document.getElementById('fc-back-usage').textContent = item.usage || '';
+
+  const pct = Math.round((fcIndex / fcItems.length) * 100);
+  document.getElementById('fc-progress-bar').style.width = pct + '%';
+  document.getElementById('fc-progress-text').textContent = `${fcIndex+1}/${fcItems.length}`;
+}
+
+function flipCard() {
+  const card = document.getElementById('flashcard');
+  if (card) { card.classList.toggle('flipped'); setTimeout(() => { document.getElementById('fc-actions').style.display = 'flex'; }, 300); }
+}
+
+function rateCard(r) { fcIndex++; showFlashcard(); }
+
+// ======= PRACTICE =======
+function renderPracticeBanner() {
+  const banner = document.getElementById('practice-meeting-banner');
+  if (currentMeetingFilter) {
+    const m = getMeetingById(currentMeetingFilter);
+    banner.style.display = 'flex';
+    banner.className = 'exercise-meeting-banner';
+    banner.innerHTML = `<div class="emb-info">📋 Luyện tập từ: <strong>${m.topic}</strong></div>
+      <div class="emb-clear" onclick="clearMeetingFilter()">✕ Bỏ lọc</div>`;
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function clearMeetingFilter() {
+  currentMeetingFilter = null;
+  renderPracticeBanner();
+}
+
+function backToMenu() {
+  document.getElementById('exercise-menu').style.display = 'block';
+  ['translate-vj','translate-jv','fill-blank','reorder'].forEach(t => {
+    document.getElementById('exercise-' + t).style.display = 'none';
+  });
+}
+
+function startExercise(type) {
+  document.getElementById('exercise-menu').style.display = 'none';
+  document.getElementById('exercise-' + type).style.display = 'block';
+  const typeMap = {'translate-vj':'translate_vj','translate-jv':'translate_jv','fill-blank':'fill_blank','reorder':'reorder'};
+  currentExercises = getExercisesForMeeting(typeMap[type], currentMeetingFilter);
+  if (currentExercises.length === 0) {
+    document.getElementById('exercise-' + type).innerHTML = `<div class="exercise-header">
+      <div class="back-btn" onclick="backToMenu()">←</div>
+      <div><div class="exercise-title">Không có bài tập</div></div>
+    </div><div class="empty-state"><div class="emoji">📭</div><h3>Chưa có bài tập</h3><p>Cuộc họp này chưa có bài tập loại này.</p></div>`;
+    return;
+  }
+  if (type === 'translate-vj') { tvjIndex = 0; showTranslateVJ(); }
+  if (type === 'translate-jv') { tjvIndex = 0; showTranslateJV(); }
+  if (type === 'fill-blank') { fbIndex = 0; showFillBlank(); }
+  if (type === 'reorder') { roIndex = 0; showReorder(); }
+}
+
+// Translate V→J
+function showTranslateVJ() {
+  const ex = currentExercises;
+  if (tvjIndex >= ex.length) { backToMenu(); return; }
+  document.getElementById('tvj-question').textContent = ex[tvjIndex].prompt;
+  document.getElementById('tvj-answer').value = '';
+  document.getElementById('tvj-result').style.display = 'none';
+  document.getElementById('tvj-submit').style.display = 'block';
+  document.getElementById('tvj-progress').textContent = `Câu ${tvjIndex+1}/${ex.length}`;
+}
+function checkTranslateVJ() {
+  const ex = currentExercises[tvjIndex];
+  const ans = document.getElementById('tvj-answer').value.trim();
+  if (!ans) return;
+  const km = ex.keys.filter(k => ans.includes(k)).length;
+  const ok = ex.answers.some(a => ans.includes(a.substring(0, Math.floor(a.length*0.6)))) || km >= ex.keys.length;
+  const r = document.getElementById('tvj-result');
+  r.style.display = 'block';
+  r.className = 'result-card ' + (ok?'correct':'incorrect');
+  document.getElementById('tvj-result-header').innerHTML = ok ? '✅ Chính xác!' : '❌ Chưa đúng';
+  document.getElementById('tvj-result-answer').innerHTML = `<p style="margin-bottom:8px">Đáp án mẫu:</p><strong>${ex.answers[0]}</strong>
+    ${!ok && ex.answers.length>1 ? `<p style="margin-top:6px;font-size:13px;color:var(--text-secondary)">Cũng chấp nhận: ${ex.answers.slice(1).join(' / ')}</p>` : ''}`;
+  document.getElementById('tvj-submit').style.display = 'none';
+}
+function nextTranslateVJ() { tvjIndex++; showTranslateVJ(); }
+
+// Translate J→V
+function showTranslateJV() {
+  const ex = currentExercises;
+  if (tjvIndex >= ex.length) { backToMenu(); return; }
+  document.getElementById('tjv-question').textContent = ex[tjvIndex].prompt;
+  document.getElementById('tjv-answer').value = '';
+  document.getElementById('tjv-result').style.display = 'none';
+  document.getElementById('tjv-submit').style.display = 'block';
+  document.getElementById('tjv-progress').textContent = `Câu ${tjvIndex+1}/${ex.length}`;
+}
+function checkTranslateJV() {
+  const ex = currentExercises[tjvIndex];
+  const ans = document.getElementById('tjv-answer').value.trim().toLowerCase();
+  if (!ans) return;
+  const km = ex.keys.filter(k => ans.includes(k.toLowerCase())).length;
+  const ok = km >= Math.ceil(ex.keys.length*0.5);
+  const r = document.getElementById('tjv-result');
+  r.style.display = 'block';
+  r.className = 'result-card ' + (ok?'correct':'incorrect');
+  document.getElementById('tjv-result-header').innerHTML = ok ? '✅ Chính xác!' : '❌ Chưa chính xác';
+  document.getElementById('tjv-result-answer').innerHTML = `<p style="margin-bottom:8px">Đáp án tham khảo:</p><strong>${ex.answers[0]}</strong>`;
+  document.getElementById('tjv-submit').style.display = 'none';
+}
+function nextTranslateJV() { tjvIndex++; showTranslateJV(); }
+
+// Fill Blank
+function showFillBlank() {
+  const ex = currentExercises;
+  if (fbIndex >= ex.length) { backToMenu(); return; }
+  const q = ex[fbIndex];
+  document.getElementById('fb-question').innerHTML = q.sentence.replace('___',`<span class="blank-word">?</span>`) +
+    `<br><span style="font-size:12px;color:var(--text-muted);margin-top:8px;display:block">💡 ${q.hint}</span>`;
+  document.getElementById('fb-result').style.display = 'none';
+  document.getElementById('fb-progress').textContent = `Câu ${fbIndex+1}/${ex.length}`;
+  const shuffled = [...q.options].sort(() => Math.random()-0.5);
+  document.getElementById('fb-options').innerHTML = shuffled.map(o =>
+    `<button class="option-btn" onclick="selectFB(this,'${o}')">${o}</button>`
+  ).join('');
+}
+function selectFB(btn, sel) {
+  const q = currentExercises[fbIndex];
+  const ok = sel === q.answer;
+  document.querySelectorAll('#fb-options .option-btn').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === q.answer) b.classList.add('correct-answer');
+    if (b === btn && !ok) b.classList.add('wrong-answer');
+  });
+  document.querySelector('.blank-word').textContent = q.answer;
+  const r = document.getElementById('fb-result');
+  r.style.display = 'block';
+  r.className = 'result-card ' + (ok?'correct':'incorrect');
+  document.getElementById('fb-result-header').innerHTML = ok ? '✅ Chính xác!' : '❌ Sai rồi';
+  document.getElementById('fb-result-answer').innerHTML = `Đáp án: <strong>${q.answer}</strong> (${q.hint})`;
+}
+function nextFillBlank() { fbIndex++; showFillBlank(); }
+
+// Reorder
+function showReorder() {
+  const ex = currentExercises;
+  if (roIndex >= ex.length) { backToMenu(); return; }
+  const q = ex[roIndex];
+  roSelected = [];
+  document.getElementById('ro-meaning').textContent = q.meaning;
+  document.getElementById('ro-result').style.display = 'none';
+  document.getElementById('ro-submit').style.display = 'block';
+  document.getElementById('ro-progress').textContent = `Câu ${roIndex+1}/${ex.length}`;
+  renderReorderUI(q.fragments);
+}
+function renderReorderUI(frags) {
+  document.getElementById('ro-pool').innerHTML = frags.filter(f => !roSelected.includes(f)).map(f =>
+    `<div class="reorder-chip" onclick="roAdd('${f}')">${f}</div>`).join('');
+  const area = document.getElementById('ro-answer-area');
+  area.innerHTML = roSelected.length ? roSelected.map(f =>
+    `<div class="reorder-chip in-answer" onclick="roRemove('${f}')">${f}</div>`).join('') :
+    '<span style="color:var(--text-muted);font-size:13px">Chạm vào các phần tử bên dưới</span>';
+  area.classList.toggle('has-items', roSelected.length>0);
+}
+function roAdd(f) { roSelected.push(f); renderReorderUI(currentExercises[roIndex].fragments); }
+function roRemove(f) { roSelected = roSelected.filter(x => x!==f); renderReorderUI(currentExercises[roIndex].fragments); }
+function checkReorder() {
+  const q = currentExercises[roIndex];
+  const ok = JSON.stringify(roSelected) === JSON.stringify(q.correct);
+  const r = document.getElementById('ro-result');
+  r.style.display = 'block';
+  r.className = 'result-card ' + (ok?'correct':'incorrect');
+  document.getElementById('ro-result-header').innerHTML = ok ? '✅ Chính xác!' : '❌ Chưa đúng';
+  document.getElementById('ro-result-answer').innerHTML = `Đáp án: <strong>${q.correct.join('')}</strong>`;
+  document.getElementById('ro-submit').style.display = 'none';
+}
+function nextReorder() { roIndex++; showReorder(); }
+
+// ======= SEARCH =======
+let searchFilter = 'all';
+function renderSearchFilters() {
+  const filters = [
+    {id:'all',label:'Tất cả'},{id:'vocab',label:'Từ vựng'},{id:'phrase',label:'Cụm từ'},
+    {id:'grammar',label:'Ngữ pháp'},{id:'new',label:'Mới'},{id:'learning',label:'Đang học'},{id:'mastered',label:'Đã master'}
+  ];
+  document.getElementById('search-filters').innerHTML = filters.map(f =>
+    `<div class="filter-pill ${searchFilter===f.id?'active':''}" onclick="setSearchFilter('${f.id}',this)">${f.label}</div>`
+  ).join('');
+}
+function setSearchFilter(f, el) {
+  searchFilter = f;
+  document.querySelectorAll('#search-filters .filter-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  searchVocab();
+}
+function searchVocab() {
+  renderSearchFilters();
+  const q = (document.getElementById('search-input').value || '').toLowerCase();
+  let items = DATA.vocabulary;
+  if (searchFilter === 'vocab' || searchFilter === 'phrase' || searchFilter === 'grammar')
+    items = items.filter(v => v.type === searchFilter);
+  else if (searchFilter === 'new' || searchFilter === 'learning' || searchFilter === 'mastered')
+    items = items.filter(v => v.status === searchFilter);
+  if (q) items = items.filter(v => v.word.includes(q) || v.reading.includes(q) || v.meaning.toLowerCase().includes(q));
+  document.getElementById('vocab-search-list').innerHTML = items.map(v => renderVocabItem(v, true)).join('');
+}
+
+// ======= PROGRESS =======
+function renderProgress() {
+  const v = DATA.vocabulary;
+  const nw = countByStatus(v,'new'), lr = countByStatus(v,'learning'), ms = countByStatus(v,'mastered');
+  const total = v.length;
+  const pct = Math.round((ms/total)*100);
+  const circumference = 2 * Math.PI * 58;
+  document.getElementById('progress-circle').setAttribute('stroke-dashoffset', circumference - (pct/100)*circumference);
+  document.getElementById('mastery-percent').textContent = pct + '%';
+  document.getElementById('mastery-levels').innerHTML = [
+    {label:'Mới', count:nw, color:'var(--accent-2)', pct:Math.round(nw/total*100)},
+    {label:'Đang học', count:lr, color:'var(--warning)', pct:Math.round(lr/total*100)},
+    {label:'Đã master', count:ms, color:'var(--success)', pct:Math.round(ms/total*100)},
+  ].map(r => `<div class="mastery-row">
+    <div class="mastery-dot" style="background:${r.color}"></div>
+    <div class="mastery-name">${r.label}</div>
+    <div class="mastery-bar-bg"><div class="mastery-bar-fill" style="width:${r.pct}%;background:${r.color}"></div></div>
+    <div class="mastery-count">${r.count}</div>
+  </div>`).join('');
+
+  document.getElementById('hardest-words').innerHTML = [...v].sort((a,b) => b.errors-a.errors).slice(0,5)
+    .map(v => renderVocabItem(v, false)).join('');
+}
+
+// ======= INIT =======
+renderDashboard();
+initFlashcards();
+renderSearchFilters();
+searchVocab();
+renderProgress();
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').then(r => console.log('SW registered')).catch(e => console.warn('SW failed:', e));
+}
+</script>
+</body>
+</html>
