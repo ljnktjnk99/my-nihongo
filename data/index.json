@@ -1,4 +1,16 @@
 {
-  "meetings": [],
-  "updated_at": ""
+  "meetings": [
+    {
+      "id": "2026-02-25_dx-meeting",
+      "date": "2025-02-24",
+      "topic": "[会社A] DX推進チーム定例会：[プロジェクトX]ニュースリリース、予算、データ整備、展示会対応",
+      "file": "meetings/2025-02-24.json",
+      "total_items": 42,
+      "vocab_count": 25,
+      "phrase_count": 10,
+      "grammar_count": 7
+    }
+  ],
+  "updated_at": "",
+  "last_updated": "2026-02-25T01:17:20.426117"
 }
