@@ -98,38 +98,104 @@ class NihongoDB {
     });
   }
 
+  // Normalize real JSON schema to match UI expectations
+  _normalizeItem(item, type, meetingId) {
+    const base = {
+      ...item,
+      meeting_id: meetingId,
+      meeting: meetingId,
+      type: type,
+      status: 'new',
+      // Map real field names → UI field names
+      meaning: item.meaning_vi || item.meaning || '',
+      context: item.context_sentence || item.context || '',
+      context_vi: item.context_meaning_vi || item.context_vi || '',
+      usage: item.usage_note || item.usage || '',
+      errors: 0,
+    };
+    // For phrases: use 'phrase' field as 'word'
+    if (type === 'phrase' && item.phrase && !item.word) {
+      base.word = item.phrase;
+      base.reading = item.reading || item.phrase;
+    }
+    // For grammar: use 'pattern' field as 'word'
+    if (type === 'grammar' && item.pattern && !item.word) {
+      base.word = item.pattern;
+      base.reading = item.reading || item.pattern;
+    }
+    return base;
+  }
+
+  // Normalize exercises from real JSON format to UI format
+  _normalizeExercises(exercises) {
+    if (!exercises) return null;
+    const norm = {};
+    if (exercises.translate_vj) {
+      norm.translate_vj = exercises.translate_vj.map(e => ({
+        prompt: e.prompt_vi || e.prompt,
+        answers: e.acceptable_answers || e.answers || [],
+        keys: e.key_points || e.keys || [],
+        difficulty: e.difficulty,
+        ref_id: e.ref_id,
+      }));
+    }
+    if (exercises.translate_jv) {
+      norm.translate_jv = exercises.translate_jv.map(e => ({
+        prompt: e.prompt_ja || e.prompt,
+        answers: e.acceptable_keywords_vi || e.answers || [],
+        keys: e.acceptable_keywords_vi || e.keys || [],
+        reference_answer: e.reference_answer_vi,
+        ref_id: e.ref_id,
+      }));
+    }
+    if (exercises.fill_blank) {
+      norm.fill_blank = exercises.fill_blank.map(e => ({
+        sentence: e.sentence,
+        answer: e.answer,
+        options: e.options,
+        hint: e.hint_vi || e.hint,
+        ref_id: e.ref_id,
+      }));
+    }
+    if (exercises.reorder) {
+      norm.reorder = exercises.reorder.map(e => ({
+        fragments: e.fragments,
+        correct: e.correct_order || e.correct,
+        meaning: e.meaning_vi || e.meaning,
+        ref_id: e.ref_id,
+      }));
+    }
+    return norm;
+  }
+
   // Meeting-specific methods
   async importMeeting(meetingData) {
-    // Save meeting metadata
-    await this.put('meetings', {
-      id: meetingData.meeting_id,
-      date: meetingData.date,
-      topic: meetingData.topic_hint,
-      imported_at: new Date().toISOString(),
-    });
+    const meetingId = meetingData.meeting_id;
 
-    // Save all items with meeting reference
+    // Normalize and save all items
     const allItems = [
-      ...(meetingData.vocabulary || []).map(v => ({ ...v, meeting_id: meetingData.meeting_id, status: 'new' })),
-      ...(meetingData.phrases || []).map(p => ({ ...p, meeting_id: meetingData.meeting_id, status: 'new' })),
-      ...(meetingData.grammar || []).map(g => ({ ...g, meeting_id: meetingData.meeting_id, status: 'new' })),
+      ...(meetingData.vocabulary || []).map(v => this._normalizeItem(v, 'vocab', meetingId)),
+      ...(meetingData.phrases || []).map(p => this._normalizeItem(p, 'phrase', meetingId)),
+      ...(meetingData.grammar || []).map(g => this._normalizeItem(g, 'grammar', meetingId)),
     ];
 
     for (const item of allItems) {
-      // Don't overwrite existing status
+      // Preserve existing learning status
       const existing = await this.get('items', item.id);
       if (existing) {
         item.status = existing.status;
+        item.errors = existing.errors || 0;
       }
       await this.put('items', item);
     }
 
-    // Save exercises as part of meeting metadata
+    // Normalize exercises and save meeting metadata
+    const exercises = this._normalizeExercises(meetingData.exercises);
     await this.put('meetings', {
-      id: meetingData.meeting_id,
+      id: meetingId,
       date: meetingData.date,
       topic: meetingData.topic_hint,
-      exercises: meetingData.exercises,
+      exercises: exercises,
       imported_at: new Date().toISOString(),
     });
 
@@ -204,6 +270,30 @@ class NihongoDB {
       meeting_id: meetingId,
       timestamp: new Date().toISOString(),
     });
+  }
+
+  // Load all data into a flat object for UI consumption
+  async loadAllData() {
+    const meetings = await this.getAll('meetings');
+    const items = await this.getAll('items');
+    const exercises = {};
+
+    // Merge exercises from all meetings, tagging each with meeting id
+    for (const m of meetings) {
+      if (!m.exercises) continue;
+      for (const type of ['translate_vj', 'translate_jv', 'fill_blank', 'reorder']) {
+        if (!m.exercises[type]) continue;
+        if (!exercises[type]) exercises[type] = [];
+        exercises[type].push(...m.exercises[type].map(e => ({ ...e, meeting: m.id })));
+      }
+    }
+
+    return {
+      meetings: meetings.map(m => ({ id: m.id, topic: m.topic, date: m.date })),
+      vocabulary: items,
+      exercises,
+      weeklyStudy: [0, 0, 0, 0, 0, 0, 0],
+    };
   }
 
   // Get stats

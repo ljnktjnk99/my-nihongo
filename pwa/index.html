@@ -451,9 +451,14 @@ body {
 
 <!-- DASHBOARD -->
 <div class="page active" id="page-dashboard">
-  <div class="page-header">
-    <div class="page-title">NihonGo Meeting</div>
-    <div class="page-subtitle">Học tiếng Nhật từ cuộc họp thực tế</div>
+  <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div>
+      <div class="page-title">NihonGo Meeting</div>
+      <div class="page-subtitle">Học tiếng Nhật từ cuộc họp thực tế</div>
+    </div>
+    <button id="sync-btn" onclick="syncData()" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 14px;color:var(--text-secondary);font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap">
+      ↻ Sync
+    </button>
   </div>
   <div class="streak-banner animate-in">
     <div class="streak-fire">🔥</div>
@@ -722,95 +727,11 @@ body {
   </a>
 </nav>
 
+<script src="js/db.js"></script>
+<script src="js/loader.js"></script>
 <script>
-// ======= DATA =======
-const DATA = {
-  meetings: [
-    { id:"m1", topic:"Sprint Review #24", date:"2025-02-20" },
-    { id:"m2", topic:"Design Discussion", date:"2025-02-18" },
-    { id:"m3", topic:"Quarterly Planning", date:"2025-02-14" },
-    { id:"m4", topic:"Client Meeting", date:"2025-02-10" },
-  ],
-  vocabulary: [
-    { id:"v1", word:"進捗", reading:"しんちょく", meaning:"tiến độ, tiến triển", type:"vocab", status:"learning", jlpt:"N2", meeting:"m1",
-      context:"[人物A]が[プロジェクトX]の進捗について報告しました。", context_vi:"[Người A] đã báo cáo về tiến độ của [Dự án X].",
-      usage:"Thường dùng với 確認する hoặc 報告する", collocations:["進捗確認","進捗報告","進捗状況"], errors:3 },
-    { id:"v2", word:"検討", reading:"けんとう", meaning:"xem xét, cân nhắc", type:"vocab", status:"new", jlpt:"N2", meeting:"m2",
-      context:"この案について検討させていただきます。", context_vi:"Cho phép tôi được xem xét về phương án này.",
-      usage:"Formal hơn 考える. Dùng nhiều trong business", collocations:["検討する","検討中","ご検討"], errors:0 },
-    { id:"v3", word:"対応", reading:"たいおう", meaning:"đối ứng, xử lý", type:"vocab", status:"mastered", jlpt:"N2", meeting:"m1",
-      context:"[人物B]が問題に対応しています。", context_vi:"[Người B] đang xử lý vấn đề.",
-      usage:"Rất phổ biến trong IT: バグ対応, 顧客対応", collocations:["対応する","対応済み","対応中"], errors:1 },
-    { id:"v4", word:"納期", reading:"のうき", meaning:"deadline, hạn giao hàng", type:"vocab", status:"learning", jlpt:"N1", meeting:"m4",
-      context:"納期に間に合うように調整してください。", context_vi:"Hãy điều chỉnh sao cho kịp deadline.",
-      usage:"Dùng trong manufacturing & IT delivery", collocations:["納期を守る","納期遅延","納期調整"], errors:5 },
-    { id:"v5", word:"共有", reading:"きょうゆう", meaning:"chia sẻ (thông tin)", type:"vocab", status:"mastered", jlpt:"N2", meeting:"m1",
-      context:"資料を共有していただけますか。", context_vi:"Bạn có thể chia sẻ tài liệu được không?",
-      usage:"画面共有 = share screen, 情報共有 = share info", collocations:["情報共有","画面共有","ファイル共有"], errors:0 },
-    { id:"v6", word:"方針", reading:"ほうしん", meaning:"phương châm, chính sách", type:"vocab", status:"new", jlpt:"N2", meeting:"m3",
-      context:"今後の方針について話し合いましょう。", context_vi:"Hãy thảo luận về phương châm sắp tới.",
-      usage:"Dùng khi nói về hướng đi, chiến lược", collocations:["基本方針","方針を決める"], errors:0 },
-    { id:"v7", word:"見積もり", reading:"みつもり", meaning:"báo giá, ước tính", type:"vocab", status:"learning", jlpt:"N2", meeting:"m4",
-      context:"見積もりを出していただけますか。", context_vi:"Bạn có thể đưa ra báo giá được không?",
-      usage:"見積書 = bản báo giá (document)", collocations:["見積もりを出す","見積書","概算見積もり"], errors:2 },
-    { id:"p1", word:"ご確認いただけますでしょうか", reading:"ごかくにんいただけますでしょうか", meaning:"Bạn có thể xác nhận giúp được không ạ?", type:"phrase", status:"learning", jlpt:"-", meeting:"m4",
-      context:"この資料をご確認いただけますでしょうか。", context_vi:"Bạn có thể xác nhận tài liệu này giúp được không ạ?",
-      usage:"Rất lịch sự. Dùng với cấp trên/khách hàng. Casual: 確認してもらえる？", collocations:[], errors:2 },
-    { id:"p2", word:"議題に移ります", reading:"ぎだいにうつります", meaning:"Chuyển sang đề mục tiếp theo", type:"phrase", status:"new", jlpt:"-", meeting:"m3",
-      context:"それでは次の議題に移ります。", context_vi:"Vậy thì chúng ta chuyển sang đề mục tiếp theo.",
-      usage:"MC hay chairperson thường dùng để chuyển topic", collocations:[], errors:0 },
-    { id:"p3", word:"お手数ですが", reading:"おてすうですが", meaning:"Xin lỗi đã làm phiền nhưng...", type:"phrase", status:"mastered", jlpt:"N2", meeting:"m2",
-      context:"お手数ですが、もう一度送っていただけますか。", context_vi:"Xin lỗi đã làm phiền, bạn có thể gửi lại một lần nữa được không?",
-      usage:"Cushion word phổ biến khi nhờ vả. Tương tự: 恐れ入りますが", collocations:[], errors:0 },
-    { id:"p4", word:"～の件ですが", reading:"～のけんですが", meaning:"Về vấn đề ~", type:"phrase", status:"new", jlpt:"-", meeting:"m1",
-      context:"先日の会議の件ですが、結論が出ましたので共有します。", context_vi:"Về vấn đề cuộc họp hôm trước, đã có kết luận nên tôi chia sẻ.",
-      usage:"Dùng để mở đầu topic mới trong email/meeting", collocations:[], errors:0 },
-    { id:"g1", word:"～させていただきます", reading:"～させていただきます", meaning:"Cho phép tôi được làm~ (khiêm nhường)", type:"grammar", status:"learning", jlpt:"N3", meeting:"m1",
-      context:"それでは、説明させていただきます。", context_vi:"Vậy thì, cho phép tôi được giải thích.",
-      usage:"⚠️ Cẩn thận không dùng quá nhiều, sẽ bị coi là awkward", collocations:[], errors:4 },
-    { id:"g2", word:"～ということですね", reading:"～ということですね", meaning:"Nghĩa là ~ phải không? (xác nhận)", type:"grammar", status:"new", jlpt:"N3", meeting:"m4",
-      context:"つまり、来週までに完了するということですね。", context_vi:"Nghĩa là sẽ hoàn thành trước tuần sau phải không?",
-      usage:"Dùng để confirm lại ý người nói. Rất hữu ích trong meeting!", collocations:[], errors:0 },
-    { id:"g3", word:"～に基づいて", reading:"～にもとづいて", meaning:"Dựa trên ~", type:"grammar", status:"learning", jlpt:"N2", meeting:"m3",
-      context:"データに基づいて判断しましょう。", context_vi:"Hãy đưa ra quyết định dựa trên dữ liệu.",
-      usage:"Formal. Tương tự nhưng casual hơn: ～をもとに", collocations:[], errors:1 },
-  ],
-  exercises: {
-    translate_vj: [
-      { prompt:"Bạn có thể xác nhận tài liệu này giúp được không ạ?", answers:["この資料をご確認いただけますでしょうか","この資料を確認していただけますか"], keys:["確認","いただ"], meeting:"m4" },
-      { prompt:"Cho phép tôi được giải thích.", answers:["説明させていただきます","説明いたします"], keys:["説明","させていただ"], meeting:"m1" },
-      { prompt:"Hãy điều chỉnh sao cho kịp deadline.", answers:["納期に間に合うように調整してください"], keys:["納期","調整"], meeting:"m4" },
-      { prompt:"[Người A] đã báo cáo về tiến độ của [Dự án X].", answers:["[人物A]が[プロジェクトX]の進捗について報告しました"], keys:["進捗","報告"], meeting:"m1" },
-      { prompt:"Bạn có thể chia sẻ tài liệu được không?", answers:["資料を共有していただけますか","資料を共有してもらえますか"], keys:["共有","資料"], meeting:"m1" },
-      { prompt:"Hãy thảo luận về phương châm sắp tới.", answers:["今後の方針について話し合いましょう"], keys:["方針","話し合"], meeting:"m3" },
-      { prompt:"Hãy đưa ra quyết định dựa trên dữ liệu.", answers:["データに基づいて判断しましょう"], keys:["基づいて","判断"], meeting:"m3" },
-    ],
-    translate_jv: [
-      { prompt:"それでは、説明させていただきます。", answers:["cho phép tôi được giải thích","tôi xin phép giải thích"], keys:["giải thích"], meeting:"m1" },
-      { prompt:"この資料をご確認いただけますでしょうか。", answers:["xác nhận tài liệu","kiểm tra tài liệu"], keys:["xác nhận","tài liệu"], meeting:"m4" },
-      { prompt:"納期に間に合うように調整してください。", answers:["điều chỉnh","kịp deadline"], keys:["deadline","điều chỉnh"], meeting:"m4" },
-      { prompt:"つまり、来週までに完了するということですね。", answers:["hoàn thành","tuần sau","trước tuần sau"], keys:["hoàn thành","tuần sau"], meeting:"m4" },
-      { prompt:"お手数ですが、もう一度送っていただけますか。", answers:["gửi lại","một lần nữa","làm phiền"], keys:["gửi lại","làm phiền"], meeting:"m2" },
-      { prompt:"今後の方針について話し合いましょう。", answers:["thảo luận","phương châm","chính sách"], keys:["thảo luận","phương châm"], meeting:"m3" },
-    ],
-    fill_blank: [
-      { sentence:"[人物A]が[プロジェクトX]の___について報告しました。", answer:"進捗", options:["進捗","予定","結果","問題"], hint:"tiến độ", meeting:"m1" },
-      { sentence:"この案について___させていただきます。", answer:"検討", options:["検討","説明","確認","報告"], hint:"xem xét", meeting:"m2" },
-      { sentence:"___に間に合うように調整してください。", answer:"納期", options:["納期","期限","日程","予定"], hint:"deadline", meeting:"m4" },
-      { sentence:"資料を___していただけますか。", answer:"共有", options:["共有","送信","確認","作成"], hint:"chia sẻ", meeting:"m1" },
-      { sentence:"それでは次の___に移ります。", answer:"議題", options:["議題","話題","問題","課題"], hint:"đề mục", meeting:"m3" },
-      { sentence:"データに___判断しましょう。", answer:"基づいて", options:["基づいて","よって","対して","ついて"], hint:"dựa trên", meeting:"m3" },
-    ],
-    reorder: [
-      { fragments:["いただけます","この資料を","でしょうか","ご確認"], correct:["この資料を","ご確認","いただけます","でしょうか"], meaning:"Bạn có thể xác nhận tài liệu này giúp được không ạ?", meeting:"m4" },
-      { fragments:["させていただきます","それでは","説明"], correct:["それでは","説明","させていただきます"], meaning:"Vậy thì, cho phép tôi được giải thích.", meeting:"m1" },
-      { fragments:["調整してください","間に合うように","納期に"], correct:["納期に","間に合うように","調整してください"], meaning:"Hãy điều chỉnh sao cho kịp deadline.", meeting:"m4" },
-      { fragments:["話し合いましょう","今後の","について","方針"], correct:["今後の","方針","について","話し合いましょう"], meaning:"Hãy thảo luận về phương châm sắp tới.", meeting:"m3" },
-      { fragments:["もう一度","お手数ですが","いただけますか","送って"], correct:["お手数ですが","もう一度","送って","いただけますか"], meaning:"Xin lỗi đã làm phiền, gửi lại được không?", meeting:"m2" },
-    ]
-  },
-  weeklyStudy: [15,22,18,30,25,12,8]
-};
+// ======= DATA (populated from IndexedDB) =======
+let DATA = { meetings: [], vocabulary: [], exercises: {}, weeklyStudy: [0,0,0,0,0,0,0] };
 
 // ======= STATE =======
 let currentMeetingFilter = null; // null = all meetings
@@ -822,8 +743,9 @@ let currentExercises = {};
 
 // ======= HELPERS =======
 function getMeetingById(id) { return DATA.meetings.find(m => m.id === id); }
-function getVocabForMeeting(meetingId) { return DATA.vocabulary.filter(v => v.meeting === meetingId); }
+function getVocabForMeeting(meetingId) { return DATA.vocabulary.filter(v => v.meeting === meetingId || v.meeting_id === meetingId); }
 function getExercisesForMeeting(type, meetingId) {
+  if (!DATA.exercises[type]) return [];
   if (!meetingId) return DATA.exercises[type];
   return DATA.exercises[type].filter(e => e.meeting === meetingId);
 }
@@ -931,15 +853,19 @@ function renderMeetingVocab(items) {
 function renderVocabItem(v, showContext) {
   const sc = v.status==='new'?'status-new':v.status==='learning'?'status-learning':'status-mastered';
   const tl = v.type==='vocab'?'Từ vựng':v.type==='phrase'?'Cụm từ':'Ngữ pháp';
-  const meeting = getMeetingById(v.meeting);
+  const meeting = getMeetingById(v.meeting) || getMeetingById(v.meeting_id);
+  const word = v.word || v.phrase || v.pattern || '';
+  const meaning = v.meaning || v.meaning_vi || '';
+  const context = v.context || v.context_sentence || '';
+  const usage = v.usage || v.usage_note || '';
   return `<div class="vocab-item">
     <div class="vocab-top">
-      <div><span class="vocab-word">${v.word}</span><span class="vocab-reading">${v.reading}</span></div>
+      <div><span class="vocab-word">${word}</span><span class="vocab-reading">${v.reading || ''}</span></div>
       <div class="vocab-status ${sc}"></div>
     </div>
-    <div class="vocab-meaning">${v.meaning}</div>
-    ${showContext && v.context ? `<div class="vocab-context-preview">${v.context}</div>` : ''}
-    ${v.usage ? `<div style="font-size:11px;color:var(--accent-4);margin-top:6px;font-style:italic">💡 ${v.usage}</div>` : ''}
+    <div class="vocab-meaning">${meaning}</div>
+    ${showContext && context ? `<div class="vocab-context-preview">${context}</div>` : ''}
+    ${usage ? `<div style="font-size:11px;color:var(--accent-4);margin-top:6px;font-style:italic">💡 ${usage}</div>` : ''}
     ${v.collocations && v.collocations.length ? `<div style="font-size:11px;color:var(--text-muted);margin-top:4px">🔗 ${v.collocations.join('、')}</div>` : ''}
     <div class="vocab-tags">
       <span class="vocab-tag">${tl}</span>
@@ -1018,18 +944,22 @@ function showFlashcard() {
 
   const bc = item.type==='vocab'?'badge-vocab':item.type==='phrase'?'badge-phrase':'badge-grammar';
   const bt = item.type==='vocab'?'Từ vựng':item.type==='phrase'?'Cụm từ':'Ngữ pháp';
-  const meeting = getMeetingById(item.meeting);
+  const meeting = getMeetingById(item.meeting) || getMeetingById(item.meeting_id);
+  const word = item.word || item.phrase || item.pattern || '';
+  const meaning = item.meaning || item.meaning_vi || '';
+  const context = item.context || item.context_sentence || '';
+  const usage = item.usage || item.usage_note || '';
 
   document.getElementById('fc-badge').className = 'card-type-badge ' + bc;
   document.getElementById('fc-badge').textContent = bt;
   document.getElementById('fc-badge-back').className = 'card-type-badge ' + bc;
   document.getElementById('fc-badge-back').textContent = bt;
   document.getElementById('fc-meeting-badge').textContent = meeting ? meeting.topic : '';
-  document.getElementById('fc-front-text').textContent = item.meaning;
-  document.getElementById('fc-back-word').textContent = item.word;
-  document.getElementById('fc-back-reading').textContent = item.reading;
-  document.getElementById('fc-back-context').innerHTML = item.context.replace(new RegExp(item.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), `<strong>${item.word}</strong>`);
-  document.getElementById('fc-back-usage').textContent = item.usage || '';
+  document.getElementById('fc-front-text').textContent = meaning;
+  document.getElementById('fc-back-word').textContent = word;
+  document.getElementById('fc-back-reading').textContent = item.reading || '';
+  document.getElementById('fc-back-context').innerHTML = context && word ? context.replace(new RegExp(word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), `<strong>${word}</strong>`) : context;
+  document.getElementById('fc-back-usage').textContent = usage;
 
   const pct = Math.round((fcIndex / fcItems.length) * 100);
   document.getElementById('fc-progress-bar').style.width = pct + '%';
@@ -1133,7 +1063,8 @@ function checkTranslateJV() {
   r.style.display = 'block';
   r.className = 'result-card ' + (ok?'correct':'incorrect');
   document.getElementById('tjv-result-header').innerHTML = ok ? '✅ Chính xác!' : '❌ Chưa chính xác';
-  document.getElementById('tjv-result-answer').innerHTML = `<p style="margin-bottom:8px">Đáp án tham khảo:</p><strong>${ex.answers[0]}</strong>`;
+  const refAnswer = ex.reference_answer || ex.answers[0] || ex.keys.join(', ');
+  document.getElementById('tjv-result-answer').innerHTML = `<p style="margin-bottom:8px">Đáp án tham khảo:</p><strong>${refAnswer}</strong>`;
   document.getElementById('tjv-submit').style.display = 'none';
 }
 function nextTranslateJV() { tjvIndex++; showTranslateJV(); }
@@ -1229,7 +1160,12 @@ function searchVocab() {
     items = items.filter(v => v.type === searchFilter);
   else if (searchFilter === 'new' || searchFilter === 'learning' || searchFilter === 'mastered')
     items = items.filter(v => v.status === searchFilter);
-  if (q) items = items.filter(v => v.word.includes(q) || v.reading.includes(q) || v.meaning.toLowerCase().includes(q));
+  if (q) items = items.filter(v => {
+    const word = (v.word || v.phrase || v.pattern || '').toLowerCase();
+    const reading = (v.reading || '').toLowerCase();
+    const meaning = (v.meaning || v.meaning_vi || '').toLowerCase();
+    return word.includes(q) || reading.includes(q) || meaning.includes(q);
+  });
   document.getElementById('vocab-search-list').innerHTML = items.map(v => renderVocabItem(v, true)).join('');
 }
 
@@ -1237,7 +1173,7 @@ function searchVocab() {
 function renderProgress() {
   const v = DATA.vocabulary;
   const nw = countByStatus(v,'new'), lr = countByStatus(v,'learning'), ms = countByStatus(v,'mastered');
-  const total = v.length;
+  const total = v.length || 1;
   const pct = Math.round((ms/total)*100);
   const circumference = 2 * Math.PI * 58;
   document.getElementById('progress-circle').setAttribute('stroke-dashoffset', circumference - (pct/100)*circumference);
@@ -1253,16 +1189,49 @@ function renderProgress() {
     <div class="mastery-count">${r.count}</div>
   </div>`).join('');
 
-  document.getElementById('hardest-words').innerHTML = [...v].sort((a,b) => b.errors-a.errors).slice(0,5)
+  document.getElementById('hardest-words').innerHTML = [...v].sort((a,b) => (b.errors||0)-(a.errors||0)).slice(0,5)
     .map(v => renderVocabItem(v, false)).join('');
 }
 
-// ======= INIT =======
-renderDashboard();
-initFlashcards();
-renderSearchFilters();
-searchVocab();
-renderProgress();
+// ======= SYNC & INIT =======
+async function syncData(force = false) {
+  const btn = document.getElementById('sync-btn');
+  btn.textContent = '⟳ Đang sync...';
+  btn.disabled = true;
+  try {
+    const result = await window.dataLoader.syncAll(force);
+    if (result.synced > 0) {
+      DATA = await window.nihongoDB.loadAllData();
+      renderDashboard();
+      btn.textContent = `✓ Đã sync ${result.synced} mới`;
+    } else {
+      btn.textContent = '✓ Đã cập nhật';
+    }
+  } catch (e) {
+    console.error('Sync failed:', e);
+    btn.textContent = '✕ Lỗi sync';
+  }
+  setTimeout(() => { btn.textContent = '↻ Sync'; btn.disabled = false; }, 2000);
+}
+
+async function initApp() {
+  try {
+    await window.nihongoDB.open();
+    // Try to sync from network
+    await window.dataLoader.syncAll();
+    // Load data from IndexedDB
+    DATA = await window.nihongoDB.loadAllData();
+  } catch (e) {
+    console.error('Init failed:', e);
+  }
+
+  // Render UI (even if empty data)
+  renderDashboard();
+  renderSearchFilters();
+  renderProgress();
+}
+
+initApp();
 
 // Register Service Worker
 if ('serviceWorker' in navigator) {

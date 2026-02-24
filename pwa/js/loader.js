@@ -9,9 +9,11 @@ class DataLoader {
 
   _detectBaseUrl() {
     const loc = window.location;
-    // If on GitHub Pages, data is at ./data/
-    // If local, data is at ./data/
-    return loc.origin + loc.pathname.replace(/\/[^/]*$/, '');
+    // PWA is at /pwa/index.html, data is at /data/ (sibling directory)
+    // Remove trailing filename, then go up from /pwa/ to root
+    const dir = loc.pathname.replace(/\/[^/]*$/, '');
+    const base = dir.replace(/\/pwa\/?$/, '');
+    return loc.origin + base;
   }
 
   async fetchIndex() {
@@ -36,7 +38,7 @@ class DataLoader {
     }
   }
 
-  async syncAll() {
+  async syncAll(force = false) {
     const db = window.nihongoDB;
     if (!db.db) await db.open();
 
@@ -48,10 +50,12 @@ class DataLoader {
 
     let synced = 0;
     for (const meeting of index.meetings) {
-      // Check if already imported
-      const existing = await db.get('meetings', meeting.id);
-      if (existing && existing.imported_at) {
-        continue; // Already have this meeting
+      // Check if already imported (skip if not force-syncing)
+      if (!force) {
+        const existing = await db.get('meetings', meeting.id);
+        if (existing && existing.imported_at) {
+          continue;
+        }
       }
 
       const data = await this.fetchMeeting(meeting.file);
