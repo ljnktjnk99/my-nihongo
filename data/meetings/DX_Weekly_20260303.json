@@ -1,0 +1,797 @@
+{
+  "meeting_id": "DX_Weekly_20260303",
+  "date": "2026-03-03",
+  "topic_hint": "DX_Weekly_20260303",
+  "vocabulary": [
+    {
+      "id": "v001",
+      "word": "担当",
+      "reading": "たんとう",
+      "meaning_vi": "phụ trách, đảm nhận",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "[人物A]が[プロジェクトX]の担当になりましたので、今後ともよろしくお願いいたします。",
+      "context_reading": "[じんぶつA]が[プロジェクトX]のたんとうになりましたので、こんごともよろしくおねがいいたします。",
+      "context_meaning_vi": "[Người A] đã trở thành người phụ trách [Dự án X], mong được sự hợp tác từ nay về sau.",
+      "usage_note": "Rất thường dùng trong meeting để chỉ người phụ trách một dự án hoặc công việc.",
+      "collocations": [
+        "担当者",
+        "担当する",
+        "ご担当"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v002",
+      "word": "件",
+      "reading": "けん",
+      "meaning_vi": "vấn đề, chuyện, cái",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "先日の件ですが、確認をお取りしたいと思っています。",
+      "context_reading": "せんじつのけんですが、かくにんをおとりしたいとおもっています。",
+      "context_meaning_vi": "Về chuyện hôm trước, tôi muốn xin lấy sự xác nhận.",
+      "usage_note": "Dùng để chỉ một vấn đề hoặc chuyện nào đó. Hay gặp trong email và meeting.",
+      "collocations": [
+        "～の件です",
+        "～の件ですが",
+        "この件について"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v003",
+      "word": "進捗",
+      "reading": "しんちょく",
+      "meaning_vi": "tiến độ, sự phát triển",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "プロジェクトの進捗について報告させていただきます。",
+      "context_reading": "プロジェクトのしんちょくについてほうこくさせていただきます。",
+      "context_meaning_vi": "Xin phép báo cáo về tiến độ của dự án.",
+      "usage_note": "Từ N3 phổ biến trong business, dùng để nói về tình trạng tiến triển của một dự án.",
+      "collocations": [
+        "進捗状況",
+        "進捗報告",
+        "進捗を報告する"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v004",
+      "word": "予定",
+      "reading": "よてい",
+      "meaning_vi": "kế hoạch, dự định, dự kiến",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "3月末までに完了する予定です。",
+      "context_reading": "3がつまつまでにかんりょうするよていです。",
+      "context_meaning_vi": "Dự kiến hoàn thành vào cuối tháng 3.",
+      "usage_note": "Từ thường xuyên xuất hiện trong meeting để nói về các kế hoạch sắp tới.",
+      "collocations": [
+        "予定通り",
+        "予定を変更する",
+        "予定します"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 7
+    },
+    {
+      "id": "v005",
+      "word": "完了",
+      "reading": "かんりょう",
+      "meaning_vi": "hoàn thành, xong",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "昨日、作業を完了しました。",
+      "context_reading": "きのう、さぎょうをかんりょうしました。",
+      "context_meaning_vi": "Hôm qua, tôi đã hoàn thành công việc.",
+      "usage_note": "Từ N3 dùng trong báo cáo tiến độ công việc trong meeting.",
+      "collocations": [
+        "完了する",
+        "完了しました",
+        "完了予定"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v006",
+      "word": "共有",
+      "reading": "きょうゆう",
+      "meaning_vi": "chia sẻ, chia xẻ",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "この情報をみなさんと共有させていただきます。",
+      "context_reading": "このじょうほうをみなさんときょうゆうさせていただきます。",
+      "context_meaning_vi": "Xin phép chia sẻ thông tin này với mọi người.",
+      "usage_note": "Từ N3 phổ biến trong meeting khi muốn chia sẻ thông tin.",
+      "collocations": [
+        "情報を共有する",
+        "共有させていただきます",
+        "共有します"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 4
+    },
+    {
+      "id": "v007",
+      "word": "確認",
+      "reading": "かくにん",
+      "meaning_vi": "xác nhận, kiểm tra",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "ご確認いただけますか。",
+      "context_reading": "ごかくにんいただけますか。",
+      "context_meaning_vi": "Xin các bạn xác nhận được không?",
+      "usage_note": "Từ N3 hay dùng trong email và meeting khi muốn xin xác nhận từ người khác.",
+      "collocations": [
+        "確認する",
+        "ご確認ください",
+        "確認を取る"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v008",
+      "word": "今後",
+      "reading": "こんご",
+      "meaning_vi": "từ nay về sau, trong tương lai",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "今後ともよろしくお願いいたします。",
+      "context_reading": "こんごともよろしくおねがいいたします。",
+      "context_meaning_vi": "Mong được sự hợp tác từ nay về sau.",
+      "usage_note": "Từ N3 dùng để chỉ khoảng thời gian trong tương lai, hay kết hợp với xin phép hợp tác.",
+      "collocations": [
+        "今後とも",
+        "今後について",
+        "今後の予定"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 3
+    },
+    {
+      "id": "v009",
+      "word": "対応",
+      "reading": "たいおう",
+      "meaning_vi": "ứng phó, xử lý, đối phó",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "早速、対応させていただきます。",
+      "context_reading": "さっそく、たいおうさせていただきます。",
+      "context_meaning_vi": "Xin phép xử lý ngay lập tức.",
+      "usage_note": "Từ N3 dùng khi nói về xử lý, giải quyết một vấn đề nào đó.",
+      "collocations": [
+        "対応する",
+        "対応を取る",
+        "迅速に対応"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 4
+    },
+    {
+      "id": "v010",
+      "word": "検討",
+      "reading": "けんとう",
+      "meaning_vi": "xem xét, cân nhắc, bàn bạc",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "この案について検討させていただきたいと思っています。",
+      "context_reading": "このあんについてけんとうさせていただきたいとおもっています。",
+      "context_meaning_vi": "Tôi muốn xin phép xem xét về đề án này.",
+      "usage_note": "Từ N3 phổ biến trong business, dùng khi muốn xem xét một ý kiến hoặc kế hoạch.",
+      "collocations": [
+        "検討する",
+        "検討の結果",
+        "検討を進める"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v011",
+      "word": "引き継ぎ",
+      "reading": "ひきつぎ",
+      "meaning_vi": "bàn giao, chuyển giao, kế thừa",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "プロジェクトの引き継ぎを予定しています。",
+      "context_reading": "プロジェクトのひきつぎをよていしています。",
+      "context_meaning_vi": "Dự định bàn giao dự án.",
+      "usage_note": "Từ N3 dùng trong business khi chuyển giao công việc hoặc dự án cho người khác.",
+      "collocations": [
+        "引き継ぎ予定",
+        "引き継ぎしていただく",
+        "引き継ぎを行う"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 3
+    },
+    {
+      "id": "v012",
+      "word": "データ",
+      "reading": "データ",
+      "meaning_vi": "dữ liệu, số liệu",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "このデータを分析する必要があります。",
+      "context_reading": "このデータをぶんせきするひつようがあります。",
+      "context_meaning_vi": "Có cần phân tích dữ liệu này.",
+      "usage_note": "Từ ngoài JLPT nhưng dùng rất phổ biến trong IT và business meetings.",
+      "collocations": [
+        "データ分析",
+        "データ入力",
+        "データベース"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 12
+    },
+    {
+      "id": "v013",
+      "word": "分析",
+      "reading": "ぶんせき",
+      "meaning_vi": "phân tích",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "購買分析を実施しています。",
+      "context_reading": "こうばいぶんせきをじっししています。",
+      "context_meaning_vi": "Chúng tôi đang thực hiện phân tích mua sắm.",
+      "usage_note": "Từ N3 hay dùng trong business để nói về việc phân tích các dữ liệu.",
+      "collocations": [
+        "分析する",
+        "分析結果",
+        "データ分析"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v014",
+      "word": "開発",
+      "reading": "かいはつ",
+      "meaning_vi": "phát triển, phát triển sản phẩm",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "新しいシステムの開発を進めています。",
+      "context_reading": "あたらしいシステムのかいはつをすすめています。",
+      "context_meaning_vi": "Chúng tôi đang tiến hành phát triển hệ thống mới.",
+      "usage_note": "Từ N3 phổ biến trong IT và business khi nói về phát triển sản phẩm hoặc hệ thống.",
+      "collocations": [
+        "開発する",
+        "開発中",
+        "開発チーム"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v015",
+      "word": "効率",
+      "reading": "こうりつ",
+      "meaning_vi": "hiệu quả, hiệu suất",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "業務の効率化を目指しています。",
+      "context_reading": "ぎょうむのこうりつかをめざしています。",
+      "context_meaning_vi": "Chúng tôi hướng tới hiệu quả hóa công việc.",
+      "usage_note": "Từ N3 dùng trong business khi nói về việc tăng hiệu quả, hiệu suất công việc.",
+      "collocations": [
+        "効率化",
+        "効率的",
+        "効率を上げる"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 4
+    },
+    {
+      "id": "v016",
+      "word": "導入",
+      "reading": "どうにゅう",
+      "meaning_vi": "đưa vào, áp dụng, triển khai",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "新しいシステムを3月中に導入する予定です。",
+      "context_reading": "あたらしいシステムを3がつちゅうにどうにゅうするよていです。",
+      "context_meaning_vi": "Dự định đưa vào hệ thống mới vào trong tháng 3.",
+      "usage_note": "Từ N3 hay dùng trong business khi nói về triển khai, áp dụng một hệ thống hoặc kỹ thuật mới.",
+      "collocations": [
+        "導入する",
+        "導入予定",
+        "導入時期"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 3
+    },
+    {
+      "id": "v017",
+      "word": "レシート",
+      "reading": "レシート",
+      "meaning_vi": "biên lai, hóa đơn",
+      "type": "vocab",
+      "jlpt": "N4",
+      "context_sentence": "レシートの内容を分析しています。",
+      "context_reading": "レシートのないようをぶんせきしています。",
+      "context_meaning_vi": "Chúng tôi đang phân tích nội dung của các biên lai.",
+      "usage_note": "Từ N4 dùng trong business khi nói về các biên lai hoặc hóa đơn.",
+      "collocations": [
+        "レシート分析",
+        "レシート情報",
+        "レシートデータ"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v018",
+      "word": "モデル",
+      "reading": "モデル",
+      "meaning_vi": "mô hình, kiểu",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "AIモデルをトレーニングしました。",
+      "context_reading": "AIモデルをトレーニングしました。",
+      "context_meaning_vi": "Chúng tôi đã huấn luyện mô hình AI.",
+      "usage_note": "Từ ngoài JLPT nhưng dùng rất phổ biến trong IT khi nói về các mô hình AI hoặc hệ thống.",
+      "collocations": [
+        "AIモデル",
+        "モデル評価",
+        "モデルトレーニング"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v019",
+      "word": "プロジェクト",
+      "reading": "プロジェクト",
+      "meaning_vi": "dự án, chương trình",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "[プロジェクトX]が進行中です。",
+      "context_reading": "[プロジェクトX]がしんこうちゅうです。",
+      "context_meaning_vi": "[Dự án X] đang tiến hành.",
+      "usage_note": "Từ ngoài JLPT nhưng dùng rất phổ biến trong business khi nói về các dự án.",
+      "collocations": [
+        "プロジェクトチーム",
+        "プロジェクト管理",
+        "プロジェクト進捗"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 10
+    },
+    {
+      "id": "v020",
+      "word": "POI",
+      "reading": "ピーオーアイ",
+      "meaning_vi": "điểm quan tâm (Point of Interest - thông tin địa điểm)",
+      "type": "vocab",
+      "jlpt": "none",
+      "context_sentence": "POIデータを整備しています。",
+      "context_reading": "ピーオーアイデータをせいびしています。",
+      "context_meaning_vi": "Chúng tôi đang chuẩn bị dữ liệu POI.",
+      "usage_note": "Thuật ngữ IT/business dùng trong ngành bản đồ và định vị địa lý.",
+      "collocations": [
+        "POIデータ",
+        "POI整備",
+        "POI自動収集"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 5
+    }
+  ],
+  "phrases": [
+    {
+      "id": "p001",
+      "phrase": "～の件ですが",
+      "reading": "～のけんですが",
+      "meaning_vi": "Về vấn đề ~",
+      "type": "phrase",
+      "context_sentence": "先日の件ですが、結論が出ましたので共有させていただきます。",
+      "context_reading": "せんじつのけんですが、けつろんがでましたのできょうゆうさせていただきます。",
+      "context_meaning_vi": "Về vấn đề hôm trước, đã có kết luận nên tôi xin phép chia sẻ.",
+      "usage_note": "Dùng để mở đầu topic trong meeting hoặc email. Rất phổ biến.",
+      "casual_equivalent": "～のことだけど",
+      "formality": "formal"
+    },
+    {
+      "id": "p002",
+      "phrase": "～していただけますか",
+      "reading": "～していただけますか",
+      "meaning_vi": "Xin phép các bạn ~, có thể ~được không?",
+      "type": "phrase",
+      "context_sentence": "ご確認していただけますか。",
+      "context_reading": "ごかくにんしていただけますか。",
+      "context_meaning_vi": "Xin xác nhận được không?",
+      "usage_note": "Keigo cơ bản dùng để xin phép hoặc yêu cầu ai đó làm gì đó một cách lịch sự.",
+      "casual_equivalent": "～してもらえる？",
+      "formality": "formal"
+    },
+    {
+      "id": "p003",
+      "phrase": "今後ともよろしくお願いいたします",
+      "reading": "こんごともよろしくおねがいいたします",
+      "meaning_vi": "Mong được sự hợp tác từ nay về sau",
+      "type": "phrase",
+      "context_sentence": "[人物A]が[プロジェクトX]の担当になりましたので、今後ともよろしくお願いいたします。",
+      "context_reading": "[じんぶつA]が[プロジェクトX]のたんとうになりましたので、こんごともよろしくおねがいいたします。",
+      "context_meaning_vi": "[Người A] đã trở thành người phụ trách [Dự án X], mong được sự hợp tác từ nay về sau.",
+      "usage_note": "Cụm từ lịch sự dùng khi bắt đầu một mối quan hệ làm việc mới hoặc tiếp tục hợp tác.",
+      "casual_equivalent": "これからもよろしく",
+      "formality": "very formal"
+    },
+    {
+      "id": "p004",
+      "phrase": "～させていただきます",
+      "reading": "～させていただきます",
+      "meaning_vi": "Xin phép ~, tôi sẽ ~ (lịch sự)",
+      "type": "phrase",
+      "context_sentence": "情報を共有させていただきます。",
+      "context_reading": "じょうほうをきょうゆうさせていただきます。",
+      "context_meaning_vi": "Xin phép chia sẻ thông tin.",
+      "usage_note": "Keigo dùng trong email hoặc meeting khi muốn thể hiện lịch sự khi làm điều gì đó.",
+      "casual_equivalent": "～します",
+      "formality": "formal"
+    },
+    {
+      "id": "p005",
+      "phrase": "引き続き",
+      "reading": "ひきつづき",
+      "meaning_vi": "Tiếp tục, liên tục",
+      "type": "phrase",
+      "context_sentence": "引き続きデータ入力を実施しました。",
+      "context_reading": "ひきつづきデータにゅうりょくをじっししました。",
+      "context_meaning_vi": "Chúng tôi tiếp tục thực hiện nhập dữ liệu.",
+      "usage_note": "Dùng để chỉ sự tiếp tục của một hoạt động nào đó.",
+      "casual_equivalent": "ずっと、引き続き",
+      "formality": "formal"
+    },
+    {
+      "id": "p006",
+      "phrase": "～と思っています",
+      "reading": "～とおもっています",
+      "meaning_vi": "Tôi nghĩ rằng ~, tôi dự định ~",
+      "type": "phrase",
+      "context_sentence": "来週、会議を開きたいと思っています。",
+      "context_reading": "らいしゅう、かいぎをひらきたいとおもっています。",
+      "context_meaning_vi": "Tôi dự định mở một cuộc họp vào tuần tới.",
+      "usage_note": "Dùng để thể hiện ý định hoặc suy nghĩ của bản thân một cách lịch sự.",
+      "casual_equivalent": "～と思う",
+      "formality": "semi-formal"
+    },
+    {
+      "id": "p007",
+      "phrase": "という話",
+      "reading": "というはなし",
+      "meaning_vi": "Câu chuyện rằng ~, tôi nghe rằng ~",
+      "type": "phrase",
+      "context_sentence": "システムの導入は3月末という話です。",
+      "context_reading": "システムのどうにゅうは3がつまつというはなしです。",
+      "context_meaning_vi": "Tôi nghe rằng hệ thống sẽ được triển khai vào cuối tháng 3.",
+      "usage_note": "Dùng để truyền đạt thông tin mà bạn đã nghe từ người khác.",
+      "casual_equivalent": "って話",
+      "formality": "neutral"
+    },
+    {
+      "id": "p008",
+      "phrase": "ご確認ください",
+      "reading": "ごかくにんください",
+      "meaning_vi": "Vui lòng xác nhận",
+      "type": "phrase",
+      "context_sentence": "こちらの内容をご確認ください。",
+      "context_reading": "こちらのないようをごかくにんください。",
+      "context_meaning_vi": "Vui lòng xác nhận nội dung này.",
+      "usage_note": "Keigo dùng trong email khi yêu cầu ai đó xác nhận điều gì đó.",
+      "casual_equivalent": "確認して",
+      "formality": "formal"
+    }
+  ],
+  "grammar": [
+    {
+      "id": "g001",
+      "pattern": "～ていただけますか",
+      "reading": "～ていただけますか",
+      "meaning_vi": "Xin phép ~, có thể ~được không?",
+      "type": "grammar",
+      "jlpt": "N4",
+      "explanation_vi": "Grammar N4 nhưng dùng rất nhiều trong business để xin phép hoặc yêu cầu một cách lịch sự.",
+      "examples_from_meeting": [
+        {
+          "ja": "ご確認していただけますか。",
+          "reading": "ごかくにんしていただけますか。",
+          "vi": "Xin xác nhận được không?"
+        },
+        {
+          "ja": "資料をお送りしていただけますか。",
+          "reading": "しりょうをおおくりしていただけますか。",
+          "vi": "Xin gửi tài liệu cho tôi được không?"
+        }
+      ],
+      "common_mistakes": "Hay nhầm với ～てもらえますか (informal) hoặc lợn ngại sử dụng keigo"
+    },
+    {
+      "id": "g002",
+      "pattern": "～させていただきます",
+      "reading": "～させていただきます",
+      "meaning_vi": "Xin phép ~",
+      "type": "grammar",
+      "jlpt": "N4",
+      "explanation_vi": "Grammar keigo N4 dùng rất phổ biến trong business khi muốn thể hiện lịch sự.",
+      "examples_from_meeting": [
+        {
+          "ja": "情報を共有させていただきます。",
+          "reading": "じょうほうをきょうゆうさせていただきます。",
+          "vi": "Xin phép chia sẻ thông tin."
+        },
+        {
+          "ja": "確認させていただきたいと思っています。",
+          "reading": "かくにんさせていただきたいとおもっています。",
+          "vi": "Tôi muốn xin phép xác nhận."
+        }
+      ],
+      "common_mistakes": "Hay quên thêm させ, chỉ nói ていただきます là không đủ lịch sự"
+    },
+    {
+      "id": "g003",
+      "pattern": "～ことになります",
+      "reading": "～ことになります",
+      "meaning_vi": "Kết thúc bằng ~, sẽ là ~",
+      "type": "grammar",
+      "jlpt": "N3",
+      "explanation_vi": "Grammar N3 dùng để nói về một kết quả hoặc tình huống được quyết định từ trước.",
+      "examples_from_meeting": [
+        {
+          "ja": "3月末までに完了することになります。",
+          "reading": "3がつまつまでにかんりょうすることになります。",
+          "vi": "Kết thúc vào cuối tháng 3."
+        }
+      ],
+      "common_mistakes": "Hay nhầm với ～ことにする (quyết định làm gì) hoặc ～ようになる (trở nên)"
+    },
+    {
+      "id": "g004",
+      "pattern": "～と思っています",
+      "reading": "～とおもっています",
+      "meaning_vi": "Tôi nghĩ rằng ~",
+      "type": "grammar",
+      "jlpt": "N4",
+      "explanation_vi": "Grammar N4 dùng để thể hiện suy nghĩ hoặc ý định của bản thân.",
+      "examples_from_meeting": [
+        {
+          "ja": "来週、会議を開きたいと思っています。",
+          "reading": "らいしゅう、かいぎをひらきたいとおもっています。",
+          "vi": "Tôi dự định mở cuộc họp tuần tới."
+        }
+      ],
+      "common_mistakes": "Hay dùng ～と思う (quá informal) thay vì ～と思っています (thích hợp với business)"
+    }
+  ],
+  "exercises": {
+    "translate_vj": [
+      {
+        "id": "tvj001",
+        "prompt_vi": "[Người A] đã trở thành người phụ trách [Dự án X], mong được sự hợp tác từ nay về sau.",
+        "acceptable_answers": [
+          "[人物A]が[プロジェクトX]の担当になりましたので、今後ともよろしくお願いいたします。"
+        ],
+        "key_points": [
+          "担当",
+          "になりました",
+          "よろしくお願い"
+        ],
+        "difficulty": "easy",
+        "ref_id": "v001"
+      },
+      {
+        "id": "tvj002",
+        "prompt_vi": "Xin xác nhận được không?",
+        "acceptable_answers": [
+          "ご確認していただけますか。"
+        ],
+        "key_points": [
+          "ご確認",
+          "していただけますか"
+        ],
+        "difficulty": "easy",
+        "ref_id": "v007"
+      },
+      {
+        "id": "tvj003",
+        "prompt_vi": "Xin phép chia sẻ thông tin này.",
+        "acceptable_answers": [
+          "この情報を共有させていただきます。"
+        ],
+        "key_points": [
+          "共有",
+          "させていただきます"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "v006"
+      },
+      {
+        "id": "tvj004",
+        "prompt_vi": "Dự định hoàn thành vào cuối tháng 3.",
+        "acceptable_answers": [
+          "3月末までに完了する予定です。"
+        ],
+        "key_points": [
+          "完了",
+          "予定"
+        ],
+        "difficulty": "easy",
+        "ref_id": "v004"
+      },
+      {
+        "id": "tvj005",
+        "prompt_vi": "Chúng tôi đang tiến hành phân tích mua sắm.",
+        "acceptable_answers": [
+          "購買分析を実施しています。"
+        ],
+        "key_points": [
+          "分析",
+          "実施"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "v013"
+      }
+    ],
+    "translate_jv": [
+      {
+        "id": "tjv001",
+        "prompt_ja": "先日の件ですが、確認を取りたいと思っています。",
+        "prompt_reading": "せんじつのけんですが、かくにんをとりたいとおもっています。",
+        "acceptable_keywords_vi": [
+          "vấn đề",
+          "hôm trước",
+          "xác nhận"
+        ],
+        "reference_answer_vi": "Về vấn đề hôm trước, tôi muốn lấy sự xác nhận.",
+        "ref_id": "p001"
+      },
+      {
+        "id": "tjv002",
+        "prompt_ja": "3月末までに導入する予定です。",
+        "prompt_reading": "3がつまつまでにどうにゅうするよていです。",
+        "acceptable_keywords_vi": [
+          "cuối tháng 3",
+          "triển khai",
+          "dự định"
+        ],
+        "reference_answer_vi": "Dự định triển khai vào cuối tháng 3.",
+        "ref_id": "v016"
+      },
+      {
+        "id": "tjv003",
+        "prompt_ja": "引き続きデータ分析を実施しました。",
+        "prompt_reading": "ひきつづきデータぶんせきをじっししました。",
+        "acceptable_keywords_vi": [
+          "tiếp tục",
+          "dữ liệu",
+          "phân tích",
+          "thực hiện"
+        ],
+        "reference_answer_vi": "Chúng tôi tiếp tục thực hiện phân tích dữ liệu.",
+        "ref_id": "p005"
+      },
+      {
+        "id": "tjv004",
+        "prompt_ja": "情報を共有させていただきます。",
+        "prompt_reading": "じょうほうをきょうゆうさせていただきます。",
+        "acceptable_keywords_vi": [
+          "thông tin",
+          "chia sẻ",
+          "xin phép"
+        ],
+        "reference_answer_vi": "Xin phép chia sẻ thông tin.",
+        "ref_id": "v006"
+      }
+    ],
+    "fill_blank": [
+      {
+        "id": "fb001",
+        "sentence": "[人物A]が[プロジェクトX]の___になりました。",
+        "sentence_reading": "[じんぶつA]が[プロジェクトX]の___になりました。",
+        "answer": "担当",
+        "options": [
+          "担当",
+          "管理",
+          "責任",
+          "対応"
+        ],
+        "hint_vi": "phụ trách",
+        "ref_id": "v001"
+      },
+      {
+        "id": "fb002",
+        "sentence": "3月末までに___する予定です。",
+        "sentence_reading": "3がつまつまでに___するよていです。",
+        "answer": "完了",
+        "options": [
+          "完了",
+          "予定",
+          "確認",
+          "実施"
+        ],
+        "hint_vi": "hoàn thành",
+        "ref_id": "v005"
+      },
+      {
+        "id": "fb003",
+        "sentence": "この情報を___させていただきます。",
+        "sentence_reading": "このじょうほうを___させていただきます。",
+        "answer": "共有",
+        "options": [
+          "共有",
+          "確認",
+          "対応",
+          "検討"
+        ],
+        "hint_vi": "chia sẻ",
+        "ref_id": "v006"
+      },
+      {
+        "id": "fb004",
+        "sentence": "ご___していただけますか。",
+        "sentence_reading": "ご___していただけますか。",
+        "answer": "確認",
+        "options": [
+          "確認",
+          "共有",
+          "対応",
+          "検討"
+        ],
+        "hint_vi": "xác nhận",
+        "ref_id": "v007"
+      }
+    ],
+    "reorder": [
+      {
+        "id": "ro001",
+        "fragments": [
+          "結論が出ましたので",
+          "先日の件ですが",
+          "共有させていただきます"
+        ],
+        "correct_order": [
+          "先日の件ですが",
+          "結論が出ましたので",
+          "共有させていただきます"
+        ],
+        "meaning_vi": "Về vấn đề hôm trước, đã có kết luận nên tôi xin phép chia sẻ.",
+        "ref_id": "p001"
+      },
+      {
+        "id": "ro002",
+        "fragments": [
+          "予定です",
+          "3月末までに",
+          "導入する"
+        ],
+        "correct_order": [
+          "3月末までに",
+          "導入する",
+          "予定です"
+        ],
+        "meaning_vi": "Dự định triển khai vào cuối tháng 3.",
+        "ref_id": "v016"
+      },
+      {
+        "id": "ro003",
+        "fragments": [
+          "していただけますか",
+          "ご確認"
+        ],
+        "correct_order": [
+          "ご確認",
+          "していただけますか"
+        ],
+        "meaning_vi": "Xin xác nhận được không?",
+        "ref_id": "p002"
+      }
+    ]
+  }
+}
