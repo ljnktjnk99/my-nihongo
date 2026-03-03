@@ -1,16 +1,15 @@
 {
   "meetings": [
     {
-      "id": "2026-02-25_dx-meeting",
+      "id": "2026-03-04_business_project_planning",
       "date": "2025-02-24",
-      "topic": "[会社A] DX推進チーム定例会：[プロジェクトX]ニュースリリース、予算、データ整備、展示会対応",
+      "topic": "[人物A]主催の[プロジェクトX]企画ミーティング。ニュースリリース戦略、予算計画、ハードウェア調達、展示会出展などについて議論",
       "file": "meetings/2025-02-24.json",
-      "total_items": 42,
-      "vocab_count": 25,
-      "phrase_count": 10,
-      "grammar_count": 7
+      "total_items": 33,
+      "vocab_count": 20,
+      "phrase_count": 8,
+      "grammar_count": 5
     }
   ],
-  "updated_at": "",
-  "last_updated": "2026-02-25T01:17:20.426117"
+  "last_updated": "2026-03-04T00:15:59.034121"
 }

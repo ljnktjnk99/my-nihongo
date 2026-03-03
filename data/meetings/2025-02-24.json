@@ -1,872 +1,1073 @@
 {
-  "meeting_id": "2026-02-25_dx-meeting",
+  "meeting_id": "2026-03-04_business_project_planning",
   "date": "2025-02-24",
-  "topic_hint": "[会社A] DX推進チーム定例会：[プロジェクトX]ニュースリリース、予算、データ整備、展示会対応",
+  "topic_hint": "[人物A]主催の[プロジェクトX]企画ミーティング。ニュースリリース戦略、予算計画、ハードウェア調達、展示会出展などについて議論",
   "vocabulary": [
     {
       "id": "v001",
-      "word": "予算",
-      "reading": "よさん",
-      "meaning_vi": "ngân sách, dự toán",
+      "word": "担当",
+      "reading": "たんとう",
+      "meaning_vi": "phụ trách, đảm nhận, người trách nhiệm",
       "type": "vocab",
       "jlpt": "N3",
-      "context_sentence": "[プロジェクトX]に六の予算を今決めようとしますんで",
-      "context_meaning_vi": "Chúng tôi đang cố gắng xác định ngân sách cho [プロジェクトX] bây giờ",
-      "usage_note": "từ business phổ biến",
+      "context_sentence": "[人物A]が[プロジェクトX]の担当になりました。",
+      "context_meaning_vi": "[Người A] đã trở thành người phụ trách [Dự án X].",
+      "usage_note": "Rất hay gặp trong business. 担当者 = người phụ trách, 担当する = phụ trách cái gì. Nghe dễ nhầm với 当番",
       "collocations": [
-        "予算が決まる",
-        "予算を立てる",
-        "予算内で"
+        "担当者",
+        "担当する",
+        "ご担当"
       ],
-      "formality": "formal",
-      "frequency_in_meeting": 8
+      "formality": "neutral",
+      "frequency_in_meeting": 5
     },
     {
       "id": "v002",
-      "word": "成果",
-      "reading": "せいか",
-      "meaning_vi": "thành tích, kết quả, hiệu quả",
+      "word": "打ち合わせ",
+      "reading": "うちあわせ",
+      "meaning_vi": "cuộc họp, buổi trao đổi, thảo luận",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "最大限の成果を出すようになると思いますが",
-      "context_meaning_vi": "Tôi nghĩ chúng tôi sẽ đạt được kết quả tối đa",
-      "usage_note": "chỉ sản phẩm/kết quả của nỗ lực",
+      "jlpt": "N1",
+      "context_sentence": "週次の打ち合わせをします。",
+      "context_meaning_vi": "Chúng ta sẽ tổ chức buổi họp hàng tuần.",
+      "usage_note": "Casual hơn 会議. Dùng cho họp nhỏ, internal. Thường trong cụm: 事前打ち合わせ = cuộc họp trước",
       "collocations": [
-        "成果を出す",
-        "成果を上げる"
+        "打ち合わせをする",
+        "事前打ち合わせ",
+        "打ち合わせの件"
       ],
-      "formality": "formal",
-      "frequency_in_meeting": 5
+      "formality": "neutral",
+      "frequency_in_meeting": 4
     },
     {
       "id": "v003",
       "word": "ニュースリリース",
-      "reading": "ニュースリリース",
-      "meaning_vi": "thông cáo báo chí",
+      "reading": "にゅーすりりーす",
+      "meaning_vi": "bản tin báo chí, thông cáo báo chí",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "ニュースリリースどうするかっていうミーティングを週次でですね",
-      "context_meaning_vi": "Chúng tôi họp hàng tuần để bàn về cách phát hành thông cáo báo chí",
-      "usage_note": "press release - thuật ngữ media/PR",
+      "jlpt": "N1",
+      "context_sentence": "ニュースリリースを出すかどうかで悩んでいます。",
+      "context_meaning_vi": "Chúng tôi đang phân vân về việc có nên công bố bản tin hay không.",
+      "usage_note": "Từ tiếng Anh. Một cách nói khác: プレスリリース. Hay dùng trong PR/marketing context",
       "collocations": [
         "ニュースリリースを出す",
         "ニュースリリースを打つ"
       ],
       "formality": "formal",
-      "frequency_in_meeting": 12
+      "frequency_in_meeting": 8
     },
     {
       "id": "v004",
-      "word": "協業",
-      "reading": "きょうぎょう",
-      "meaning_vi": "hợp tác (kinh doanh)",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "協業先を探すためっていう目的もともとあるので",
-      "context_meaning_vi": "Mục đích cũng bao gồm tìm kiếm các đối tác hợp tác",
-      "usage_note": "hợp tác chiến lược giữa các công ty",
-      "collocations": [
-        "協業する",
-        "協業先",
-        "協業関係"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 3
-    },
-    {
-      "id": "v005",
-      "word": "受託開発",
-      "reading": "じゅたくかいはつ",
-      "meaning_vi": "phát triển theo hợp đồng, outsourcing",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "受託開発でたのさ",
-      "context_meaning_vi": "Hay phát triển theo hợp đồng",
-      "usage_note": "phát triển phần mềm/sản phẩm theo yêu cầu khách hàng",
-      "collocations": [
-        "受託開発を受ける"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 2
-    },
-    {
-      "id": "v006",
-      "word": "ドライブ",
-      "reading": "ドライブ",
-      "meaning_vi": "động lực, thúc đẩy",
+      "word": "予算",
+      "reading": "よさん",
+      "meaning_vi": "ngân sách, bộ ngân sách",
       "type": "vocab",
       "jlpt": "N3",
-      "context_sentence": "出すドライブが多分私自身にもちょっと弱い",
-      "context_meaning_vi": "Có lẽ tôi thiếu động lực để phát hành nó",
-      "usage_note": "từ ngoại lai - motivation/driving force",
+      "context_sentence": "この事業の予算は2500万円です。",
+      "context_meaning_vi": "Ngân sách của dự án này là 25 triệu yên.",
+      "usage_note": "Formal. Nhắc đến trong context tài chính. Hay gặp cụm từ: 予算を立てる = lập ngân sách, 予算内に = trong ngân sách",
       "collocations": [
-        "ドライブがかかる",
-        "ドライブが弱い"
-      ],
-      "formality": "semi-formal",
-      "frequency_in_meeting": 4
-    },
-    {
-      "id": "v007",
-      "word": "マネタイズ",
-      "reading": "マネタイズ",
-      "meaning_vi": "kiếm tiền, tạo doanh thu",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "マネタイズできないとBMも起きづらいよね",
-      "context_meaning_vi": "Nếu không thể kiếm tiền, mô hình kinh doanh cũng khó phát triển",
-      "usage_note": "monetization - từ startup/tech",
-      "collocations": [
-        "マネタイズする"
-      ],
-      "formality": "semi-formal",
-      "frequency_in_meeting": 4
-    },
-    {
-      "id": "v008",
-      "word": "インパクト",
-      "reading": "インパクト",
-      "meaning_vi": "ảnh hưởng, tác động",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "あんまりインパクトないなと思ってるんですよ",
-      "context_meaning_vi": "Tôi cảm thấy nó không có ảnh hưởng quá lớn",
-      "usage_note": "từ ngoại lai - impact/influence",
-      "collocations": [
-        "インパクトがある",
-        "インパクトを与える"
-      ],
-      "formality": "semi-formal",
-      "frequency_in_meeting": 3
-    },
-    {
-      "id": "v009",
-      "word": "差別化",
-      "reading": "さべつか",
-      "meaning_vi": "sự phân biệt, tạo điểm khác biệt",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "差別化が難しいですよね",
-      "context_meaning_vi": "Thật khó để tạo ra sự khác biệt",
-      "usage_note": "marketing term - differentiation",
-      "collocations": [
-        "差別化する",
-        "差別化戦略"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 2
-    },
-    {
-      "id": "v010",
-      "word": "地図整備",
-      "reading": "ちずせいび",
-      "meaning_vi": "phát triển/bảo dưỡng bản đồ",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "地図整備することによって",
-      "context_meaning_vi": "Bằng cách phát triển bản đồ",
-      "usage_note": "maintenance/development của map data",
-      "collocations": [
-        "地図整備する"
+        "予算を立てる",
+        "予算内",
+        "予算決定"
       ],
       "formality": "formal",
       "frequency_in_meeting": 6
     },
     {
-      "id": "v011",
-      "word": "ハイブリッド",
-      "reading": "ハイブリッド",
-      "meaning_vi": "lai tạp, kết hợp hai loại",
+      "id": "v005",
+      "word": "進捗",
+      "reading": "しんちょく",
+      "meaning_vi": "tiến độ, tiến trình",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "ハイブリッドラグを使うことで決まって",
-      "context_meaning_vi": "Được quyết định sử dụng hybrid RAG",
-      "usage_note": "từ ngoại lai - combination of two types",
+      "jlpt": "N3",
+      "context_sentence": "プロジェクトの進捗はどうですか。",
+      "context_meaning_vi": "Tiến độ của dự án thế nào?",
+      "usage_note": "Business term phổ biến. Hay trong: 進捗状況 = tình trạng tiến độ, 進捗報告 = báo cáo tiến độ",
       "collocations": [
-        "ハイブリッド型",
-        "ハイブリッド方式"
+        "進捗報告",
+        "進捗状況",
+        "進捗がない"
       ],
       "formality": "formal",
       "frequency_in_meeting": 3
     },
     {
-      "id": "v012",
-      "word": "ファインチューニング",
-      "reading": "ファインチューニング",
-      "meaning_vi": "điều chỉnh tinh tế (mô hình AI)",
+      "id": "v006",
+      "word": "共有",
+      "reading": "きょうゆう",
+      "meaning_vi": "chia sẻ, chia vụn",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "ハインチューニングの方ですが",
-      "context_meaning_vi": "Về phần fine-tuning",
-      "usage_note": "ML/AI term",
+      "jlpt": "N3",
+      "context_sentence": "情報を共有します。",
+      "context_meaning_vi": "Tôi sẽ chia sẻ thông tin.",
+      "usage_note": "Formal hơn 教える. Dùng trong company context. 情報共有 = chia sẻ thông tin",
       "collocations": [
-        "ファインチューニングする"
+        "情報共有",
+        "共有する",
+        "共有資料"
       ],
       "formality": "formal",
-      "frequency_in_meeting": 2
+      "frequency_in_meeting": 4
     },
     {
-      "id": "v013",
-      "word": "VLM",
-      "reading": "ブイエルエム",
-      "meaning_vi": "mô hình ngôn ngữ thị giác (Vision Language Model)",
+      "id": "v007",
+      "word": "対応",
+      "reading": "たいおう",
+      "meaning_vi": "ứng phó, xử lý, giải quyết",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "ローカルのVLMモデルで舞台認識",
-      "context_meaning_vi": "Sử dụng mô hình VLM cục bộ cho nhận dạng sân khấu",
-      "usage_note": "AI/ML technical term",
+      "jlpt": "N3",
+      "context_sentence": "お客さんの問い合わせに対応する必要があります。",
+      "context_meaning_vi": "Chúng ta cần xử lý các câu hỏi từ khách hàng.",
+      "usage_note": "Rất hay trong business. ~に対応する = xử lý cái gì",
       "collocations": [
-        "VLMモデル"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 2
-    },
-    {
-      "id": "v014",
-      "word": "展示会",
-      "reading": "てんじかい",
-      "meaning_vi": "triển lãm, hội chợ",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "国際フォーラムとかでやってる展示会に",
-      "context_meaning_vi": "Để trưng bày trong các hội chợ diễn ra tại các diễn đàn quốc tế",
-      "usage_note": "trade show/exhibition",
-      "collocations": [
-        "展示会に出展",
-        "展示会に出る"
+        "対応する",
+        "対応可能",
+        "対応できない"
       ],
       "formality": "formal",
       "frequency_in_meeting": 5
     },
     {
-      "id": "v015",
-      "word": "集客",
-      "reading": "しゅうきゃく",
-      "meaning_vi": "thu hút khách hàng",
+      "id": "v008",
+      "word": "確認",
+      "reading": "かくにん",
+      "meaning_vi": "xác nhận, kiểm tra",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "ここで集客するっていう",
-      "context_meaning_vi": "Và để thu hút khách hàng ở đây",
-      "usage_note": "marketing - attracting customers",
+      "jlpt": "N3",
+      "context_sentence": "大丈夫ですか？はい、確認しました。",
+      "context_meaning_vi": "Ổn chứ? Vâng, tôi đã kiểm tra rồi.",
+      "usage_note": "Hay gặp trong email business. Hai cách nói: ご確認ください = xin vui lòng kiểm tra (keigo), 確認したか = kiểm tra chưa (casual)",
       "collocations": [
-        "集客する",
-        "集客効果"
+        "確認する",
+        "確認ください",
+        "確認済み"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 4
+    },
+    {
+      "id": "v009",
+      "word": "実施",
+      "reading": "じっし",
+      "meaning_vi": "thực hiện, triển khai",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "来週、計画を実施します。",
+      "context_meaning_vi": "Tuần sau, chúng ta sẽ triển khai kế hoạch.",
+      "usage_note": "Formal. Hay dùng: ~の実施 = triển khai cái gì, 実施予定 = dự định triển khai",
+      "collocations": [
+        "実施する",
+        "実施予定",
+        "実施中"
       ],
       "formality": "formal",
+      "frequency_in_meeting": 3
+    },
+    {
+      "id": "v010",
+      "word": "フィードバック",
+      "reading": "ふぃーどばっく",
+      "meaning_vi": "phản hồi, ý kiến phản hồi",
+      "type": "vocab",
+      "jlpt": "N1",
+      "context_sentence": "お客さんからフィードバックをもらいました。",
+      "context_meaning_vi": "Chúng tôi nhận được phản hồi từ khách hàng.",
+      "usage_note": "Từ tiếng Anh. Hay: フィードバックを受ける = nhận phản hồi",
+      "collocations": [
+        "フィードバックをもらう",
+        "フィードバックを受ける"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 2
+    },
+    {
+      "id": "v011",
+      "word": "協業",
+      "reading": "きょうぎょう",
+      "meaning_vi": "hợp tác, làm việc cùng nhau",
+      "type": "vocab",
+      "jlpt": "N2",
+      "context_sentence": "他の会社と協業するつもりです。",
+      "context_meaning_vi": "Chúng tôi dự định hợp tác với công ty khác.",
+      "usage_note": "Formal, N2 level. Casual hơn: パートナーシップ hay 一緒に仕事をする",
+      "collocations": [
+        "協業先",
+        "協業する"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 1
+    },
+    {
+      "id": "v012",
+      "word": "差別化",
+      "reading": "さべつか",
+      "meaning_vi": "phân biệt hóa, tạo điểm khác biệt",
+      "type": "vocab",
+      "jlpt": "N2",
+      "context_sentence": "他の企業との差別化が重要です。",
+      "context_meaning_vi": "Phân biệt hóa với các công ty khác là rất quan trọng.",
+      "usage_note": "Business marketing term. 差別化ポイント = điểm khác biệt, 差別化する = tạo điểm khác biệt",
+      "collocations": [
+        "差別化",
+        "差別化ポイント"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 1
+    },
+    {
+      "id": "v013",
+      "word": "コンセプト",
+      "reading": "こんせぷと",
+      "meaning_vi": "khái niệm, ý tưởng, định hướng",
+      "type": "vocab",
+      "jlpt": "N1",
+      "context_sentence": "新しいコンセプトを紹介します。",
+      "context_meaning_vi": "Tôi sẽ giới thiệu một khái niệm mới.",
+      "usage_note": "Từ tiếng Anh. Hay dùng: コンセプト段階 = giai đoạn khái niệm, コンセプト実装 = thực hiện khái niệm",
+      "collocations": [
+        "コンセプト",
+        "コンセプト段階"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v014",
+      "word": "ブレスト",
+      "reading": "ぶれすと",
+      "meaning_vi": "brainstorm, cuộc họp ý tưởng",
+      "type": "vocab",
+      "jlpt": "N1",
+      "context_sentence": "明日、ブレストをします。",
+      "context_meaning_vi": "Ngày mai, chúng ta sẽ brainstorm.",
+      "usage_note": "Viết tắt của brainstorming. Casual: ブレストする = brainstorm",
+      "collocations": [
+        "ブレスト",
+        "ブレストする"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 3
+    },
+    {
+      "id": "v015",
+      "word": "デプロイ",
+      "reading": "でぷろい",
+      "meaning_vi": "triển khai, phát hành (IT context)",
+      "type": "vocab",
+      "jlpt": "N1",
+      "context_sentence": "新しいモデルをデプロイしました。",
+      "context_meaning_vi": "Chúng ta đã triển khai mô hình mới.",
+      "usage_note": "IT technical term từ tiếng Anh. Thường trong development context",
+      "collocations": [
+        "デプロイする",
+        "デプロイ完了"
+      ],
+      "formality": "technical",
       "frequency_in_meeting": 2
     },
     {
       "id": "v016",
-      "word": "概要",
-      "reading": "がいよう",
-      "meaning_vi": "tổng quan, phác thảo",
+      "word": "マネタイズ",
+      "reading": "ますてたいず",
+      "meaning_vi": "kiếm tiền, tạo doanh thu, thương mại hóa",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "概要としてはDXメンバー",
-      "context_meaning_vi": "Về phác thảo tổng quát thì là các thành viên DX",
-      "usage_note": "summary/overview",
+      "jlpt": "N1",
+      "context_sentence": "このプロジェクトをマネタイズする方法を考えています。",
+      "context_meaning_vi": "Chúng tôi đang suy nghĩ về cách kiếm tiền từ dự án này.",
+      "usage_note": "Từ tiếng Anh. Business/marketing term. マネタイズできない = không thể kiếm tiền",
       "collocations": [
-        "概要を説明する"
+        "マネタイズ",
+        "マネタイズする"
       ],
       "formality": "formal",
-      "frequency_in_meeting": 2
-    },
-    {
-      "id": "v017",
-      "word": "ブレスト",
-      "reading": "ブレスト",
-      "meaning_vi": "brainstorm",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "ブレストとしてマネタイズのアイディア",
-      "context_meaning_vi": "Brainstorm các ý tưởng kiếm tiền",
-      "usage_note": "brainstorming session",
-      "collocations": [
-        "ブレストする"
-      ],
-      "formality": "semi-formal",
       "frequency_in_meeting": 3
     },
     {
-      "id": "v018",
-      "word": "背景",
-      "reading": "はいけい",
-      "meaning_vi": "bối cảnh, nền tảng",
+      "id": "v017",
+      "word": "トレーニング",
+      "reading": "とれーにんぐ",
+      "meaning_vi": "đào tạo, huấn luyện",
       "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "で、背景として先週ちょっと",
-      "context_meaning_vi": "Và như một bối cảnh, tuần trước",
-      "usage_note": "context/background",
+      "jlpt": "N1",
+      "context_sentence": "モデルのトレーニングを実施します。",
+      "context_meaning_vi": "Chúng ta sẽ thực hiện huấn luyện mô hình.",
+      "usage_note": "IT context. Thường: トレーニングデータ = dữ liệu huấn luyện, ファインチューニング =미세 조정",
       "collocations": [
-        "背景にある"
+        "トレーニング",
+        "トレーニングデータ"
+      ],
+      "formality": "technical",
+      "frequency_in_meeting": 2
+    },
+    {
+      "id": "v018",
+      "word": "打ち出す",
+      "reading": "うちだす",
+      "meaning_vi": "đưa ra, công bố, tung ra",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "新しい戦略を打ち出します。",
+      "context_meaning_vi": "Chúng ta sẽ công bố một chiến lược mới.",
+      "usage_note": "Formal. Công bố hoặc tung ra sản phẩm/ý tưởng. Tương tự: リリースする",
+      "collocations": [
+        "打ち出す",
+        "戦略を打ち出す"
       ],
       "formality": "formal",
       "frequency_in_meeting": 2
     },
     {
       "id": "v019",
-      "word": "必要",
-      "reading": "ひつよう",
-      "meaning_vi": "cần thiết, cần phải",
+      "word": "方針",
+      "reading": "ほうしん",
+      "meaning_vi": "phương hướng, chính sách, hướng đi",
       "type": "vocab",
-      "jlpt": "N4",
-      "context_sentence": "地図データの理解が必要",
-      "context_meaning_vi": "Việc hiểu dữ liệu bản đồ là cần thiết",
-      "usage_note": "necessity - basic but important",
+      "jlpt": "N3",
+      "context_sentence": "会社の方針を決めました。",
+      "context_meaning_vi": "Chúng ta đã quyết định phương hướng của công ty.",
+      "usage_note": "Formal. 経営方針 = chính sách quản lý, 営業方針 = chiến lược kinh doanh",
       "collocations": [
-        "～が必要",
-        "～の必要がある"
+        "方針",
+        "経営方針",
+        "営業方針"
       ],
       "formality": "formal",
-      "frequency_in_meeting": 4
+      "frequency_in_meeting": 2
     },
     {
       "id": "v020",
-      "word": "確認",
-      "reading": "かくにん",
-      "meaning_vi": "xác nhận, kiểm chứng",
+      "word": "受ける",
+      "reading": "うける",
+      "meaning_vi": "nhận, tiếp nhận, chịu, đón",
       "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "確認したいなと思ったんですけど",
-      "context_meaning_vi": "Tôi muốn xác nhận về điều này",
-      "usage_note": "verification/confirmation",
+      "jlpt": "N4",
+      "context_sentence": "お客さんの質問を受けます。",
+      "context_meaning_vi": "Chúng ta sẽ tiếp nhận các câu hỏi từ khách hàng.",
+      "usage_note": "Đa nghĩa. Hay hay nhầm với 受ける (đạt được - khi test). Trong business: ~を受ける = nhận ~, 問い合わせを受ける = nhận liên lạc",
       "collocations": [
-        "確認する",
-        "確認が取れる"
+        "質問を受ける",
+        "問い合わせを受ける"
       ],
-      "formality": "formal",
-      "frequency_in_meeting": 6
-    },
-    {
-      "id": "v021",
-      "word": "進捗",
-      "reading": "しんちょく",
-      "meaning_vi": "tiến độ, tiến triển",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "進捗ないんですけれども",
-      "context_meaning_vi": "Không có tiến triển",
-      "usage_note": "progress/advancement",
-      "collocations": [
-        "進捗報告",
-        "進捗を報告する"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 8
-    },
-    {
-      "id": "v022",
-      "word": "対応",
-      "reading": "たいおう",
-      "meaning_vi": "ứng phó, xử lý, tương ứng",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "対応してもらっています",
-      "context_meaning_vi": "Xin để bạn xử lý điều này",
-      "usage_note": "handling/dealing with - very common in business",
-      "collocations": [
-        "対応する",
-        "対応が必要"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 9
-    },
-    {
-      "id": "v023",
-      "word": "課題",
-      "reading": "かだい",
-      "meaning_vi": "vấn đề, bài toán, nhiệm vụ",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "課題としては、ギットラップはまだ",
-      "context_meaning_vi": "Về vấn đề, GitLab vẫn",
-      "usage_note": "problem/issue to be solved",
-      "collocations": [
-        "課題を抱える",
-        "課題解決"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 5
-    },
-    {
-      "id": "v024",
-      "word": "工数",
-      "reading": "こうすう",
-      "meaning_vi": "công suất, lượng công việc",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "社員の方の工数の削減",
-      "context_meaning_vi": "Giảm lượng công việc của nhân viên",
-      "usage_note": "man-hours/workload",
-      "collocations": [
-        "工数削減",
-        "工数を削減する"
-      ],
-      "formality": "formal",
+      "formality": "neutral",
       "frequency_in_meeting": 3
-    },
-    {
-      "id": "v025",
-      "word": "削減",
-      "reading": "さくげん",
-      "meaning_vi": "giảm, cắt giảm",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "3 4割削減っていう意味",
-      "context_meaning_vi": "Ý nghĩa của việc giảm 30-40%",
-      "usage_note": "reduction/decrease",
-      "collocations": [
-        "削減する",
-        "削減計画"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 5
     }
   ],
   "phrases": [
     {
       "id": "p001",
-      "phrase": "～だけではなく～",
-      "reading": "～だけではなく～",
-      "meaning_vi": "không chỉ ~ mà còn ~",
+      "phrase": "～の件ですが",
+      "reading": "～のけんですが",
+      "meaning_vi": "Về vấn đề ~, liên quan đến ~",
       "type": "phrase",
-      "context_sentence": "複数の複合的な要素を作らせることだけではなく",
-      "context_meaning_vi": "Không chỉ tạo ra nhiều yếu tố phức tạp",
-      "usage_note": "keigo pattern - more formal than 'だけでなく'",
-      "formality": "very_polite"
+      "jlpt": "N3",
+      "context_sentence": "先日の件ですが、結論が出ました。",
+      "context_meaning_vi": "Về vấn đề hôm trước, chúng tôi đã có kết luận.",
+      "usage_note": "Dùng để mở đầu topic hoặc email. Rất phổ biến trong business. Cách casual: ～の話なんですけど",
+      "casual_equivalent": "～のことだけど、～の話なんですけど",
+      "formality": "formal"
     },
     {
       "id": "p002",
-      "phrase": "～じゃないですか",
-      "reading": "～じゃないですか",
-      "meaning_vi": "phải không?, không phải sao? (xin tán thành)",
+      "phrase": "～を踏まえて",
+      "reading": "～をふまえて",
+      "meaning_vi": "Dựa trên ~, căn cứ vào ~, tính đến ~",
       "type": "phrase",
-      "context_sentence": "そのジオテクションと自体がビーユー側じゃないじゃないですか",
-      "context_meaning_vi": "[プロジェクトX] lẫn thân nó không phải phía [会社A] mà, phải không?",
-      "usage_note": "cushion word - soft assertion seeking agreement",
-      "casual_equivalent": "～じゃない",
-      "formality": "very_polite"
+      "jlpt": "N2",
+      "context_sentence": "お客さんのフィードバックを踏まえて、改善します。",
+      "context_meaning_vi": "Dựa trên phản hồi của khách hàng, chúng ta sẽ cải thiện.",
+      "usage_note": "Formal. Hay dùng khi đưa ra quyết định sau khi xem xét thông tin. Tương tự nhưng formal hơn: ～に基づいて",
+      "casual_equivalent": "～をもとに",
+      "formality": "formal"
     },
     {
       "id": "p003",
-      "phrase": "～とともに",
-      "reading": "～とともに",
-      "meaning_vi": "cùng với, đồng thời",
+      "phrase": "～に対応する",
+      "reading": "～にたいおうする",
+      "meaning_vi": "ứng phó với ~, xử lý ~, đáp ứng ~",
       "type": "phrase",
-      "context_sentence": "それと同時に、ソジさんとアイディアを",
-      "context_meaning_vi": "Đồng thời đó, tôi brainstorm ý tưởng với [人物D]",
-      "usage_note": "formal conjunction",
-      "casual_equivalent": "と一緒に",
-      "formality": "very_polite"
+      "jlpt": "N3",
+      "context_sentence": "増える問い合わせに対応できるか心配です。",
+      "context_meaning_vi": "Tôi lo lắng liệu chúng ta có thể xử lý việc tăng lên của các câu hỏi hay không.",
+      "usage_note": "Rất hay trong business context. ~に対応する = ứng phó với cái gì, 対応可能 = có thể ứng phó",
+      "casual_equivalent": "～に対処する",
+      "formality": "formal"
     },
     {
       "id": "p004",
-      "phrase": "～ようになる",
-      "reading": "～ようになる",
-      "meaning_vi": "trở nên có khả năng ~, đến nỗi ~",
+      "phrase": "以上です",
+      "reading": "いじょうです",
+      "meaning_vi": "Xong, đó là tất cả (kết thúc phát biểu)",
       "type": "phrase",
-      "context_sentence": "最大限の成果を出すようになると思います",
-      "context_meaning_vi": "Tôi nghĩ chúng tôi sẽ trở nên có khả năng đạt được kết quả tối đa",
-      "usage_note": "change of state/ability",
-      "casual_equivalent": "～ことができる",
+      "jlpt": "N3",
+      "context_sentence": "私の報告は以上です。",
+      "context_meaning_vi": "Báo cáo của tôi là xong.",
+      "usage_note": "Rất phổ biến ở cuối phát biểu trong meeting. Formal. Casual: それだけです",
+      "casual_equivalent": "それだけです",
       "formality": "formal"
     },
     {
       "id": "p005",
-      "phrase": "～ばかりでなく",
-      "reading": "～ばかりでなく",
-      "meaning_vi": "không chỉ ~ mà",
+      "phrase": "～を含めて",
+      "reading": "～をふくめて",
+      "meaning_vi": "Bao gồm ~, tính cả ~",
       "type": "phrase",
-      "context_sentence": "複数の複合的な要素をばかりでなく",
-      "context_meaning_vi": "Không chỉ các yếu tố phức tạp",
-      "usage_note": "more formal version of 'だけでなく'",
-      "casual_equivalent": "～だけでなく",
-      "formality": "very_polite"
+      "jlpt": "N3",
+      "context_sentence": "私を含めて、3人で対応します。",
+      "context_meaning_vi": "Bao gồm tôi, chúng ta sẽ xử lý với 3 người.",
+      "usage_note": "Rất hay trong business khi đề cập nhân sự hoặc danh sách",
+      "casual_equivalent": "～も含めて",
+      "formality": "neutral"
     },
     {
       "id": "p006",
-      "phrase": "～ということ",
-      "reading": "～ということ",
-      "meaning_vi": "tức là ~, có nghĩa là ~",
+      "phrase": "～が必要",
+      "reading": "～がひつよう",
+      "meaning_vi": "Cần ~, ~ là cần thiết",
       "type": "phrase",
-      "context_sentence": "ということで、こちらこう生活させてもらいました",
-      "context_meaning_vi": "Tức là, chúng tôi được cho phép thực hiện như thế này",
-      "usage_note": "restating/clarifying",
-      "casual_equivalent": "～こと",
-      "formality": "formal"
+      "jlpt": "N3",
+      "context_sentence": "システムの改善が必要です。",
+      "context_meaning_vi": "Cần cải thiện hệ thống.",
+      "usage_note": "Phổ biến trong business context. Cách keigo: ～が必要でございます",
+      "casual_equivalent": "～が要る",
+      "formality": "neutral"
     },
     {
       "id": "p007",
-      "phrase": "～かなと思う",
-      "reading": "～かなと思う",
-      "meaning_vi": "tôi tự hỏi liệu ~, tôi có cảm giác rằng ~",
+      "phrase": "～ということですが",
+      "reading": "～ということですが",
+      "meaning_vi": "Nghĩa là ~, hay là nói cách khác ~",
       "type": "phrase",
-      "context_sentence": "ユーザー参加型の地図整備をすることによってすごく早いですっていうのがじょてくでやるなっていう",
-      "context_meaning_vi": "Bằng cách triển khai bản đồ kiểu người dùng tham gia, nó sẽ nhanh chóng",
-      "usage_note": "wondering/speculating",
-      "casual_equivalent": "～かな",
-      "formality": "semi-formal"
+      "jlpt": "N3",
+      "context_sentence": "つまり、マネタイズできないということですね。",
+      "context_meaning_vi": "Vậy là nói cách khác, không thể kiếm tiền phải không?",
+      "usage_note": "Dùng để xác nhận hay nhắc lại điều đã nói. Hay với ～ということになる",
+      "casual_equivalent": "～ってことですか",
+      "formality": "neutral"
     },
     {
       "id": "p008",
-      "phrase": "～として",
-      "reading": "～として",
-      "meaning_vi": "với tư cách là ~, như là ~",
+      "phrase": "～と思うんですけど",
+      "reading": "～とおもうんですけど",
+      "meaning_vi": "Tôi nghĩ rằng ~, nhưng",
       "type": "phrase",
-      "context_sentence": "ニュースバリューとして出すっていう発想",
-      "context_meaning_vi": "Ý tưởng phát hành như một news value",
-      "usage_note": "capacity/function",
-      "casual_equivalent": "として",
-      "formality": "formal"
-    },
-    {
-      "id": "p009",
-      "phrase": "～となる",
-      "reading": "～となる",
-      "meaning_vi": "trở thành ~, sẽ là ~",
-      "type": "phrase",
-      "context_sentence": "データの商品なります",
-      "context_meaning_vi": "Sẽ trở thành một sản phẩm dữ liệu",
-      "usage_note": "becoming/transformation",
-      "casual_equivalent": "～になる",
-      "formality": "very_polite"
-    },
-    {
-      "id": "p010",
-      "phrase": "～ことから",
-      "reading": "～ことから",
-      "meaning_vi": "từ sự kiện/tình trạng ~",
-      "type": "phrase",
-      "context_sentence": "結局出さなくなっちゃうっていうことから",
-      "context_meaning_vi": "Từ tình trạng rằng chúng tôi cuối cùng sẽ không phát hành nó",
-      "usage_note": "causal relationship",
-      "casual_equivalent": "～ので",
-      "formality": "formal"
+      "jlpt": "N3",
+      "context_sentence": "これ、成功すると思うんですけど。",
+      "context_meaning_vi": "Tôi nghĩ rằng cái này sẽ thành công, nhưng...",
+      "usage_note": "Cushion word rất hay dùng. Mềm mỏng hơn ～と思います. Hay khi muốn nói ý kiến riêng nhưng không muốn quá tự tin",
+      "casual_equivalent": "～と思うんだけど",
+      "formality": "neutral"
     }
   ],
   "grammar": [
     {
       "id": "g001",
-      "pattern": "～ようになる",
-      "reading": "～ようになる",
-      "meaning_vi": "trở nên ~ / đến nỗi ~ (thay đổi tình trạng/khả năng)",
+      "pattern": "～ことになる",
+      "reading": "～ことになる",
+      "meaning_vi": "Trở nên ~, được quyết định rằng ~, diễn ra như vậy",
       "type": "grammar",
       "jlpt": "N3",
-      "explanation_vi": "Diễn tả sự thay đổi tình trạng hay khả năng. Dạng khác của 'trở thành'. Ví dụ: 日本語が話せるようになった (Tôi đã trở nên có thể nói tiếng Nhật)",
+      "explanation_vi": "Hay gặp trong business. Thường dùng để chỉ kết luận hoặc quyết định. Khác với ～ようになる (trở nên ~ do tập luyện).",
       "examples_from_meeting": [
         {
-          "ja": "最大限の成果を出すようになると思います",
-          "vi": "Tôi nghĩ chúng tôi sẽ trở nên có khả năng đạt được kết quả tối đa"
+          "ja": "[人物A]が担当することになりました。",
+          "vi": "[Người A] được quyết định trở thành người phụ trách."
         },
         {
-          "ja": "そういった方たちとブレストしたいよねっていう話がありました",
-          "vi": "Đã có cuộc trò chuyện rằng chúng tôi muốn brainstorm với những người như vậy"
+          "ja": "ニュースリリースを出すことになった。",
+          "vi": "Quyết định công bố bản tin."
         }
       ],
-      "common_mistakes": "Nhầm lẫn giữa ～ようになる (trở nên/thay đổi) và ～ようとする (có ý định)"
+      "common_mistakes": "Hay nhầm với ～ようになる (tự nhiên trở nên ~)"
     },
     {
       "id": "g002",
       "pattern": "～に基づいて",
-      "reading": "～にもづいて",
-      "meaning_vi": "dựa trên ~, căn cứ vào ~",
+      "reading": "～にもとづいて",
+      "meaning_vi": "Dựa trên ~, căn cứ vào ~, trên cơ sở ~",
       "type": "grammar",
       "jlpt": "N2",
-      "explanation_vi": "Chỉ cơ sở, nền tảng cho hành động. 基づく = to be based on. Ví dụ: データに基づいて判断する (Đưa ra quyết định dựa trên dữ liệu)",
+      "explanation_vi": "Formal. Thường dùng khi có dữ liệu, quy tắc, hoặc thông tin cụ thể. Tương tự ～を踏まえて nhưng ～に基づいて tập trung vào cơ sở (data/rule).",
       "examples_from_meeting": [
         {
-          "ja": "会社のそのプラネールの予想売り上げとで予想利益に基づいて",
-          "vi": "Dựa trên doanh số dự kiến và lợi nhuận dự kiến của công ty"
+          "ja": "市場調査の結果に基づいて、戦略を立てます。",
+          "vi": "Dựa trên kết quả khảo sát thị trường, chúng ta lập chiến lược."
         }
       ],
-      "common_mistakes": "Nhầm lẫn với 'に応じて' (theo, tương ứng với)"
+      "common_mistakes": "Hay nhầm với ～を踏まえて (tính đến cảm xúc/đặc điểm)"
     },
     {
       "id": "g003",
-      "pattern": "～に応じて",
-      "reading": "～におうじて",
-      "meaning_vi": "tương ứng với ~, theo ~",
+      "pattern": "～ようにする",
+      "reading": "～ようにする",
+      "meaning_vi": "Cố gắng để ~, hãy làm sao để ~",
       "type": "grammar",
-      "jlpt": "N2",
-      "explanation_vi": "Diễn tả sự phù hợp hoặc thích ứng. 応じる = to respond/correspond. Ví dụ: 状況に応じて判断する (Đưa ra quyết định tương ứng với tình hình)",
+      "jlpt": "N4",
+      "explanation_vi": "Grammar N4 nhưng trong business dùng rất nhiều. Ý là cố gắng hoặc chú ý để đạt được kết quả nào đó. Khác ～ようになる (tự nhiên trở nên).",
       "examples_from_meeting": [
         {
-          "ja": "そのコストに応じて最大限の成果を出すようになると思いますが",
-          "vi": "Tôi nghĩ chúng tôi sẽ đạt được kết quả tối đa tương ứng với chi phí đó"
+          "ja": "問題がないようにチェックしましょう。",
+          "vi": "Hãy kiểm tra để không có vấn đề."
+        },
+        {
+          "ja": "納期に間に合うようにしてください。",
+          "vi": "Xin vui lòng cố gắng kịp deadline."
         }
       ],
-      "common_mistakes": "Nhầm lẫn với 'に基づいて' (dựa trên)"
+      "common_mistakes": "Hay nhầm với ～ようになる (tự nhiên trở nên ~). ～ようにする = chủ động cố gắng, ～ようになる = tự nhiên thay đổi"
     },
     {
       "id": "g004",
-      "pattern": "～てしまう",
-      "reading": "～てしまう",
-      "meaning_vi": "kết thúc làm ~, tìm thấy mình làm ~",
+      "pattern": "～ことにする",
+      "reading": "～ことにする",
+      "meaning_vi": "Quyết định sẽ ~, coi như ~",
       "type": "grammar",
-      "jlpt": "N3",
-      "explanation_vi": "Biểu thị hoàn thành một hành động, thường với sắc thái tiếc nuối hoặc đột ngột. Ví dụ: 食べてしまった (Tôi đã ăn hết nó rồi)",
+      "jlpt": "N4",
+      "explanation_vi": "Dùng để chỉ quyết định. Khác với ～ことになる (được quyết định bởi ai đó khác).",
       "examples_from_meeting": [
         {
-          "ja": "出さなくなっちゃってるんですけど",
-          "vi": "Chúng tôi không phát hành nó nữa"
-        },
-        {
-          "ja": "詰まっちゃってるって感じ",
-          "vi": "Cảm giác như chúng tôi bị kẹt"
+          "ja": "もう出すことにしました。",
+          "vi": "Chúng tôi đã quyết định công bố."
         }
       ],
-      "common_mistakes": "Không nhận ra sắc thái nuối tiếc/bất lực đi kèm với mẫu này"
+      "common_mistakes": "Hay nhầm với ～ことになる (được quyết định) vs ～ことにする (tự quyết định)"
     },
     {
       "id": "g005",
-      "pattern": "～とともに",
-      "reading": "～とともに",
-      "meaning_vi": "cùng với ~, đồng thời với ~",
+      "pattern": "～にあたって",
+      "reading": "～にあたって",
+      "meaning_vi": "Khi ~, trong khi ~, với dịp này ~",
       "type": "grammar",
       "jlpt": "N2",
-      "explanation_vi": "Chỉ sự song hành hoặc đồng thời xảy ra. Ví dụ: 時間が経つとともに状況が変わった (Theo thời gian, tình hình đã thay đổi)",
+      "explanation_vi": "Formal. Dùng để chỉ lúc bắt đầu làm cái gì hoặc thời điểm nào đó. Thường trong giải thích hay hướng dẫn.",
       "examples_from_meeting": [
         {
-          "ja": "それと同時に、ソジさんとアイディアを",
-          "vi": "Đồng thời đó, brainstorm ý tưởng"
+          "ja": "プロジェクト開始にあたって、予算を確認しましょう。",
+          "vi": "Khi bắt đầu dự án, hãy xác nhận ngân sách."
         }
       ],
-      "common_mistakes": "Nhầm lẫn với 'と一緒に' (cùng với - chỉ sự song hành không chặt chẽ)"
-    },
-    {
-      "id": "g006",
-      "pattern": "～だけではなく～",
-      "reading": "～だけではなく～",
-      "meaning_vi": "không chỉ ~ mà còn ~ (keigo version)",
-      "type": "grammar",
-      "jlpt": "N2",
-      "explanation_vi": "Phiên bản chính thức của 'だけでなく'. Liệt kê nhiều phần tử. Ví dụ: 知識だけではなく経験も必要 (Không chỉ kiến thức mà cả kinh nghiệm cũng cần)",
-      "examples_from_meeting": [
-        {
-          "ja": "複数の複合的な要素を作らせることによって、複数の複合的な要素だけではなく",
-          "vi": "Bằng cách tạo ra nhiều yếu tố phức tạp, không chỉ các yếu tố phức tạp mà"
-        }
-      ],
-      "common_mistakes": "Sử dụng 'でなく' thay vì 'ではなく' với 'だけ'"
-    },
-    {
-      "id": "g007",
-      "pattern": "～としては",
-      "reading": "～としては",
-      "meaning_vi": "về phía ~/từ quan điểm ~/với tư cách là~",
-      "type": "grammar",
-      "jlpt": "N2",
-      "explanation_vi": "Chỉ chủ thể từ một góc độ cụ thể. Ví dụ: 私としては反対です (Về phía tôi, tôi phản đối)",
-      "examples_from_meeting": [
-        {
-          "ja": "DXの方の話としては",
-          "vi": "Về phía DX"
-        }
-      ],
-      "common_mistakes": "Nhầm lẫn với 'として' (đơn giản) - 'としては' mạnh hơn"
+      "common_mistakes": "Hay nhầm với ～する時 (khi ~)"
     }
   ],
   "exercises": {
     "translate_vj": [
       {
         "id": "tvj001",
-        "prompt_vi": "Chúng tôi quyết định phát hành thông cáo báo chí dựa trên doanh số dự kiến.",
+        "prompt_vi": "[Người A] đã trở thành người phụ trách [Dự án X].",
         "acceptable_answers": [
-          "ニュースリリースを出すことを予想売上に基づいて決めました",
-          "予想売上に基づいてニュースリリースを出すことにしました"
+          "[人物A]が[プロジェクトX]の担当になりました。",
+          "[人物A]が[プロジェクトX]を担当することになりました。"
         ],
         "key_points": [
-          "ニュースリリース",
-          "基づいて"
+          "担当",
+          "になりました"
         ],
-        "difficulty": "intermediate",
-        "ref_id": "v003"
-      },
-      {
-        "id": "tvj002",
-        "prompt_vi": "Động lực để đạt được thành tích tối đa là quan trọng.",
-        "acceptable_answers": [
-          "最大限の成果を出すためにドライブが重要です",
-          "最大限の成果を出すドライブが大切です"
-        ],
-        "key_points": [
-          "成果",
-          "ドライブ"
-        ],
-        "difficulty": "intermediate",
+        "difficulty": "easy",
         "ref_id": "v001"
       },
       {
-        "id": "tvj003",
-        "prompt_vi": "Không chỉ phát triển bản đồ mà còn kiếm tiền cũng cần thiết.",
+        "id": "tvj002",
+        "prompt_vi": "Về vấn đề hôm trước, chúng tôi đã có kết luận nên tôi chia sẻ.",
         "acceptable_answers": [
-          "地図整備だけではなくマネタイズも必要です",
-          "地図整備ばかりでなくマネタイズが必要です"
+          "先日の件ですが、結論が出ましたので共有します。",
+          "先日の件について、結論が出ましたので共有いたします。"
         ],
         "key_points": [
-          "地図整備",
-          "マネタイズ",
-          "だけではなく"
+          "件ですが",
+          "結論",
+          "共有"
         ],
         "difficulty": "intermediate",
-        "ref_id": "v007"
+        "ref_id": "p001"
+      },
+      {
+        "id": "tvj003",
+        "prompt_vi": "Dựa trên phản hồi của khách hàng, chúng ta sẽ cải thiện.",
+        "acceptable_answers": [
+          "お客さんのフィードバックを踏まえて、改善します。",
+          "お客さんからのフィードバックに基づいて、改善いたします。"
+        ],
+        "key_points": [
+          "踏まえて",
+          "フィードバック",
+          "改善"
+        ],
+        "difficulty": "hard",
+        "ref_id": "p002"
       },
       {
         "id": "tvj004",
-        "prompt_vi": "Từ vấn đề này, chúng tôi cần tạo ra sự khác biệt.",
+        "prompt_vi": "Chúng tôi cần xử lý việc tăng lên của các câu hỏi.",
         "acceptable_answers": [
-          "この課題から、差別化を作らないといけません",
-          "この課題のことから、差別化が必要です"
+          "増える問い合わせに対応する必要があります。",
+          "増加した問い合わせに対応しなければなりません。"
         ],
         "key_points": [
-          "課題",
-          "差別化"
+          "対応する",
+          "必要"
         ],
-        "difficulty": "upper_intermediate",
-        "ref_id": "v009"
+        "difficulty": "intermediate",
+        "ref_id": "p003"
+      },
+      {
+        "id": "tvj005",
+        "prompt_vi": "Khi bắt đầu dự án, chúng ta cần xác nhận ngân sách.",
+        "acceptable_answers": [
+          "プロジェクト開始にあたって、予算を確認しましょう。"
+        ],
+        "key_points": [
+          "にあたって",
+          "予算"
+        ],
+        "difficulty": "hard",
+        "ref_id": "g005"
+      },
+      {
+        "id": "tvj006",
+        "prompt_vi": "Báo cáo của tôi là xong.",
+        "acceptable_answers": [
+          "私の報告は以上です。",
+          "私からは以上です。"
+        ],
+        "key_points": [
+          "以上です"
+        ],
+        "difficulty": "easy",
+        "ref_id": "p004"
+      },
+      {
+        "id": "tvj007",
+        "prompt_vi": "Chúng ta sẽ triển khai kế hoạch mới.",
+        "acceptable_answers": [
+          "新しい計画を打ち出します。",
+          "新しい戦略を打ち出します。"
+        ],
+        "key_points": [
+          "打ち出す"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "v018"
+      },
+      {
+        "id": "tvj008",
+        "prompt_vi": "Chúng tôi đã quyết định công bố bản tin.",
+        "acceptable_answers": [
+          "ニュースリリースを出すことにしました。",
+          "ニュースリリースを打つことにしました。"
+        ],
+        "key_points": [
+          "ことにしました"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "g004"
+      },
+      {
+        "id": "tvj009",
+        "prompt_vi": "Tôi lo lắng liệu chúng ta có thể xử lý việc tăng lên của công việc hay không.",
+        "acceptable_answers": [
+          "仕事が増えることに対応できるか心配です。"
+        ],
+        "key_points": [
+          "対応できるか"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "p003"
+      },
+      {
+        "id": "tvj010",
+        "prompt_vi": "Hãy kiểm tra để không có vấn đề xảy ra.",
+        "acceptable_answers": [
+          "問題がないようにチェックしてください。",
+          "問題が生じないようにご確認ください。"
+        ],
+        "key_points": [
+          "ようにする",
+          "チェック"
+        ],
+        "difficulty": "easy",
+        "ref_id": "g003"
       }
     ],
     "translate_jv": [
       {
         "id": "tjv001",
-        "prompt_ja": "ニュースリリースを出すことによって、どういうアクションにつなげようとしてるっていうところがちょっと確認したいなと思ったんですけど",
+        "prompt_ja": "先日の件ですが、結論が出ましたので共有します。",
         "acceptable_keywords_vi": [
-          "thông cáo báo chí",
-          "hành động",
-          "kết nối",
-          "xác nhận"
+          "vấn đề hôm trước",
+          "kết luận",
+          "chia sẻ",
+          "công bố"
         ],
-        "reference_answer_vi": "Tôi muốn xác nhận là bằng cách phát hành thông cáo báo chí, chúng tôi đang cố gắng kết nối với hành động gì",
-        "ref_id": "v003"
+        "reference_answer_vi": "Về vấn đề hôm trước, chúng tôi đã có kết luận nên tôi chia sẻ/công bố.",
+        "ref_id": "p001"
       },
       {
         "id": "tjv002",
-        "prompt_ja": "地図データの理解が必要というところで、DX推進がTDCに赴いて、そういった方たちとブレストしたいよねっていう話がありました",
+        "prompt_ja": "お客さんのフィードバックを踏まえて、改善します。",
         "acceptable_keywords_vi": [
-          "hiểu biết dữ liệu bản đồ",
-          "cần thiết",
-          "brainstorm",
-          "cùng với"
+          "phản hồi khách hàng",
+          "dựa trên",
+          "cải thiện",
+          "tính đến"
         ],
-        "reference_answer_vi": "Vì việc hiểu dữ liệu bản đồ là cần thiết, nên có cuộc trò chuyện rằng nhóm DX sẽ đi đến [địa điểm] và muốn brainstorm với những người như vậy",
-        "ref_id": "v025"
+        "reference_answer_vi": "Dựa trên phản hồi của khách hàng, chúng ta sẽ cải thiện.",
+        "ref_id": "p002"
       },
       {
         "id": "tjv003",
-        "prompt_ja": "複数の複合的な要素を作らせることによって、で、価値を生むっていうし",
+        "prompt_ja": "[人物A]が[プロジェクトX]の担当になりました。",
         "acceptable_keywords_vi": [
-          "nhiều yếu tố",
-          "phức tạp",
-          "tạo ra giá trị"
+          "người A",
+          "dự án X",
+          "phụ trách",
+          "trở thành"
         ],
-        "reference_answer_vi": "Bằng cách tạo ra nhiều yếu tố phức tạp, chúng tôi tạo ra giá trị",
+        "reference_answer_vi": "[Người A] đã trở thành người phụ trách [Dự án X].",
         "ref_id": "v001"
+      },
+      {
+        "id": "tjv004",
+        "prompt_ja": "増える問い合わせに対応できるか心配です。",
+        "acceptable_keywords_vi": [
+          "câu hỏi tăng lên",
+          "xử lý",
+          "lo lắng",
+          "liệu"
+        ],
+        "reference_answer_vi": "Tôi lo lắng liệu chúng ta có thể xử lý việc tăng lên của các câu hỏi hay không.",
+        "ref_id": "p003"
+      },
+      {
+        "id": "tjv005",
+        "prompt_ja": "私の報告は以上です。",
+        "acceptable_keywords_vi": [
+          "báo cáo",
+          "tôi",
+          "xong"
+        ],
+        "reference_answer_vi": "Báo cáo của tôi là xong/đó là tất cả.",
+        "ref_id": "p004"
+      },
+      {
+        "id": "tjv006",
+        "prompt_ja": "ニュースリリースを出すことにしました。",
+        "acceptable_keywords_vi": [
+          "bản tin",
+          "công bố",
+          "quyết định"
+        ],
+        "reference_answer_vi": "Chúng tôi đã quyết định công bố bản tin.",
+        "ref_id": "g004"
+      },
+      {
+        "id": "tjv007",
+        "prompt_ja": "問題が生じないようにチェックしてください。",
+        "acceptable_keywords_vi": [
+          "vấn đề",
+          "kiểm tra",
+          "xin vui lòng",
+          "không xảy ra"
+        ],
+        "reference_answer_vi": "Xin vui lòng kiểm tra để không có vấn đề xảy ra.",
+        "ref_id": "g003"
+      },
+      {
+        "id": "tjv008",
+        "prompt_ja": "新しい計画を打ち出します。",
+        "acceptable_keywords_vi": [
+          "kế hoạch mới",
+          "công bố",
+          "đưa ra"
+        ],
+        "reference_answer_vi": "Chúng tôi sẽ công bố/đưa ra kế hoạch mới.",
+        "ref_id": "v018"
+      },
+      {
+        "id": "tjv009",
+        "prompt_ja": "このプロジェクトをマネタイズする方法を考えています。",
+        "acceptable_keywords_vi": [
+          "dự án",
+          "kiếm tiền",
+          "thương mại hóa",
+          "suy nghĩ"
+        ],
+        "reference_answer_vi": "Chúng tôi đang suy nghĩ về cách kiếm tiền/thương mại hóa dự án này.",
+        "ref_id": "v016"
+      },
+      {
+        "id": "tjv010",
+        "prompt_ja": "お客さんの意見を参考にして、改善しましょう。",
+        "acceptable_keywords_vi": [
+          "ý kiến khách hàng",
+          "tham khảo",
+          "cải thiện"
+        ],
+        "reference_answer_vi": "Hãy tham khảo ý kiến của khách hàng và cải thiện.",
+        "ref_id": "v010"
       }
     ],
     "fill_blank": [
       {
         "id": "fb001",
-        "sentence": "___を出すことによって、お客さんがおおって、そんなすごいことってなったところで",
-        "answer": "ニュースリリース",
+        "sentence": "[人物A]が[プロジェクトX]の___になりました。",
+        "answer": "担当",
         "options": [
-          "ニュースリリース",
-          "結果",
-          "成果",
-          "計画"
+          "担当",
+          "責任",
+          "対応",
+          "管理"
         ],
-        "hint_vi": "thuật ngữ media/PR cho tin tức",
-        "ref_id": "v003"
+        "hint_vi": "phụ trách, trách nhiệm",
+        "difficulty": "easy",
+        "ref_id": "v001"
       },
       {
         "id": "fb002",
-        "sentence": "___が決まっていくので、またそのコストに応じて",
-        "answer": "コスト",
+        "sentence": "先日の___ですが、結論が出ました。",
+        "answer": "件",
         "options": [
-          "コスト",
-          "予算",
-          "ドライブ",
-          "方向"
+          "件",
+          "事",
+          "話",
+          "問題"
         ],
-        "hint_vi": "từ ngoại lai - chi phí",
-        "ref_id": "v002"
+        "hint_vi": "vấn đề, trường hợp",
+        "difficulty": "easy",
+        "ref_id": "p001"
       },
       {
         "id": "fb003",
-        "sentence": "最大限の___を出すようになると思いますが",
-        "answer": "成果",
+        "sentence": "お客さんのフィードバックを___して、改善します。",
+        "answer": "踏まえ",
         "options": [
-          "成果",
-          "ニュース",
-          "結果",
-          "影響"
+          "踏まえ",
+          "基づ",
+          "考え",
+          "参考"
         ],
-        "hint_vi": "achievement/result - từ business",
-        "ref_id": "v002"
+        "hint_vi": "dựa trên, căn cứ vào",
+        "difficulty": "intermediate",
+        "ref_id": "p002"
       },
       {
         "id": "fb004",
-        "sentence": "協業先を探すための___もともとあるので",
-        "answer": "目的",
+        "sentence": "増える問い合わせに___できるか心配です。",
+        "answer": "対応",
         "options": [
-          "目的",
-          "理由",
-          "ドライブ",
-          "課題"
+          "対応",
+          "処理",
+          "対処",
+          "返答"
         ],
-        "hint_vi": "mục đích, tại sao",
-        "ref_id": "v004"
+        "hint_vi": "ứng phó, xử lý",
+        "difficulty": "intermediate",
+        "ref_id": "p003"
       },
       {
         "id": "fb005",
-        "sentence": "___が難しいですよね、他と一緒だから",
-        "answer": "差別化",
+        "sentence": "このプロジェクトの___を決めました。",
+        "answer": "方針",
         "options": [
-          "差別化",
-          "実装",
-          "開発",
-          "理解"
+          "方針",
+          "戦略",
+          "計画",
+          "方向"
         ],
-        "hint_vi": "differentiation - marketing",
-        "ref_id": "v009"
+        "hint_vi": "phương hướng, chính sách",
+        "difficulty": "intermediate",
+        "ref_id": "v019"
+      },
+      {
+        "id": "fb006",
+        "sentence": "新しい計画を___します。",
+        "answer": "打ち出",
+        "options": [
+          "打ち出",
+          "公開",
+          "発表",
+          "リリース"
+        ],
+        "hint_vi": "công bố, đưa ra",
+        "difficulty": "intermediate",
+        "ref_id": "v018"
+      },
+      {
+        "id": "fb007",
+        "sentence": "___を出すかどうかで悩んでいます。",
+        "answer": "ニュースリリース",
+        "options": [
+          "ニュースリリース",
+          "広告",
+          "情報",
+          "コンセプト"
+        ],
+        "hint_vi": "bản tin báo chí",
+        "difficulty": "easy",
+        "ref_id": "v003"
+      },
+      {
+        "id": "fb008",
+        "sentence": "モデルの___を実施します。",
+        "answer": "トレーニング",
+        "options": [
+          "トレーニング",
+          "デプロイ",
+          "テスト",
+          "ビルド"
+        ],
+        "hint_vi": "đào tạo, huấn luyện",
+        "difficulty": "intermediate",
+        "ref_id": "v017"
+      },
+      {
+        "id": "fb009",
+        "sentence": "このプロジェクトを___する方法を考えています。",
+        "answer": "マネタイズ",
+        "options": [
+          "マネタイズ",
+          "デプロイ",
+          "実装",
+          "開発"
+        ],
+        "hint_vi": "kiếm tiền, thương mại hóa",
+        "difficulty": "hard",
+        "ref_id": "v016"
+      },
+      {
+        "id": "fb010",
+        "sentence": "問題が生じないように___してください。",
+        "answer": "チェック",
+        "options": [
+          "チェック",
+          "確認",
+          "検査",
+          "調査"
+        ],
+        "hint_vi": "kiểm tra, xác nhận",
+        "difficulty": "intermediate",
+        "ref_id": "g003"
       }
     ],
     "reorder": [
       {
         "id": "ro001",
         "fragments": [
-          "地図整備",
-          "することによって",
-          "を",
-          "ユーザー参加型"
+          "結論が出ましたので",
+          "先日の件ですが",
+          "共有します"
         ],
         "correct_order": [
-          "ユーザー参加型",
-          "の",
-          "地図整備",
-          "を",
-          "することによって"
+          "先日の件ですが",
+          "結論が出ましたので",
+          "共有します"
         ],
-        "meaning_vi": "Bằng cách triển khai bản đồ kiểu người dùng tham gia",
-        "ref_id": "v011"
+        "meaning_vi": "Về vấn đề hôm trước, chúng tôi đã có kết luận nên tôi chia sẻ.",
+        "difficulty": "easy",
+        "ref_id": "p001"
       },
       {
         "id": "ro002",
         "fragments": [
-          "に",
-          "基づいて",
-          "予想利益",
-          "と",
-          "予想売上"
+          "改善します",
+          "お客さんのフィードバックを踏まえて"
         ],
         "correct_order": [
-          "予想売上",
-          "と",
-          "予想利益",
-          "に",
-          "基づいて"
+          "お客さんのフィードバックを踏まえて",
+          "改善します"
         ],
-        "meaning_vi": "Dựa trên doanh số dự kiến và lợi nhuận dự kiến",
-        "ref_id": "g002"
+        "meaning_vi": "Dựa trên phản hồi của khách hàng, chúng ta sẽ cải thiện.",
+        "difficulty": "easy",
+        "ref_id": "p002"
+      },
+      {
+        "id": "ro003",
+        "fragments": [
+          "増える問い合わせに",
+          "対応できるか",
+          "心配です"
+        ],
+        "correct_order": [
+          "増える問い合わせに",
+          "対応できるか",
+          "心配です"
+        ],
+        "meaning_vi": "Tôi lo lắng liệu chúng ta có thể xử lý việc tăng lên của các câu hỏi hay không.",
+        "difficulty": "easy",
+        "ref_id": "p003"
+      },
+      {
+        "id": "ro004",
+        "fragments": [
+          "私の報告は",
+          "以上です"
+        ],
+        "correct_order": [
+          "私の報告は",
+          "以上です"
+        ],
+        "meaning_vi": "Báo cáo của tôi là xong.",
+        "difficulty": "easy",
+        "ref_id": "p004"
+      },
+      {
+        "id": "ro005",
+        "fragments": [
+          "新しい計画を",
+          "打ち出します"
+        ],
+        "correct_order": [
+          "新しい計画を",
+          "打ち出します"
+        ],
+        "meaning_vi": "Chúng ta sẽ công bố kế hoạch mới.",
+        "difficulty": "easy",
+        "ref_id": "v018"
+      },
+      {
+        "id": "ro006",
+        "fragments": [
+          "ニュースリリースを",
+          "出すことにしました"
+        ],
+        "correct_order": [
+          "ニュースリリースを",
+          "出すことにしました"
+        ],
+        "meaning_vi": "Chúng tôi đã quyết định công bố bản tin.",
+        "difficulty": "easy",
+        "ref_id": "g004"
+      },
+      {
+        "id": "ro007",
+        "fragments": [
+          "プロジェクト開始にあたって",
+          "予算を",
+          "確認しましょう"
+        ],
+        "correct_order": [
+          "プロジェクト開始にあたって",
+          "予算を",
+          "確認しましょう"
+        ],
+        "meaning_vi": "Khi bắt đầu dự án, hãy xác nhận ngân sách.",
+        "difficulty": "intermediate",
+        "ref_id": "g005"
+      },
+      {
+        "id": "ro008",
+        "fragments": [
+          "問題が生じないように",
+          "チェックして",
+          "ください"
+        ],
+        "correct_order": [
+          "問題が生じないように",
+          "チェックして",
+          "ください"
+        ],
+        "meaning_vi": "Xin vui lòng kiểm tra để không có vấn đề xảy ra.",
+        "difficulty": "intermediate",
+        "ref_id": "g003"
       }
     ]
   }
