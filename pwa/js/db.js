@@ -98,7 +98,26 @@ class NihongoDB {
     });
   }
 
-  // Normalize real JSON schema to match UI expectations
+  // Normalize a sentence item from new schema
+  _normalizeSentence(s, meetingId) {
+    return {
+      ...s,
+      meeting_id: meetingId,
+      meeting: meetingId,
+      type: 'sentence',
+      status: 'new',
+      // Map for UI compatibility
+      word: s.sentence || '',
+      meaning: s.meaning_vi || '',
+      context: s.sentence || '',
+      context_reading: s.reading || '',
+      context_vi: s.meaning_vi || '',
+      usage: '',
+      errors: 0,
+    };
+  }
+
+  // Legacy: normalize vocab/phrase/grammar item (for old format JSON)
   _normalizeItem(item, type, meetingId) {
     const base = {
       ...item,
@@ -106,19 +125,17 @@ class NihongoDB {
       meeting: meetingId,
       type: type,
       status: 'new',
-      // Map real field names → UI field names
       meaning: item.meaning_vi || item.meaning || '',
       context: item.context_sentence || item.context || '',
+      context_reading: item.context_reading || '',
       context_vi: item.context_meaning_vi || item.context_vi || '',
       usage: item.usage_note || item.usage || '',
       errors: 0,
     };
-    // For phrases: use 'phrase' field as 'word'
     if (type === 'phrase' && item.phrase && !item.word) {
       base.word = item.phrase;
       base.reading = item.reading || item.phrase;
     }
-    // For grammar: use 'pattern' field as 'word'
     if (type === 'grammar' && item.pattern && !item.word) {
       base.word = item.pattern;
       base.reading = item.reading || item.pattern;
@@ -142,6 +159,7 @@ class NihongoDB {
     if (exercises.translate_jv) {
       norm.translate_jv = exercises.translate_jv.map(e => ({
         prompt: e.prompt_ja || e.prompt,
+        prompt_reading: e.prompt_reading || '',
         answers: e.acceptable_keywords_vi || e.answers || [],
         keys: e.acceptable_keywords_vi || e.keys || [],
         reference_answer: e.reference_answer_vi,
@@ -151,6 +169,7 @@ class NihongoDB {
     if (exercises.fill_blank) {
       norm.fill_blank = exercises.fill_blank.map(e => ({
         sentence: e.sentence,
+        sentence_reading: e.sentence_reading || '',
         answer: e.answer,
         options: e.options,
         hint: e.hint_vi || e.hint,
@@ -172,12 +191,17 @@ class NihongoDB {
   async importMeeting(meetingData) {
     const meetingId = meetingData.meeting_id;
 
-    // Normalize and save all items
-    const allItems = [
-      ...(meetingData.vocabulary || []).map(v => this._normalizeItem(v, 'vocab', meetingId)),
-      ...(meetingData.phrases || []).map(p => this._normalizeItem(p, 'phrase', meetingId)),
-      ...(meetingData.grammar || []).map(g => this._normalizeItem(g, 'grammar', meetingId)),
-    ];
+    // Support both new (sentences) and old (vocabulary/phrases/grammar) schema
+    let allItems;
+    if (meetingData.sentences) {
+      allItems = meetingData.sentences.map(s => this._normalizeSentence(s, meetingId));
+    } else {
+      allItems = [
+        ...(meetingData.vocabulary || []).map(v => this._normalizeItem(v, 'vocab', meetingId)),
+        ...(meetingData.phrases || []).map(p => this._normalizeItem(p, 'phrase', meetingId)),
+        ...(meetingData.grammar || []).map(g => this._normalizeItem(g, 'grammar', meetingId)),
+      ];
+    }
 
     for (const item of allItems) {
       // Preserve existing learning status

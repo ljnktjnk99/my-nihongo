@@ -6,17 +6,25 @@
     <string>com.nihongo.watcher</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/bash</string>
-        <string>-c</string>
-        <string>cd $HOME/nihongo-meeting &amp;&amp; source venv/bin/activate &amp;&amp; python processor/watcher.py</string>
+        <string>/Users/linh.nguyenthi/Personal/my-nihongo/venv/bin/python</string>
+        <string>/Users/linh.nguyenthi/Personal/my-nihongo/processor/watcher.py</string>
     </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/linh.nguyenthi/Personal/my-nihongo</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/nihongo-watcher.log</string>
+    <string>/Users/linh.nguyenthi/Personal/my-nihongo/processor/logs/watcher.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/nihongo-watcher-error.log</string>
+    <string>/Users/linh.nguyenthi/Personal/my-nihongo/processor/logs/watcher-error.log</string>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
 </dict>
 </plist>

@@ -1,903 +1,1055 @@
 {
   "meeting_id": "GeoTechAgent for P2E定例会",
   "date": "2026-03-05",
-  "topic_hint": "GeoTechAgent for P2E定例会",
-  "vocabulary": [
+  "topic_hint": "オブジェクト検出モデル開発と消費生態プロファイリング",
+  "sentences": [
     {
-      "id": "v001",
-      "word": "進捗",
-      "reading": "しんちょく",
-      "meaning_vi": "tiến độ, sự tiến triển",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "[人物C]が進捗について報告しました。",
-      "context_reading": "[じんぶつC]がしんちょくについてほうこくしました。",
-      "context_meaning_vi": "[Người C] đã báo cáo về tiến độ.",
-      "usage_note": "Từ N3 rất hay gặp trong business meetings khi thảo luận về trạng thái dự án.",
-      "collocations": [
-        "進捗報告",
-        "進捗状況",
-        "進捗する"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 8
-    },
-    {
-      "id": "v002",
-      "word": "報告",
-      "reading": "ほうこく",
-      "meaning_vi": "báo cáo, thông báo",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "私の方から報告したいと思います。",
-      "context_reading": "わたしのほうからほうこくしたいとおもいます。",
-      "context_meaning_vi": "Tôi muốn báo cáo từ phía tôi.",
-      "usage_note": "N3, dùng trong meeting để nói về việc báo cáo/công bố thông tin.",
-      "collocations": [
-        "報告する",
-        "報告いたします",
-        "報告があります"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 6
-    },
-    {
-      "id": "v003",
-      "word": "モデル",
-      "reading": "モデル",
-      "meaning_vi": "mô hình, mẫu hình",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "このモデルを開発しました。",
-      "context_reading": "このモデルをかいはつしました。",
-      "context_meaning_vi": "Chúng tôi đã phát triển mô hình này.",
-      "usage_note": "Từ vựng kỹ thuật, hay gặp trong cuộc họp liên quan AI/ML.",
-      "collocations": [
-        "モデルを作る",
-        "モデルの精度",
-        "モデルをトレーニング"
-      ],
-      "formality": "neutral",
-      "frequency_in_meeting": 15
-    },
-    {
-      "id": "v004",
-      "word": "精度",
-      "reading": "せいど",
-      "meaning_vi": "độ chính xác, tính chuẩn xác",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "モデルの精度が高いですね。",
-      "context_reading": "モデルのせいどがたかいですね。",
-      "context_meaning_vi": "Độ chính xác của mô hình này cao nhỉ.",
-      "usage_note": "N3, dùng trong lĩnh vực kỹ thuật, đặc biệt là AI/ML.",
-      "collocations": [
-        "精度が高い",
-        "精度を上げる",
-        "精度の評価"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 12
-    },
-    {
-      "id": "v005",
-      "word": "トレーニング",
-      "reading": "トレーニング",
-      "meaning_vi": "huấn luyện, đào tạo",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "モデルをトレーニング完了しました。",
-      "context_reading": "モデルをトレーニングかんりょうしました。",
-      "context_meaning_vi": "Chúng tôi đã hoàn thành huấn luyện mô hình.",
-      "usage_note": "Từ vay mượn từ Anh ngữ, hay gặp trong ngành công nghiệp tech.",
-      "collocations": [
-        "トレーニングする",
-        "トレーニング完了",
-        "トレーニングデータ"
-      ],
-      "formality": "neutral",
-      "frequency_in_meeting": 8
-    },
-    {
-      "id": "v006",
-      "word": "クラス",
-      "reading": "クラス",
-      "meaning_vi": "lớp, hạng, loại (trong phân loại)",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "365のクラスがあります。",
-      "context_reading": "365のクラスがあります。",
-      "context_meaning_vi": "Có 365 lớp (loại).",
-      "usage_note": "Trong ngữ cảnh ML, 'class' được dùng để chỉ các loại đối tượng cần phân loại.",
-      "collocations": [
-        "クラスを追加",
-        "クラス数",
-        "新しいクラス"
-      ],
-      "formality": "neutral",
-      "frequency_in_meeting": 18
-    },
-    {
-      "id": "v007",
-      "word": "教師データ",
-      "reading": "きょうしデータ",
-      "meaning_vi": "dữ liệu huấn luyện, dữ liệu đã gán nhãn",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "教師データを作成しています。",
-      "context_reading": "きょうしデータをさくせいしています。",
-      "context_meaning_vi": "Chúng tôi đang tạo dữ liệu huấn luyện.",
-      "usage_note": "Thuật ngữ chuyên ngành ML, hay gặp trong cuộc họp về AI.",
-      "collocations": [
-        "教師データを作る",
-        "教師データの品質",
-        "教師データセット"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 10
-    },
-    {
-      "id": "v008",
-      "word": "画面",
-      "reading": "がめん",
-      "meaning_vi": "màn hình, screen",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "画面を共有します。",
-      "context_reading": "がめんをきょうゆうします。",
-      "context_meaning_vi": "Tôi chia sẻ màn hình.",
-      "usage_note": "N3, hay dùng trong meeting online và công thức làm việc.",
-      "collocations": [
-        "画面を共有",
-        "画面を見る",
-        "画面の上"
-      ],
-      "formality": "neutral",
-      "frequency_in_meeting": 5
-    },
-    {
-      "id": "v009",
-      "word": "共有",
-      "reading": "きょうゆう",
-      "meaning_vi": "chia sẻ, dùng chung",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "結果を共有させていただきます。",
-      "context_reading": "けっかをきょうゆうさせていただきます。",
-      "context_meaning_vi": "Tôi xin phép chia sẻ kết quả.",
-      "usage_note": "N3, hay gặp trong business khi thảo luận về việc chia sẻ thông tin.",
-      "collocations": [
-        "共有する",
-        "共有させていただく",
-        "共有します"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 6
-    },
-    {
-      "id": "v010",
-      "word": "確認",
-      "reading": "かくにん",
-      "meaning_vi": "xác nhận, kiểm tra",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "確認をしてください。",
-      "context_reading": "かくにんをしてください。",
-      "context_meaning_vi": "Hãy xác nhận một chút.",
-      "usage_note": "N3, từ N3 nhưng dùng trong business rất thường xuyên.",
-      "collocations": [
-        "確認する",
-        "確認いただく",
-        "確認しました"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 8
-    },
-    {
-      "id": "v011",
-      "word": "基づいて",
-      "reading": "もとづいて",
-      "meaning_vi": "dựa trên, căn cứ vào",
-      "type": "vocab",
-      "jlpt": "N2",
-      "context_sentence": "このデータに基づいて、モデルを開発しました。",
-      "context_reading": "このデータにもとづいて、モデルをかいはつしました。",
-      "context_meaning_vi": "Dựa trên dữ liệu này, chúng tôi đã phát triển mô hình.",
-      "usage_note": "N2, hay gặp trong business reports khi nói về cơ sở của quyết định.",
-      "collocations": [
-        "～に基づいて",
-        "～を基に"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 5
-    },
-    {
-      "id": "v012",
-      "word": "対応",
-      "reading": "たいおう",
-      "meaning_vi": "đối ứng, xử lý, giải quyết",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "このの課題に対応する必要があります。",
-      "context_reading": "こののかだいにたいおうするひつようがあります。",
-      "context_meaning_vi": "Chúng tôi cần giải quyết vấn đề này.",
-      "usage_note": "N3, từ rất phổ biến trong business contexts.",
-      "collocations": [
-        "対応する",
-        "対応案",
-        "対応状況"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 4
-    },
-    {
-      "id": "v013",
-      "word": "活用",
-      "reading": "かつよう",
-      "meaning_vi": "sử dụng, ứng dụng, khai thác",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "このデータセットを活用してモデルを作りました。",
-      "context_reading": "このデータセットをかつようしてモデルをつくりました。",
-      "context_meaning_vi": "Chúng tôi đã sử dụng tập dữ liệu này để tạo mô hình.",
-      "usage_note": "N3, khác với \"使う\" ở chỗ có ý nghĩa 'sử dụng hiệu quả'.",
-      "collocations": [
-        "活用する",
-        "活用できる",
-        "活用例"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 7
-    },
-    {
-      "id": "v014",
-      "word": "検出",
-      "reading": "けんしゅつ",
-      "meaning_vi": "phát hiện, dò tìm",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "オブジェクト検出できます。",
-      "context_reading": "オブジェクトけんしゅつできます。",
-      "context_meaning_vi": "Chúng tôi có thể phát hiện các vật thể.",
-      "usage_note": "N3, từ chuyên ngành trong AI/ML, đặc biệt là computer vision.",
-      "collocations": [
-        "物体検出",
-        "検出モデル",
-        "検出精度"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 6
-    },
-    {
-      "id": "v015",
-      "word": "データセット",
-      "reading": "データセット",
-      "meaning_vi": "tập dữ liệu",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "新しいデータセットを使っています。",
-      "context_reading": "あたらしいデータセットをつかっています。",
-      "context_meaning_vi": "Chúng tôi đang sử dụng tập dữ liệu mới.",
-      "usage_note": "Thuật ngữ chuyên ngành, hay gặp trong ngành khoa học dữ liệu.",
-      "collocations": [
-        "データセット",
-        "トレーニングセット",
-        "テストセット"
-      ],
-      "formality": "neutral",
-      "frequency_in_meeting": 8
-    },
-    {
-      "id": "v016",
-      "word": "課題",
-      "reading": "かだい",
-      "meaning_vi": "bài toán, vấn đề, thách thức",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "いくつかの課題があります。",
-      "context_reading": "いくつかのかだいがあります。",
-      "context_meaning_vi": "Có một số vấn đề.",
-      "usage_note": "N3, rất hay gặp trong business khi thảo luận về các thách thức.",
-      "collocations": [
-        "課題がある",
-        "課題を解決",
-        "課題感"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 9
-    },
-    {
-      "id": "v017",
-      "word": "標識",
-      "reading": "ひょうしき",
-      "meaning_vi": "biển báo, dấu hiệu, ký hiệu",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "道路の標識を認識します。",
-      "context_reading": "どうろのひょうしきをにんしきします。",
-      "context_meaning_vi": "Chúng tôi nhận dạng các biển báo giao thông.",
-      "usage_note": "N3, hay gặp trong ngữ cảnh giao thông và công nghệ.",
-      "collocations": [
-        "標識認識",
-        "標識データ",
-        "標識の種類"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 8
-    },
-    {
-      "id": "v018",
-      "word": "道路",
-      "reading": "どうろ",
-      "meaning_vi": "đường, đường phố",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "道路の画像を分析します。",
-      "context_reading": "どうろのがぞうをぶんせきします。",
-      "context_meaning_vi": "Chúng tôi phân tích hình ảnh đường.",
-      "usage_note": "N3, từ cơ bản nhưng trong context này dùng với các thuật ngữ chuyên ngành.",
-      "collocations": [
-        "道路標識",
-        "道路画像",
-        "一般道"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 5
-    },
-    {
-      "id": "v019",
-      "word": "評価",
-      "reading": "ひょうか",
-      "meaning_vi": "đánh giá, lượng giá",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "モデルの精度を評価しました。",
-      "context_reading": "モデルのせいどをひょうかしました。",
-      "context_meaning_vi": "Chúng tôi đã đánh giá độ chính xác của mô hình.",
-      "usage_note": "N3, từ hay gặp trong business khi nói về việc đánh giá hiệu suất.",
-      "collocations": [
-        "評価する",
-        "評価結果",
-        "精度評価"
-      ],
-      "formality": "formal",
-      "frequency_in_meeting": 6
-    },
-    {
-      "id": "v020",
-      "word": "フィルター",
-      "reading": "フィルター",
-      "meaning_vi": "bộ lọc, lọc",
-      "type": "vocab",
-      "jlpt": "N3",
-      "context_sentence": "人が写っている写真は表示させないようなフィルターをかけています。",
-      "context_reading": "ひとがうつっているしゃしんはひょうじさせないようなフィルターをかけています。",
-      "context_meaning_vi": "Chúng tôi áp dụng bộ lọc để không hiển thị hình ảnh có người.",
-      "usage_note": "Từ vay mượn từ Anh ngữ, dùng trong lĩnh vực kỹ thuật.",
-      "collocations": [
-        "フィルターをかける",
-        "フィルター処理",
-        "フィルター機能"
-      ],
-      "formality": "neutral",
-      "frequency_in_meeting": 3
-    }
-  ],
-  "phrases": [
-    {
-      "id": "p001",
-      "phrase": "～について報告する",
-      "reading": "～についてほうこくする",
-      "meaning_vi": "báo cáo về ~",
-      "type": "phrase",
-      "context_sentence": "進捗について報告したいと思います。",
-      "context_reading": "しんちょくについてほうこくしたいとおもいます。",
-      "context_meaning_vi": "Tôi muốn báo cáo về tiến độ.",
-      "usage_note": "Cụm từ hay gặp trong meeting để mở đầu khi báo cáo các thông tin.",
-      "casual_equivalent": "～について話す、～のことを報告する",
-      "formality": "formal"
-    },
-    {
-      "id": "p002",
-      "phrase": "画面を共有する",
-      "reading": "がめんをきょうゆうする",
-      "meaning_vi": "chia sẻ màn hình",
-      "type": "phrase",
-      "context_sentence": "画面を共有します。",
-      "context_reading": "がめんをきょうゆうします。",
-      "context_meaning_vi": "Tôi chia sẻ màn hình.",
-      "usage_note": "Cụm từ hay gặp trong online meetings khi cần trình bày nội dung trực quan.",
-      "casual_equivalent": "スクリーン共有する、画面を見てもらう",
-      "formality": "neutral"
-    },
-    {
-      "id": "p003",
-      "phrase": "よろしくお願いします",
-      "reading": "よろしくおねがいします",
-      "meaning_vi": "xin lỗi, tôi mong được sự hợp tác",
-      "type": "phrase",
-      "context_sentence": "今後ともよろしくお願いいたします。",
-      "context_reading": "こんごともよろしくおねがいいたします。",
-      "context_meaning_vi": "Mong được sự hợp tác của bạn từ nay về sau.",
-      "usage_note": "Cụm từ lịch sự Nhật Bản, rất hay dùng ở cuối presentation hoặc khi gặp gỡ người mới.",
-      "casual_equivalent": "よろしくね、今後もお願いします",
-      "formality": "formal"
-    },
-    {
-      "id": "p004",
-      "phrase": "～かなと思っている",
-      "reading": "～かなとおもっている",
-      "meaning_vi": "tôi nghĩ rằng ~, tôi cảm thấy ~",
-      "type": "phrase",
-      "context_sentence": "この方法がいいかなと思っています。",
-      "context_reading": "このほうほうがいいかなとおもっています。",
-      "context_meaning_vi": "Tôi cảm thấy phương pháp này có vẻ tốt.",
-      "usage_note": "Cụm từ mềm mỏng, dùng khi muốn bộc lộ ý kiến nhưng không quá chắc chắn.",
-      "casual_equivalent": "～と思う、～かもしれない",
-      "formality": "informal"
-    },
-    {
-      "id": "p005",
-      "phrase": "承知しました",
-      "reading": "しょうちしました",
-      "meaning_vi": "tôi hiểu rồi, đã ghi nhận",
-      "type": "phrase",
-      "context_sentence": "承知しました。",
-      "context_reading": "しょうちしました。",
-      "context_meaning_vi": "Tôi đã hiểu.",
-      "usage_note": "Cách nói lịch sự để xác nhận rằng bạn đã hiểu lệnh hoặc yêu cầu.",
-      "casual_equivalent": "わかりました、了解です",
-      "formality": "formal"
-    },
-    {
-      "id": "p006",
-      "phrase": "～ことが分かりました",
-      "reading": "～ことがわかりました",
-      "meaning_vi": "chúng tôi hiểu rằng ~, chúng tôi phát hiện ra ~",
-      "type": "phrase",
-      "context_sentence": "このモデルの精度が高いことが分かりました。",
-      "context_reading": "このモデルのせいどがたかいことがわかりました。",
-      "context_meaning_vi": "Chúng tôi phát hiện ra rằng độ chính xác của mô hình này cao.",
-      "usage_note": "Cụm từ hay dùng trong business khi báo cáo kết quả của nghiên cứu hoặc phân tích.",
-      "casual_equivalent": "～だと分かった、～ということがわかった",
-      "formality": "formal"
-    },
-    {
-      "id": "p007",
-      "phrase": "～に基づいて",
-      "reading": "～にもとづいて",
-      "meaning_vi": "dựa trên ~, căn cứ vào ~",
-      "type": "phrase",
-      "context_sentence": "このデータに基づいて、分析を進めます。",
-      "context_reading": "このデータにもとづいて、ぶんせきをすすめます。",
-      "context_meaning_vi": "Dựa trên dữ liệu này, chúng tôi tiếp tục phân tích.",
-      "usage_note": "Cụm từ N2, hay gặp trong business reports và presentations.",
-      "casual_equivalent": "～を基にして、～に基いて",
-      "formality": "formal"
-    },
-    {
-      "id": "p008",
-      "phrase": "～わけですね",
-      "reading": "～わけですね",
-      "meaning_vi": "vậy là ~, tức là ~, đó là lý do ~",
-      "type": "phrase",
-      "context_sentence": "そういうわけですね。",
-      "context_reading": "そういうわけですね。",
-      "context_meaning_vi": "Vậy là thế đó nhỉ.",
-      "usage_note": "Cách nói để xác nhận sự hiểu biết của mình về tình hình.",
-      "casual_equivalent": "～ってわけだ、～ということか",
-      "formality": "neutral"
-    },
-    {
-      "id": "p009",
-      "phrase": "～いただく",
-      "reading": "～いただく",
-      "meaning_vi": "nhận được sự giúp đỡ từ, được ~ (form lịch sự)",
-      "type": "phrase",
-      "context_sentence": "ご質問いただけますか。",
-      "context_reading": "ごしつもんいただけますか。",
-      "context_meaning_vi": "Bạn có thể đặt câu hỏi không?",
-      "usage_note": "Form keigo của \"もらう\", dùng để tỏ lòng biết ơn hoặc yêu cầu một cách lịch sự.",
-      "casual_equivalent": "もらう、～てくれる",
-      "formality": "formal"
-    },
-    {
-      "id": "p010",
-      "phrase": "ご～いただけますか",
-      "reading": "ご～いただけますか",
-      "meaning_vi": "bạn có thể vui lòng ~ không?",
-      "type": "phrase",
-      "context_sentence": "ご確認いただけますか。",
-      "context_reading": "ごかくにんいただけますか。",
-      "context_meaning_vi": "Bạn có thể vui lòng xác nhận không?",
-      "usage_note": "Cụm từ keigo rất phổ biến trong business, dùng để yêu cầu một cách lịch sự.",
-      "casual_equivalent": "～してくれる？、～できる？",
-      "formality": "formal"
-    },
-    {
-      "id": "p011",
-      "phrase": "～について",
-      "reading": "～について",
-      "meaning_vi": "về ~, liên quan đến ~",
-      "type": "phrase",
-      "context_sentence": "これについて何か質問がありますか。",
-      "context_reading": "これについてなにかしつもんがありますか。",
-      "context_meaning_vi": "Về vấn đề này, bạn có câu hỏi gì không?",
-      "usage_note": "Cụm từ hay gặp để giới thiệu topic hoặc vấn đề cần thảo luận.",
-      "casual_equivalent": "～のことについて、～に関して",
-      "formality": "neutral"
-    }
-  ],
-  "grammar": [
-    {
-      "id": "g001",
-      "pattern": "～ことになる",
-      "reading": "～ことになる",
-      "meaning_vi": "diễn ra, được quy định, kết thúc là ~",
-      "type": "grammar",
-      "jlpt": "N3",
-      "explanation_vi": "Grammar N3 dùng để nói về kết quả cuối cùng của một sự kiện, hoặc sự thay đổi tình trạng.",
-      "examples_from_meeting": [
+      "id": "s001",
+      "sentence": "クラスが増えるとその分モデルの分解能っていうところの性能がちょっと下がるので、クラスを足すと多分下がるっていうところが結構あるあるの課題になるとは思うんですけども。",
+      "reading": "クラスがふえるとそのぶんモデルのぶんかいのうっていうところのせいのうがちょっとさがるので、クラスをたすとたぶんさがるっていうところがけっこうあるあるのかだいになるとはおもうんですけども。",
+      "meaning_vi": "Khi số class tăng lên thì khả năng phân giải của mô hình sẽ giảm đi một chút, việc thêm class mà bị giảm hiệu năng là vấn đề khá phổ biến.",
+      "speaker": "[人物B]",
+      "timestamp": "10:28",
+      "words": [
         {
-          "ja": "このモデルは425のクラスがあることになりました。",
-          "reading": "このモデルは425のクラスがあることになりました。",
-          "vi": "Mô hình này kết thúc là có 425 lớp."
+          "word": "分解能",
+          "reading": "ぶんかいのう",
+          "meaning_vi": "khả năng phân giải",
+          "note": "Trong object detection, chỉ khả năng mô hình phân biệt các chi tiết"
+        },
+        {
+          "word": "あるある",
+          "reading": "あるある",
+          "meaning_vi": "hay gặp, phổ biến",
+          "note": "Từ nói tục. あるあるの課題 = vấn đề thường gặp"
         }
       ],
-      "common_mistakes": "Hay nhầm với ～ようになる (dần dần trở thành)"
-    },
-    {
-      "id": "g002",
-      "pattern": "～ようにする",
-      "reading": "～ようにする",
-      "meaning_vi": "cố gắng để ~, đảm bảo ~, hướng tới ~",
-      "type": "grammar",
-      "jlpt": "N4",
-      "explanation_vi": "Grammar N4 nhưng trong business dùng rất nhiều. Nó chỉ ý định hoặc hành động cụ thể hướng tới một mục đích.",
-      "examples_from_meeting": [
+      "grammar_notes": [
         {
-          "ja": "人が写っている写真は表示させないようなフィルターかけてます。",
-          "reading": "ひとがうつっているしゃしんはひょうじさせないようなふぃるたーかけてます。",
-          "vi": "Chúng tôi áp dụng bộ lọc để không hiển thị hình ảnh có người."
+          "pattern": "～っていうところが～になる",
+          "meaning_vi": "điểm/vấn đề đó sẽ trở thành ~",
+          "note": "Cách diễn đạt gián tiếp khi nêu vấn đề"
         }
       ],
-      "common_mistakes": "Hay nhầm với ～ようになる (trở nên ~, thay đổi tự nhiên)"
+      "difficulty": "hard"
     },
     {
-      "id": "g003",
-      "pattern": "～を踏まえて",
-      "reading": "～をふまえて",
-      "meaning_vi": "xem xét, cân nhắc, dựa trên ~",
-      "type": "grammar",
-      "jlpt": "N2",
-      "explanation_vi": "Grammar N2 hay gặp trong business khi muốn nói rằng bạn xem xét một yếu tố nào đó trước khi đưa ra quyết định.",
-      "examples_from_meeting": [
+      "id": "s002",
+      "sentence": "枚数としては経験則的には少なめなので、結構精度出づらいんじゃないかなっていうところを懸念してたんですよね。",
+      "reading": "まいすうとしてはけいけんそくてきにはすくなめなので、けっこうせいどでづらいんじゃないかなっていうところをけねんしてたんですよね。",
+      "meaning_vi": "Về số lượng ảnh thì theo kinh nghiệm là hơi ít, nên tôi lo ngại là có lẽ sẽ khó đạt được độ chính xác.",
+      "speaker": "[人物B]",
+      "timestamp": "12:20",
+      "words": [
         {
-          "ja": "これを踏まえて、次のステップに進みます。",
-          "reading": "これをふまえて、つぎのすてっぷにすすみます。",
-          "vi": "Xem xét điểm này, chúng tôi chuyển sang bước tiếp theo."
+          "word": "経験則的",
+          "reading": "けいけんそくてき",
+          "meaning_vi": "theo quy tắc kinh nghiệm",
+          "note": "Mạnh hơn 経験的。Quy tắc rút ra từ kinh nghiệm thực tế"
+        },
+        {
+          "word": "懸念",
+          "reading": "けねん",
+          "meaning_vi": "lo ngại",
+          "note": "Trang trọng hơn 心配. Hay dùng trong business meeting"
         }
       ],
-      "common_mistakes": "Hay nhầm với ～に基づいて (dựa trên, căn cứ vào)"
+      "grammar_notes": [
+        {
+          "pattern": "～出づらい",
+          "meaning_vi": "khó đạt được ~",
+          "note": "出る + づらい = khó ra. 精度出づらい = khó đạt độ chính xác"
+        }
+      ],
+      "difficulty": "hard"
     },
     {
-      "id": "g004",
-      "pattern": "～ということ",
-      "reading": "～ということ",
-      "meaning_vi": "cái tên/sự thật là ~, điều này có nghĩa là ~",
-      "type": "grammar",
-      "jlpt": "N3",
-      "explanation_vi": "Grammar N3 dùng để nói lại hoặc giải thích một điều gì đó đã nói trước đó.",
-      "examples_from_meeting": [
+      "id": "s003",
+      "sentence": "モデルはえっと、ディテクションを基づいて、このモデルは元々365クラスがありまして。",
+      "reading": "モデルはえっと、ディテクションをきそにして、このモデルはもともと365クラスがありまして。",
+      "meaning_vi": "Mô hình này dựa trên object detection, mô hình ban đầu có 365 class.",
+      "speaker": "[人物D]",
+      "timestamp": "6:34",
+      "words": [
         {
-          "ja": "つまり、このモデルはより多くのデータで学習したということです。",
-          "reading": "つまり、このモデルはよりおおくのでーたでがくしゅうしたということです。",
-          "vi": "Nói cách khác, mô hình này được học với nhiều dữ liệu hơn."
+          "word": "ディテクション",
+          "reading": "ディテクション",
+          "meaning_vi": "phát hiện, nhận diện",
+          "note": "Object detection = phát hiện vật thể"
+        },
+        {
+          "word": "基づいて",
+          "reading": "もとづいて",
+          "meaning_vi": "dựa trên, căn cứ vào",
+          "note": "～に基づいて = dựa trên ~"
         }
       ],
-      "common_mistakes": "Hay nhầm với ～という (cái tên là ~)"
+      "difficulty": "medium"
     },
     {
-      "id": "g005",
-      "pattern": "～かどうか",
-      "reading": "～かどうか",
-      "meaning_vi": "hay không, liệu có ~ không, bất kể ~",
-      "type": "grammar",
-      "jlpt": "N3",
-      "explanation_vi": "Grammar N3 dùng khi muốn nói về sự không chắc chắn hoặc lựa chọn giữa hai khả năng.",
-      "examples_from_meeting": [
+      "id": "s004",
+      "sentence": "認識精度の高いモデルが公開されていて。で、今回GT向けのクラスをファインチューニングで足したっていう感じになるんだね。",
+      "reading": "にんしきせいどのたかいモデルがこうかいされていて。で、こんかいGT向けのクラスをファインチューニングでたしたっていうかんじになるんだね。",
+      "meaning_vi": "Có một mô hình với độ chính xác nhận diện cao được công khai. Lần này, chúng ta thêm các class cho GT thông qua fine-tuning.",
+      "speaker": "[人物B]",
+      "timestamp": "7:18",
+      "words": [
         {
-          "ja": "精度が出ているかどうか確認する必要があります。",
-          "reading": "せいどがでているかどうかかくにんするひつようがあります。",
-          "vi": "Chúng tôi cần kiểm tra liệu độ chính xác có được cải thiện không."
+          "word": "ファインチューニング",
+          "reading": "ファインチューニング",
+          "meaning_vi": "điều chỉnh tinh tế, huấn luyện tinh tế",
+          "note": "Trong ML, huấn luyện lại mô hình đã huấn luyện với dữ liệu mới"
         }
       ],
-      "common_mistakes": "Hay quên thêm か trước どうか"
+      "difficulty": "medium"
+    },
+    {
+      "id": "s005",
+      "sentence": "ラベル付けの作業は時間がかかりますね。",
+      "reading": "ラベルづけのさぎょうはじかんがかかりますね。",
+      "meaning_vi": "Công việc gán nhãn mất rất nhiều thời gian.",
+      "speaker": "[人物D]",
+      "timestamp": "2:03",
+      "words": [
+        {
+          "word": "ラベル付け",
+          "reading": "ラベルづけ",
+          "meaning_vi": "gán nhãn, đánh dấu",
+          "note": "Trong ML, gán nhãn dữ liệu cho huấn luyện"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s006",
+      "sentence": "モデルをトレーニング完了しました。結果をレベルに保存しました。",
+      "reading": "モデルをトレーニングかんりょうしました。けっかをレベルにほぞんしました。",
+      "meaning_vi": "Đã hoàn tất huấn luyện mô hình. Lưu kết quả ở mức độ nào đó.",
+      "speaker": "[人物D]",
+      "timestamp": "2:03",
+      "words": [
+        {
+          "word": "トレーニング",
+          "reading": "トレーニング",
+          "meaning_vi": "huấn luyện",
+          "note": "Training = quá trình huấn luyện mô hình"
+        },
+        {
+          "word": "完了",
+          "reading": "かんりょう",
+          "meaning_vi": "hoàn tất, kết thúc",
+          "note": "Hoàn tất công việc"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s007",
+      "sentence": "画面を共有します。",
+      "reading": "がめんをきょうゆうします。",
+      "meaning_vi": "Tôi sẽ chia sẻ màn hình.",
+      "speaker": "[人物D]",
+      "timestamp": "1:50",
+      "words": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s008",
+      "sentence": "今回足したやつのクラスのあの制度っていうところを個別に見れると、なんかこう課題感が切り分けられるんじゃないかなと思ってるという次第です。",
+      "reading": "こんかいたしたやつのクラスのあのせいどっていうところをこべつにみれると、なんかこうかだいかんがきりわけられるんじゃないかなとおもってるというしだいです。",
+      "meaning_vi": "Nếu chúng ta có thể xem riêng độ chính xác của các class được thêm vào lần này, chúng ta có thể phân tách các vấn đề tốt hơn.",
+      "speaker": "[人物B]",
+      "timestamp": "12:35",
+      "words": [
+        {
+          "word": "課題感",
+          "reading": "かだいかん",
+          "meaning_vi": "cảm giác về vấn đề, ý thức về vấn đề",
+          "note": "Nhận thức rõ ràng về vấn đề cần giải quyết"
+        },
+        {
+          "word": "切り分ける",
+          "reading": "きりわける",
+          "meaning_vi": "phân chia, tách biệt",
+          "note": "Chia nhỏ vấn đề thành các phần riêng biệt"
+        }
+      ],
+      "grammar_notes": [
+        {
+          "pattern": "～という次第です",
+          "meaning_vi": "tình hình là ~, lý do là ~",
+          "note": "Cách diễn đạt trang trọng để giải thích tình hình"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s009",
+      "sentence": "このモデルと別個にこのモデルを作っちゃう。この教師データのえっと特性ごとにモデルを作っちゃって、一つの画像に対してこいつらが2回見に行くっていうところも考えられるんですよね。",
+      "reading": "このモデルとべっこにこのモデルをつくっちゃう。このきょうしデータのえっととくせいごとにモデルをつくっちゃって、ひとつのがぞうにたいしてこいつらがにかいみにいくっていうところもかんがえられるんですよね。",
+      "meaning_vi": "Chúng ta có thể tạo các mô hình này riêng biệt. Tạo các mô hình theo từng đặc tính của dữ liệu huấn luyện, và cho phép chúng nhìn một ảnh hai lần.",
+      "speaker": "[人物B]",
+      "timestamp": "35:49",
+      "words": [
+        {
+          "word": "別個",
+          "reading": "べっこ",
+          "meaning_vi": "riêng biệt, tách rời",
+          "note": "～と別個に = tách biệt với ~"
+        },
+        {
+          "word": "特性",
+          "reading": "とくせい",
+          "meaning_vi": "đặc tính, đặc điểm",
+          "note": "Những tính chất đặc biệt của dữ liệu"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s010",
+      "sentence": "教師データって、リンさんがバウンディングボックスを手作業で作って拡充しているじゃないですか。",
+      "reading": "きょうしデータって、リンさんがバウンディングボックスをてさぎょうでつくってかくじゅうしているじゃないですか。",
+      "meaning_vi": "Dữ liệu huấn luyện, bạn [人物D] tạo các bounding box bằng tay để mở rộng phải không.",
+      "speaker": "[人物B]",
+      "timestamp": "32:40",
+      "words": [
+        {
+          "word": "教師データ",
+          "reading": "きょうしデータ",
+          "meaning_vi": "dữ liệu huấn luyện, dữ liệu đánh dấu",
+          "note": "Dữ liệu được sử dụng để huấn luyện mô hình"
+        },
+        {
+          "word": "バウンディングボックス",
+          "reading": "バウンディングボックス",
+          "meaning_vi": "hộp giới hạn, khung chứa vật thể",
+          "note": "Trong object detection, hộp đánh dấu vị trí vật thể"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s011",
+      "sentence": "結構細かく検出できますね。",
+      "reading": "けっこうこまかくけんしゅつできますね。",
+      "meaning_vi": "Có thể phát hiện khá chi tiết.",
+      "speaker": "[人物A]",
+      "timestamp": "6:04",
+      "words": [
+        {
+          "word": "細かく",
+          "reading": "こまかく",
+          "meaning_vi": "chi tiết, tỉ mỉ",
+          "note": "Một cách chi tiết và chính xác"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s012",
+      "sentence": "これモデルって、あのリンさんが作った教師レーターを学習したモデルなんでしたっけ。",
+      "reading": "これモデルって、あのリンさんがつくったきょうしレーターをがくしゅうしたモデルなんでしたっけ。",
+      "meaning_vi": "Mô hình này là mô hình được huấn luyện trên dữ liệu mà [人物D] tạo phải không.",
+      "speaker": "[人物B]",
+      "timestamp": "6:09",
+      "words": [
+        {
+          "word": "学習",
+          "reading": "がくしゅう",
+          "meaning_vi": "học tập, huấn luyện",
+          "note": "Quá trình mô hình học từ dữ liệu"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s013",
+      "sentence": "最新モデルはえっと、425のクラスがありますね。",
+      "reading": "さいしんモデルはえっと、425のクラスがありますね。",
+      "meaning_vi": "Mô hình mới nhất có 425 class.",
+      "speaker": "[人物D]",
+      "timestamp": "7:40",
+      "words": [
+        {
+          "word": "最新",
+          "reading": "さいしん",
+          "meaning_vi": "mới nhất, hiện đại nhất",
+          "note": "Phiên bản hoặc công nghệ mới nhất"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s014",
+      "sentence": "もともとのモデルのマップの値はあれに比べてえっと高いと分かります。",
+      "reading": "もともとのモデルのマップのあたいはあれにくらべてえっとたかいとわかります。",
+      "meaning_vi": "Giá trị MAP của mô hình ban đầu cao hơn so với nó.",
+      "speaker": "[人物D]",
+      "timestamp": "7:40",
+      "words": [
+        {
+          "word": "マップ",
+          "reading": "マップ",
+          "meaning_vi": "MAP (Mean Average Precision)",
+          "note": "Chỉ số đánh giá mô hình object detection"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s015",
+      "sentence": "クラスを足したことによる精度の変化というよりは、単純にエピソード数を積み上げていくと程度が上がってるっていう話になるんですかね。",
+      "reading": "クラスをたしたことによるせいどのへんかというよりは、たんじゅんにエピソードすうをつみあげていくとていどがあがってるっていうはなしになるんですかね。",
+      "meaning_vi": "Thay vì do sự thay đổi của độ chính xác khi thêm class, nó đơn giản là độ chính xác tăng lên khi tích lũy số lượng episode.",
+      "speaker": "[人物B]",
+      "timestamp": "9:33",
+      "words": [
+        {
+          "word": "エピソード",
+          "reading": "エピソード",
+          "meaning_vi": "tập dữ liệu, mẫu dữ liệu",
+          "note": "Trong ML, một ví dụ dữ liệu huấn luyện"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s016",
+      "sentence": "私のそのソースコード上では、あの体験して人が写ってっていうのは全部表示させないようなフィルターかけてるんですよ。",
+      "reading": "わたしのそのソースコードじょうでは、あのたいけんして、ひとがうつってっていうのはぜんぶひょうじさせないようなフィルターかけてるんですよ。",
+      "meaning_vi": "Trong mã nguồn của tôi, tôi áp dụng bộ lọc để không hiển thị những ảnh có người xuất hiện.",
+      "speaker": "[人物C]",
+      "timestamp": "5:10",
+      "words": [
+        {
+          "word": "フィルター",
+          "reading": "フィルター",
+          "meaning_vi": "bộ lọc",
+          "note": "Cơ chế lọc dữ liệu theo tiêu chí nào đó"
+        },
+        {
+          "word": "ソースコード",
+          "reading": "ソースコード",
+          "meaning_vi": "mã nguồn",
+          "note": "Mã lập trình gốc của chương trình"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s017",
+      "sentence": "個人情報日記とするとややこしいので。",
+      "reading": "こじんじょうほうにっきとするとややこしいので。",
+      "meaning_vi": "Vì nó sẽ trở nên phức tạp về quyền riêng tư cá nhân.",
+      "speaker": "[人物C]",
+      "timestamp": "5:10",
+      "words": [
+        {
+          "word": "個人情報",
+          "reading": "こじんじょうほう",
+          "meaning_vi": "thông tin cá nhân",
+          "note": "Dữ liệu về danh tính, địa chỉ của cá nhân"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s018",
+      "sentence": "人を写る写真は使わないっていうフィルターにしといた方が楽で。",
+      "reading": "ひとをうつるしゃしんはつかわないっていうフィルターにしといたほうがらくで。",
+      "meaning_vi": "Tốt hơn là áp dụng bộ lọc để không sử dụng ảnh có người.",
+      "speaker": "[人物C]",
+      "timestamp": "5:46",
+      "words": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s019",
+      "sentence": "おかしな動きをしているターゲット層を抽出しますと。",
+      "reading": "おかしなうごきをしているターゲットそうをちゅうしゅつしますと。",
+      "meaning_vi": "Chúng ta sẽ trích xuất các tầng đối tượng có hành vi bất thường.",
+      "speaker": "[人物A]",
+      "timestamp": "38:00",
+      "words": [
+        {
+          "word": "抽出",
+          "reading": "ちゅうしゅつ",
+          "meaning_vi": "trích xuất, lấy ra",
+          "note": "Lấy ra những dữ liệu cụ thể từ tập lớn"
+        },
+        {
+          "word": "ターゲット層",
+          "reading": "ターゲットそう",
+          "meaning_vi": "tầng đối tượng, nhóm mục tiêu",
+          "note": "Nhóm khách hàng hoặc nhóm dân số mục tiêu"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s020",
+      "sentence": "地元のスーパーでええと、現用パートナーの低高なものを補充買いしかしてないと。",
+      "reading": "じもとのスーパーでええと、げんようパートナーのていこうなものをほじゅうがいしかしてないと。",
+      "meaning_vi": "Tại siêu thị địa phương chỉ mua những mặt hàng bình thường để bổ sung.",
+      "speaker": "[人物A]",
+      "timestamp": "40:00",
+      "words": [
+        {
+          "word": "補充買い",
+          "reading": "ほじゅうがい",
+          "meaning_vi": "mua bổ sung, mua để bổ sung kho",
+          "note": "Mua lại những mặt hàng đã dùng hết"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s021",
+      "sentence": "消費生態プロファイリングによる隠れ機会損失の可視化。",
+      "reading": "しょうひせいたいプロファイリングによるかくれきかいそんしつのかしか。",
+      "meaning_vi": "Trực quan hóa mất cơ hội ẩn thông qua lập hồ sơ hành vi tiêu dùng.",
+      "speaker": "[人物A]",
+      "timestamp": "37:00",
+      "words": [
+        {
+          "word": "消費生態",
+          "reading": "しょうひせいたい",
+          "meaning_vi": "hành vi tiêu dùng, sinh thái tiêu dùng",
+          "note": "Mẫu và thói quen tiêu dùng của người dùng"
+        },
+        {
+          "word": "プロファイリング",
+          "reading": "プロファイリング",
+          "meaning_vi": "lập hồ sơ, phân tích hồ sơ",
+          "note": "Xây dựng mô hình hành vi từ dữ liệu"
+        },
+        {
+          "word": "可視化",
+          "reading": "かしか",
+          "meaning_vi": "trực quan hóa, hiển thị",
+          "note": "Biểu diễn dữ liệu dưới dạng hình ảnh"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s022",
+      "sentence": "平日は地元のスーパーでええと、現用パートナーの低高なものを補充買いしかしてないと。昔週末になると、電車で三つほど離れた高級スーパーやデパ地下のね。",
+      "reading": "へいじつはじもとのスーパーでええと、げんようパートナーのていこうなものをほじゅうがいしかしてないと。むかししゅうまつになると、でんしゃでみつほどはなれたこうきゅうスーパーやデパちかのね。",
+      "meaning_vi": "Trong tuần chỉ mua những mặt hàng bình thường để bổ sung tại siêu thị địa phương. Nhưng vào cuối tuần, người này đi tàu điện tới siêu thị cao cấp hoặc tầng hầm của cửa hàng bán lẻ cách đó ba chục cây số.",
+      "speaker": "[人物A]",
+      "timestamp": "40:30",
+      "words": [
+        {
+          "word": "デパ地下",
+          "reading": "デパちか",
+          "meaning_vi": "tầng hầm của cửa hàng bán lẻ",
+          "note": "Department store basement - nơi bán đặc sản cao cấp"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s023",
+      "sentence": "ここ仮説としてなんですけど、このエリアの大田基礎は平日よりちょっといい衣食を買いたいんだけど。えっと、地元のスーパーに知らないため、仕方なく休日に衛生してまとめるようにしているという形。",
+      "reading": "ここかせつとしてなんですけど、このエリアのおおたきそは、へいじつよりちょっといいいしょくをかいたいんだけど、えっと、じもとのスーパーにしらないため、しかたなくきゅうじつにえいせいしてまとめるようにしているというかたち。",
+      "meaning_vi": "Đây là giả thuyết, tuy nhiên các hộ gia đình trong khu vực này muốn mua những thực phẩm tốt hơn vào ngày thường, nhưng vì siêu thị địa phương không có, họ buộc phải chờ đến cuối tuần rồi mua lại một cách có kế hoạch.",
+      "speaker": "[人物A]",
+      "timestamp": "41:00",
+      "words": [
+        {
+          "word": "仮説",
+          "reading": "かせつ",
+          "meaning_vi": "giả thuyết, giả định",
+          "note": "Một giả định cần kiểm chứng"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s024",
+      "sentence": "人流データと属性とレシートデータを使ってギャップを検知するという話があったんですけど。",
+      "reading": "じんりゅうデータとぞくせいとレシートデータをつかってギャップをけんちするというはなしがあったんですけど。",
+      "meaning_vi": "Chúng ta sẽ sử dụng dữ liệu luồng người, dữ liệu thuộc tính và dữ liệu hóa đơn để phát hiện khoảng cách.",
+      "speaker": "[人物A]",
+      "timestamp": "37:30",
+      "words": [
+        {
+          "word": "人流",
+          "reading": "じんりゅう",
+          "meaning_vi": "luồng người, lưu lượng con người",
+          "note": "Dữ liệu về chuyển động của người"
+        },
+        {
+          "word": "属性",
+          "reading": "ぞくせい",
+          "meaning_vi": "thuộc tính, đặc tính",
+          "note": "Những tính chất phân loại (tuổi, giới tính, v.v.)"
+        },
+        {
+          "word": "ギャップ",
+          "reading": "ギャップ",
+          "meaning_vi": "khoảng cách, sự khác biệt",
+          "note": "Sự chênh lệch giữa hai thứ"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s025",
+      "sentence": "平日18時半以降のクエストで、地元スーパーの惣菜コーナーと製品コーナーの棚の写真を先生せよというクエストを発行しまして。",
+      "reading": "へいじつ18じはんいこうのクエストで、じもとスーパーのそうざいコーナーとせいひんコーナーのたなのしゃしんをしゃしゅんせよというクエストをはっこうしまして。",
+      "meaning_vi": "Chúng tôi phát hành quest yêu cầu chụp ảnh kệ ở quầy cơm nấu sẵn và quầy sản phẩm của siêu thị địa phương sau 18:30 vào ngày thường.",
+      "speaker": "[人物A]",
+      "timestamp": "43:00",
+      "words": [
+        {
+          "word": "惣菜",
+          "reading": "そうざい",
+          "meaning_vi": "cơm nấu sẵn, đồ ăn chế biến",
+          "note": "Thực phẩm đã chuẩn bị sẵn để bán"
+        },
+        {
+          "word": "クエスト",
+          "reading": "クエスト",
+          "meaning_vi": "nhiệm vụ, yêu cầu",
+          "note": "Một yêu cầu hoặc nhiệm vụ cụ thể"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s026",
+      "sentence": "売られているものとか、残っているもののええ状況を指定するということで。",
+      "reading": "うられているものとか、のこっているもののええじょうきょうをしていするということで。",
+      "meaning_vi": "Chúng ta sẽ chỉ định và xác định tình trạng của những thứ đang được bán và những thứ còn lại.",
+      "speaker": "[人物A]",
+      "timestamp": "43:00",
+      "words": [],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s027",
+      "sentence": "電動自動車、電動自転車かを取ってもらって。ええ取るって話と、あとカーシェアの空き状況を指定しようという話でした。",
+      "reading": "でんどうじどうしゃ、でんどうじてんしゃかをとってもらって。ええとるっていうはなしと、あとカーシェアのあきじょうきょうをしていしようというはなしでした。",
+      "meaning_vi": "Chúng tôi yêu cầu chụp ảnh các xe ô tô điện, xe đạp điện, và xác định tình trạng của các dịch vụ chia sẻ xe.",
+      "speaker": "[人物A]",
+      "timestamp": "44:00",
+      "words": [
+        {
+          "word": "カーシェア",
+          "reading": "カーシェア",
+          "meaning_vi": "chia sẻ xe, xe công cộng",
+          "note": "Dịch vụ cho thuê xe hoặc chia sẻ xe"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s028",
+      "sentence": "これは難しいと思ってご意見を。",
+      "reading": "これはむずかしいとおもってごいけんを。",
+      "meaning_vi": "Tôi nghĩ điều này khó khăn, tôi muốn nghe ý kiến của bạn.",
+      "speaker": "[人物A]",
+      "timestamp": "45:00",
+      "words": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s029",
+      "sentence": "リサイクルボックス段ボール瓶の状況を発生すると。",
+      "reading": "リサイクルボックスだんぼールびんのじょうきょうをはっせいすると。",
+      "meaning_vi": "Kiểm tra tình trạng của hộp tái chế, bìa cứng và chai lọ.",
+      "speaker": "[人物A]",
+      "timestamp": "46:00",
+      "words": [
+        {
+          "word": "リサイクル",
+          "reading": "リサイクル",
+          "meaning_vi": "tái chế",
+          "note": "Quá trình xử lý chất thải để sử dụng lại"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s030",
+      "sentence": "オイシックスなどのえっと高級食材高いキットの箱や、スーパーエー店で扱っていないクラストビールとか、輸入ワインの空きま空き瓶が多数撮影されるみたいな情報があると。",
+      "reading": "オイシックスなどのえっとこうきゅうしょくざいたかいキットのはこや、スーパーエーてんであつかっていないクラストビールとか、ゆにゅうワインのあきまあきびんがたすうさつえいされるみたいなじょうほうがあると。",
+      "meaning_vi": "Nếu có thông tin về hộp của Oisix và các bộ thực phẩm cao cấp, cũng như các chai rượu Craft beer và rượu vang nhập khẩu được chụp ảnh.",
+      "speaker": "[人物A]",
+      "timestamp": "47:00",
+      "words": [
+        {
+          "word": "輸入",
+          "reading": "ゆにゅう",
+          "meaning_vi": "nhập khẩu, nhập vào",
+          "note": "Mang hàng hóa từ nước ngoài vào"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s031",
+      "sentence": "スーパーの中で撮影しないでって貼り紙してるとこ多いんですよ。",
+      "reading": "スーパーのなかでさつえいしないでってはりがみしてるところおおいんですよ。",
+      "meaning_vi": "Có nhiều siêu thị dán thông báo không chụp ảnh trong cửa hàng.",
+      "speaker": "[人物C]",
+      "timestamp": "50:18",
+      "words": [
+        {
+          "word": "貼り紙",
+          "reading": "はりがみ",
+          "meaning_vi": "thông báo, giấy dán",
+          "note": "Thông báo dán trên tường hoặc cửa"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s032",
+      "sentence": "考えた時にとっていいのかっちゅう話もあったり。",
+      "reading": "かんがえたときにとっていいのかっていうはなしもあったり。",
+      "meaning_vi": "Có câu hỏi về việc có nên chụp ảnh hay không.",
+      "speaker": "[人物C]",
+      "timestamp": "50:18",
+      "words": [],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s033",
+      "sentence": "妥協の不満。これ多分、今回のあのスタディで出したアプローチだと思ってるんですけど。本当はaが欲しいんだけど、しかかる美を見つけてそうを見つけるってアプローチですね。",
+      "reading": "だきょうのふまん。これたぶん、こんかいのあのスタディでだしたアプローチだとおもってるんですけど。ほんとうはAがほしいんだけど、しかかるびをみつけてそうをみつけるってアプローチですね。",
+      "meaning_vi": "Thỏa hiệp với sự không hài lòng. Đây có lẽ là phương pháp chúng tôi đưa ra trong nghiên cứu này. Chúng ta thực sự muốn A nhưng tìm thấy sự chênh lệch để tìm ra B.",
+      "speaker": "[人物A]",
+      "timestamp": "53:30",
+      "words": [
+        {
+          "word": "妥協",
+          "reading": "だきょう",
+          "meaning_vi": "thỏa hiệp, nhượng bộ",
+          "note": "Chấp nhận điều gì đó kém hơn để đạt được một phần mục tiêu"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s034",
+      "sentence": "消費の流出ジャーニーっていうのがありまして。ええ、生活圏と消費圏の全部見つけるっていうことでして。",
+      "reading": "しょうひのりゅうしゅつジャーニーっていうのがありまして。ええ、せいかつけんとしょうひけんのぜんぶみつけるっていうことでして。",
+      "meaning_vi": "Có một hành trình rò rỉ tiêu dùng. Tìm ra toàn bộ vùng sống và vùng tiêu dùng.",
+      "speaker": "[人物A]",
+      "timestamp": "54:00",
+      "words": [
+        {
+          "word": "流出",
+          "reading": "りゅうしゅつ",
+          "meaning_vi": "rò rỉ, chảy ra",
+          "note": "Tiền hoặc tài nguyên chảy đi nơi khác"
+        },
+        {
+          "word": "ジャーニー",
+          "reading": "ジャーニー",
+          "meaning_vi": "hành trình, cuộc hành trình",
+          "note": "Customer journey = hành trình khách hàng"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s035",
+      "sentence": "彼らのレシートをどの店、どの店で発行されているかも確認しまして。",
+      "reading": "かれらのレシートをどのみせ、どのみせではっこうされているかもかくにんしまして。",
+      "meaning_vi": "Chúng ta sẽ xác minh xem hóa đơn của họ được phát hành tại những cửa hàng nào.",
+      "speaker": "[人物A]",
+      "timestamp": "54:10",
+      "words": [
+        {
+          "word": "発行",
+          "reading": "はっこう",
+          "meaning_vi": "phát hành, cấp phát",
+          "note": "Phát hành tài liệu, chứng chỉ, v.v."
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "s036",
+      "sentence": "ライフスタイルのぶらつけってことで、アンケート測れない本当の価値観を特定するっていう意味合いでした。",
+      "reading": "ライフスタイルのぶらつけってことで、アンケートはかられないほんとうのかちかんをとくていするっていういみあいでした。",
+      "meaning_vi": "Về phong cách sống, để xác định các giá trị thực sự không thể đo lường bằng khảo sát.",
+      "speaker": "[人物A]",
+      "timestamp": "54:30",
+      "words": [
+        {
+          "word": "ライフスタイル",
+          "reading": "ライフスタイル",
+          "meaning_vi": "phong cách sống, lối sống",
+          "note": "Cách sống hàng ngày của một người"
+        },
+        {
+          "word": "価値観",
+          "reading": "かちかん",
+          "meaning_vi": "giá trị, quan điểm giá trị",
+          "note": "Những điều mà một người coi là quan trọng"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s037",
+      "sentence": "レシート上のペノチコーヒー、プロテイン、オーガニックペット用品などのコーヒー頻度と除菌による抹茶商工。",
+      "reading": "レシートじょうのペノチコーヒー、プロテイン、オーガニックペットようひんなどのコーヒーひんどとじょきんによるまっちゃしょうこう。",
+      "meaning_vi": "Tần suất cà phê specialty, protein, sản phẩm thú cưng hữu cơ trên hóa đơn và thương mại matcha thông qua khử trùng.",
+      "speaker": "[人物A]",
+      "timestamp": "54:45",
+      "words": [
+        {
+          "word": "オーガニック",
+          "reading": "オーガニック",
+          "meaning_vi": "hữu cơ, tự nhiên",
+          "note": "Sản phẩm không sử dụng hóa chất tổng hợp"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s038",
+      "sentence": "人流と属性とレシートって何かしらでひもづいてるんでしたっけそれとも。こうこっちから推察して紐づけてる。",
+      "reading": "じんりゅうとぞくせいとレシートってなにかしらでひもづいてるんでしたっけ、それとも、こうこっちからすいさつしてひもづけてる。",
+      "meaning_vi": "Có phải dữ liệu luồng người, thuộc tính và hóa đơn được liên kết bằng cách nào đó, hay chúng ta suy luận và liên kết từ đó không.",
+      "speaker": "[人物B]",
+      "timestamp": "56:11",
+      "words": [
+        {
+          "word": "紐づく",
+          "reading": "ひもづく",
+          "meaning_vi": "liên kết, gắn kết",
+          "note": "Hai hoặc nhiều thứ được kết nối với nhau"
+        },
+        {
+          "word": "推察",
+          "reading": "すいさつ",
+          "meaning_vi": "suy luận, suy đoán",
+          "note": "Suy ra điều gì đó từ bằng chứng"
+        }
+      ],
+      "difficulty": "hard"
+    },
+    {
+      "id": "s039",
+      "sentence": "ユーザーIDで一致させてます。分析できます。",
+      "reading": "ユーザーIDでいっちさせてます。ぶんせきできます。",
+      "meaning_vi": "Chúng tôi khớp theo ID người dùng. Chúng tôi có thể phân tích.",
+      "speaker": "[人物C]",
+      "timestamp": "56:13",
+      "words": [
+        {
+          "word": "ユーザーID",
+          "reading": "ユーザーID",
+          "meaning_vi": "ID người dùng, mã người dùng",
+          "note": "Mã định danh duy nhất cho mỗi người dùng"
+        }
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "id": "s040",
+      "sentence": "とあるおもちゃ屋行って、新しいプラモを探すときに行ってないわっていうので、すぐ撤退して、別のとこ行って別のとこ行って見つけるっていうところがあるんですよ。",
+      "reading": "とあるおもちゃやいって、あたらしいプラモをさがすときにいってないわっていうので、すぐてったいして、べつのところいって、べつのところいってみつけるっていうところがあるんですよ。",
+      "meaning_vi": "Tôi đi đến một cửa hàng đồ chơi nào đó, nếu không tìm thấy mô hình mới mà tôi đang tìm kiếm, tôi sẽ rút lui ngay lập tức và đi đến những nơi khác để tìm kiếm.",
+      "speaker": "[人物B]",
+      "timestamp": "56:35",
+      "words": [
+        {
+          "word": "撤退",
+          "reading": "てったい",
+          "meaning_vi": "rút lui, rút khỏi",
+          "note": "Rời khỏi một địa điểm hoặc từ bỏ một hành động"
+        },
+        {
+          "word": "プラモ",
+          "reading": "プラモ",
+          "meaning_vi": "mô hình nhựa, bộ dán nhựa",
+          "note": "Mô hình khí tài hoặc nhân vật từ nhựa"
+        }
+      ],
+      "difficulty": "medium"
     }
   ],
   "exercises": {
-    "translate_vj": [
-      {
-        "id": "tvj001",
-        "prompt_vi": "Tôi muốn báo cáo về tiến độ.",
-        "acceptable_answers": [
-          "進捗について報告したいと思います。",
-          "進捗状況を報告させていただきたいと思います。"
-        ],
-        "key_points": [
-          "進捗",
-          "報告する",
-          "～たいと思う"
-        ],
-        "difficulty": "easy",
-        "ref_id": "p001"
-      },
-      {
-        "id": "tvj002",
-        "prompt_vi": "Tôi chia sẻ màn hình.",
-        "acceptable_answers": [
-          "画面を共有します。",
-          "画面を共有させていただきます。"
-        ],
-        "key_points": [
-          "画面",
-          "共有"
-        ],
-        "difficulty": "easy",
-        "ref_id": "p002"
-      },
-      {
-        "id": "tvj003",
-        "prompt_vi": "Chúng tôi phát triển mô hình dựa trên dữ liệu này.",
-        "acceptable_answers": [
-          "このデータに基づいて、モデルを開発しました。",
-          "このデータを基に、モデルを開発しました。"
-        ],
-        "key_points": [
-          "データ",
-          "基づく",
-          "モデル",
-          "開発"
-        ],
-        "difficulty": "intermediate",
-        "ref_id": "p007"
-      },
-      {
-        "id": "tvj004",
-        "prompt_vi": "Bạn có thể vui lòng xác nhận không?",
-        "acceptable_answers": [
-          "ご確認いただけますか。",
-          "ご確認いただけますでしょうか。"
-        ],
-        "key_points": [
-          "ご～いただける",
-          "確認"
-        ],
-        "difficulty": "intermediate",
-        "ref_id": "p010"
-      },
-      {
-        "id": "tvj005",
-        "prompt_vi": "Độ chính xác của mô hình này cao.",
-        "acceptable_answers": [
-          "このモデルの精度は高いです。",
-          "このモデルの精度が高いです。"
-        ],
-        "key_points": [
-          "精度",
-          "高い"
-        ],
-        "difficulty": "easy",
-        "ref_id": "v004"
-      }
-    ],
     "translate_jv": [
       {
         "id": "tjv001",
-        "prompt_ja": "進捗について報告したいと思います。",
-        "prompt_reading": "しんちょくについてほうこくしたいとおもいます。",
+        "prompt_ja": "クラスが増えるとその分モデルの分解能っていうところの性能がちょっと下がるので。",
+        "prompt_reading": "クラスがふえるとそのぶんモデルのぶんかいのうっていうところのせいのうがちょっとさがるので。",
         "acceptable_keywords_vi": [
-          "tiến độ",
-          "báo cáo",
-          "muốn"
+          "class tăng",
+          "phân giải",
+          "giảm"
         ],
-        "reference_answer_vi": "Tôi muốn báo cáo về tiến độ.",
-        "ref_id": "p001"
+        "reference_answer_vi": "Khi số class tăng lên thì khả năng phân giải của mô hình sẽ giảm đi một chút.",
+        "ref_id": "s001"
       },
       {
         "id": "tjv002",
-        "prompt_ja": "画面を共有します。",
-        "prompt_reading": "がめんをきょうゆうします。",
+        "prompt_ja": "枚数としては経験則的には少なめなので、結構精度出づらいんじゃないかなっていうところを懸念してたんですよね。",
+        "prompt_reading": "まいすうとしてはけいけんそくてきにはすくなめなので、けっこうせいどでづらいんじゃないかなっていうところをけねんしてたんですよね。",
         "acceptable_keywords_vi": [
-          "chia sẻ",
-          "màn hình"
+          "số lượng",
+          "ít",
+          "khó đạt độ chính xác",
+          "lo ngại"
         ],
-        "reference_answer_vi": "Tôi chia sẻ màn hình.",
-        "ref_id": "p002"
+        "reference_answer_vi": "Về số lượng ảnh thì theo kinh nghiệm là hơi ít, nên tôi lo ngại là có lẽ sẽ khó đạt được độ chính xác.",
+        "ref_id": "s002"
       },
       {
         "id": "tjv003",
-        "prompt_ja": "このデータに基づいて、モデルを開発しました。",
-        "prompt_reading": "このデータにもとづいて、モデルをかいはつしました。",
+        "prompt_ja": "認識精度の高いモデルが公開されていて。で、今回GT向けのクラスをファインチューニングで足したっていう感じになるんだね。",
+        "prompt_reading": "にんしきせいどのたかいモデルがこうかいされていて。で、こんかいGT向けのクラスをファインチューニングでたしたっていうかんじになるんだね。",
         "acceptable_keywords_vi": [
-          "dựa trên",
-          "dữ liệu",
-          "mô hình",
-          "phát triển"
+          "độ chính xác cao",
+          "fine-tuning",
+          "thêm class"
         ],
-        "reference_answer_vi": "Chúng tôi đã phát triển mô hình dựa trên dữ liệu này.",
-        "ref_id": "p007"
+        "reference_answer_vi": "Có một mô hình với độ chính xác nhận diện cao được công khai. Lần này, chúng ta thêm các class cho GT thông qua fine-tuning.",
+        "ref_id": "s004"
       },
       {
         "id": "tjv004",
-        "prompt_ja": "モデルの精度が高いです。",
-        "prompt_reading": "モデルのせいどがたかいです。",
+        "prompt_ja": "ラベル付けの作業は時間がかかりますね。",
+        "prompt_reading": "ラベルづけのさぎょうはじかんがかかりますね。",
         "acceptable_keywords_vi": [
-          "mô hình",
-          "độ chính xác",
-          "cao"
+          "gán nhãn",
+          "công việc",
+          "mất thời gian"
         ],
-        "reference_answer_vi": "Độ chính xác của mô hình cao.",
-        "ref_id": "v004"
+        "reference_answer_vi": "Công việc gán nhãn mất rất nhiều thời gian.",
+        "ref_id": "s005"
       },
       {
         "id": "tjv005",
-        "prompt_ja": "今後ともよろしくお願いいたします。",
-        "prompt_reading": "こんごともよろしくおねがいいたします。",
+        "prompt_ja": "今回足したやつのクラスのあの制度っていうところを個別に見れると、なんかこう課題感が切り分けられるんじゃないかなと思ってるという次第です。",
+        "prompt_reading": "こんかいたしたやつのクラスのあのせいどっていうところをこべつにみれると、なんかこうかだいかんがきりわけられるんじゃないかなとおもってるというしだいです。",
         "acceptable_keywords_vi": [
-          "từ nay về sau",
-          "hợp tác",
-          "mong"
+          "độ chính xác",
+          "riêng biệt",
+          "phân tách vấn đề"
         ],
-        "reference_answer_vi": "Mong được sự hợp tác của bạn từ nay về sau.",
-        "ref_id": "p003"
+        "reference_answer_vi": "Nếu chúng ta có thể xem riêng độ chính xác của các class được thêm vào lần này, chúng ta có thể phân tách các vấn đề tốt hơn.",
+        "ref_id": "s008"
+      },
+      {
+        "id": "tjv006",
+        "prompt_ja": "教師データって、リンさんがバウンディングボックスを手作業で作って拡充しているじゃないですか。",
+        "prompt_reading": "きょうしデータって、リンさんがバウンディングボックスをてさぎょうでつくってかくじゅうしているじゃないですか。",
+        "acceptable_keywords_vi": [
+          "dữ liệu huấn luyện",
+          "bounding box",
+          "tay",
+          "mở rộng"
+        ],
+        "reference_answer_vi": "Dữ liệu huấn luyện, bạn [人物D] tạo các bounding box bằng tay để mở rộng phải không.",
+        "ref_id": "s010"
+      },
+      {
+        "id": "tjv007",
+        "prompt_ja": "結構細かく検出できますね。",
+        "prompt_reading": "けっこうこまかくけんしゅつできますね。",
+        "acceptable_keywords_vi": [
+          "chi tiết",
+          "phát hiện"
+        ],
+        "reference_answer_vi": "Có thể phát hiện khá chi tiết.",
+        "ref_id": "s011"
+      },
+      {
+        "id": "tjv008",
+        "prompt_ja": "最新モデルはえっと、425のクラスがありますね。",
+        "prompt_reading": "さいしんモデルはえっと、425のクラスがありますね。",
+        "acceptable_keywords_vi": [
+          "mô hình mới nhất",
+          "425 class"
+        ],
+        "reference_answer_vi": "Mô hình mới nhất có 425 class.",
+        "ref_id": "s013"
+      },
+      {
+        "id": "tjv009",
+        "prompt_ja": "クラスを足したことによる精度の変化というよりは、単純にエピソード数を積み上げていくと程度が上がってるっていう話になるんですかね。",
+        "prompt_reading": "クラスをたしたことによるせいどのへんかというよりは、たんじゅんにエピソードすうをつみあげていくとていどがあがってるっていうはなしになるんですかね。",
+        "acceptable_keywords_vi": [
+          "class",
+          "episode",
+          "độ chính xác tăng"
+        ],
+        "reference_answer_vi": "Thay vì do sự thay đổi của độ chính xác khi thêm class, nó đơn giản là độ chính xác tăng lên khi tích lũy số lượng episode.",
+        "ref_id": "s015"
+      },
+      {
+        "id": "tjv010",
+        "prompt_ja": "人流データと属性とレシートデータを使ってギャップを検知するという話があったんですけど。",
+        "prompt_reading": "じんりゅうデータとぞくせいとレシートデータをつかってギャップをけんちするというはなしがあったんですけど。",
+        "acceptable_keywords_vi": [
+          "luồng người",
+          "thuộc tính",
+          "hóa đơn",
+          "khoảng cách"
+        ],
+        "reference_answer_vi": "Chúng ta sẽ sử dụng dữ liệu luồng người, dữ liệu thuộc tính và dữ liệu hóa đơn để phát hiện khoảng cách.",
+        "ref_id": "s024"
+      }
+    ],
+    "translate_vj": [
+      {
+        "id": "tvj001",
+        "prompt_vi": "Khi số class tăng lên thì khả năng phân giải của mô hình sẽ giảm đi một chút, việc thêm class mà bị giảm hiệu năng là vấn đề khá phổ biến.",
+        "acceptable_answers": [
+          "クラスが増えるとその分モデルの分解能っていうところの性能がちょっと下がるので、クラスを足すと多分下がるっていうところが結構あるあるの課題になるとは思うんですけども。"
+        ],
+        "key_points": [
+          "分解能",
+          "あるある",
+          "課題"
+        ],
+        "difficulty": "hard",
+        "ref_id": "s001"
+      },
+      {
+        "id": "tvj002",
+        "prompt_vi": "Về số lượng ảnh thì theo kinh nghiệm là hơi ít, nên tôi lo ngại là có lẽ sẽ khó đạt được độ chính xác.",
+        "acceptable_answers": [
+          "枚数としては経験則的には少なめなので、結構精度出づらいんじゃないかなっていうところを懸念してたんですよね。"
+        ],
+        "key_points": [
+          "経験則的",
+          "精度出づらい",
+          "懸念"
+        ],
+        "difficulty": "hard",
+        "ref_id": "s002"
+      },
+      {
+        "id": "tvj003",
+        "prompt_vi": "Dữ liệu huấn luyện, bạn [人物D] tạo các bounding box bằng tay để mở rộng phải không.",
+        "acceptable_answers": [
+          "教師データって、リンさんがバウンディングボックスを手作業で作って拡充しているじゃないですか。"
+        ],
+        "key_points": [
+          "教師データ",
+          "バウンディングボックス",
+          "手作業"
+        ],
+        "difficulty": "medium",
+        "ref_id": "s010"
       }
     ],
     "fill_blank": [
       {
         "id": "fb001",
-        "sentence": "[人物C]が___について報告したいと思います。",
-        "sentence_reading": "[じんぶつC]が___についてほうこくしたいとおもいます。",
-        "answer": "進捗",
+        "sentence": "クラスが増えるとその分モデルの___っていうところの性能がちょっと下がるので。",
+        "sentence_reading": "クラスがふえるとそのぶんモデルの___っていうところのせいのうがちょっとさがるので。",
+        "answer": "分解能",
         "options": [
-          "進捗",
-          "報告",
-          "共有",
-          "確認"
+          "分解能",
+          "精度",
+          "性能",
+          "能力"
         ],
-        "hint_vi": "tiến độ",
-        "ref_id": "v001"
+        "hint_vi": "khả năng phân giải",
+        "ref_id": "s001"
       },
       {
         "id": "fb002",
-        "sentence": "画面を___します。",
-        "sentence_reading": "がめんを___します。",
-        "answer": "共有",
+        "sentence": "枚数としては___的には少なめなので、結構精度出づらいんじゃないかなっていうところを懸念してたんですよね。",
+        "sentence_reading": "まいすうとしては___てきにはすくなめなので、けっこうせいどでづらいんじゃないかなっていうところをけねんしてたんですよね。",
+        "answer": "経験則",
         "options": [
-          "共有",
-          "確認",
-          "開発",
-          "評価"
+          "経験則",
+          "統計的",
+          "理論的",
+          "実験的"
         ],
-        "hint_vi": "chia sẻ",
-        "ref_id": "v009"
+        "hint_vi": "theo quy tắc kinh nghiệm",
+        "ref_id": "s002"
       },
       {
         "id": "fb003",
-        "sentence": "このモデルの___が高いです。",
-        "sentence_reading": "このモデルの___がたかいです。",
-        "answer": "精度",
+        "sentence": "モデルはえっと、___を基づいて、このモデルは元々365クラスがありまして。",
+        "sentence_reading": "モデルはえっと、___をきそにして、このモデルはもともと365クラスがありまして。",
+        "answer": "ディテクション",
         "options": [
-          "精度",
-          "課題",
-          "評価",
-          "共有"
+          "ディテクション",
+          "クラシフィケーション",
+          "セグメンテーション",
+          "リコグニション"
         ],
-        "hint_vi": "độ chính xác",
-        "ref_id": "v004"
+        "hint_vi": "phát hiện vật thể",
+        "ref_id": "s003"
       },
       {
         "id": "fb004",
-        "sentence": "教師データを___しています。",
-        "sentence_reading": "きょうしデータを___しています。",
-        "answer": "作成",
+        "sentence": "教師データって、リンさんが___を手作業で作って拡充しているじゃないですか。",
+        "sentence_reading": "きょうしデータって、リンさんが___をてさぎょうでつくってかくじゅうしているじゃないですか。",
+        "answer": "バウンディングボックス",
         "options": [
-          "作成",
-          "確認",
-          "共有",
-          "評価"
+          "バウンディングボックス",
+          "ピクセル",
+          "フィーチャー",
+          "パラメータ"
         ],
-        "hint_vi": "tạo",
-        "ref_id": "v007"
+        "hint_vi": "hộp giới hạn, khung chứa vật thể",
+        "ref_id": "s010"
       },
       {
         "id": "fb005",
-        "sentence": "このデータに___して、分析を進めます。",
-        "sentence_reading": "このデータに___して、ぶんせきをすすめます。",
-        "answer": "基づい",
+        "sentence": "人流データと属性と___を使ってギャップを検知するという話があったんですけど。",
+        "sentence_reading": "じんりゅうデータとぞくせいと___をつかってギャップをけんちするというはなしがあったんですけど。",
+        "answer": "レシートデータ",
         "options": [
-          "基づい",
-          "対応",
-          "活用",
-          "配置"
+          "レシートデータ",
+          "クレジットカード",
+          "銀行データ",
+          "購入履歴"
         ],
-        "hint_vi": "dựa trên",
-        "ref_id": "p007"
+        "hint_vi": "dữ liệu hóa đơn",
+        "ref_id": "s024"
       }
     ],
     "reorder": [
       {
         "id": "ro001",
         "fragments": [
-          "報告したいと思います",
-          "進捗について",
-          "[人物C]が"
+          "クラスが増えると",
+          "その分モデルの分解能っていうところの",
+          "性能がちょっと下がるので"
         ],
         "correct_order": [
-          "[人物C]が",
-          "進捗について",
-          "報告したいと思います"
+          "クラスが増えると",
+          "その分モデルの分解能っていうところの",
+          "性能がちょっと下がるので"
         ],
-        "meaning_vi": "[Người C] muốn báo cáo về tiến độ.",
-        "ref_id": "v001"
+        "meaning_vi": "Khi số class tăng lên thì khả năng phân giải của mô hình sẽ giảm đi một chút.",
+        "ref_id": "s001"
       },
       {
         "id": "ro002",
         "fragments": [
-          "共有します",
-          "画面を"
+          "認識精度の高いモデルが",
+          "公開されていて。",
+          "で、今回GT向けのクラスを",
+          "ファインチューニングで足した"
         ],
         "correct_order": [
-          "画面を",
-          "共有します"
+          "認識精度の高いモデルが",
+          "公開されていて。",
+          "で、今回GT向けのクラスを",
+          "ファインチューニングで足した"
         ],
-        "meaning_vi": "Tôi chia sẻ màn hình.",
-        "ref_id": "p002"
-      },
-      {
-        "id": "ro003",
-        "fragments": [
-          "モデルを開発しました",
-          "基づいて",
-          "このデータに"
-        ],
-        "correct_order": [
-          "このデータに",
-          "基づいて",
-          "モデルを開発しました"
-        ],
-        "meaning_vi": "Dựa trên dữ liệu này, chúng tôi đã phát triển mô hình.",
-        "ref_id": "p007"
-      },
-      {
-        "id": "ro004",
-        "fragments": [
-          "高いです",
-          "精度が",
-          "モデルの"
-        ],
-        "correct_order": [
-          "モデルの",
-          "精度が",
-          "高いです"
-        ],
-        "meaning_vi": "Độ chính xác của mô hình cao.",
-        "ref_id": "v004"
-      },
-      {
-        "id": "ro005",
-        "fragments": [
-          "いただけますか",
-          "確認",
-          "ご"
-        ],
-        "correct_order": [
-          "ご",
-          "確認",
-          "いただけますか"
-        ],
-        "meaning_vi": "Bạn có thể vui lòng xác nhận không?",
-        "ref_id": "p010"
+        "meaning_vi": "Có một mô hình với độ chính xác nhận diện cao được công khai. Lần này, chúng ta thêm các class cho GT thông qua fine-tuning.",
+        "ref_id": "s004"
       }
     ]
   }

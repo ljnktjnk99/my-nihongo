@@ -1,0 +1,18 @@
+# Translations (private, not pushed to GitHub)
+translations/
+Meeting/
+# Processor logs
+processor/logs/
+
+# OS files
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor
+.vscode/
+*.swp
+*.swo
