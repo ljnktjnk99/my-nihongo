@@ -1,0 +1,904 @@
+{
+  "meeting_id": "GeoTechAgent for P2E定例会",
+  "date": "2026-03-05",
+  "topic_hint": "GeoTechAgent for P2E定例会",
+  "vocabulary": [
+    {
+      "id": "v001",
+      "word": "進捗",
+      "reading": "しんちょく",
+      "meaning_vi": "tiến độ, sự tiến triển",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "[人物C]が進捗について報告しました。",
+      "context_reading": "[じんぶつC]がしんちょくについてほうこくしました。",
+      "context_meaning_vi": "[Người C] đã báo cáo về tiến độ.",
+      "usage_note": "Từ N3 rất hay gặp trong business meetings khi thảo luận về trạng thái dự án.",
+      "collocations": [
+        "進捗報告",
+        "進捗状況",
+        "進捗する"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v002",
+      "word": "報告",
+      "reading": "ほうこく",
+      "meaning_vi": "báo cáo, thông báo",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "私の方から報告したいと思います。",
+      "context_reading": "わたしのほうからほうこくしたいとおもいます。",
+      "context_meaning_vi": "Tôi muốn báo cáo từ phía tôi.",
+      "usage_note": "N3, dùng trong meeting để nói về việc báo cáo/công bố thông tin.",
+      "collocations": [
+        "報告する",
+        "報告いたします",
+        "報告があります"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v003",
+      "word": "モデル",
+      "reading": "モデル",
+      "meaning_vi": "mô hình, mẫu hình",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "このモデルを開発しました。",
+      "context_reading": "このモデルをかいはつしました。",
+      "context_meaning_vi": "Chúng tôi đã phát triển mô hình này.",
+      "usage_note": "Từ vựng kỹ thuật, hay gặp trong cuộc họp liên quan AI/ML.",
+      "collocations": [
+        "モデルを作る",
+        "モデルの精度",
+        "モデルをトレーニング"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 15
+    },
+    {
+      "id": "v004",
+      "word": "精度",
+      "reading": "せいど",
+      "meaning_vi": "độ chính xác, tính chuẩn xác",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "モデルの精度が高いですね。",
+      "context_reading": "モデルのせいどがたかいですね。",
+      "context_meaning_vi": "Độ chính xác của mô hình này cao nhỉ.",
+      "usage_note": "N3, dùng trong lĩnh vực kỹ thuật, đặc biệt là AI/ML.",
+      "collocations": [
+        "精度が高い",
+        "精度を上げる",
+        "精度の評価"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 12
+    },
+    {
+      "id": "v005",
+      "word": "トレーニング",
+      "reading": "トレーニング",
+      "meaning_vi": "huấn luyện, đào tạo",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "モデルをトレーニング完了しました。",
+      "context_reading": "モデルをトレーニングかんりょうしました。",
+      "context_meaning_vi": "Chúng tôi đã hoàn thành huấn luyện mô hình.",
+      "usage_note": "Từ vay mượn từ Anh ngữ, hay gặp trong ngành công nghiệp tech.",
+      "collocations": [
+        "トレーニングする",
+        "トレーニング完了",
+        "トレーニングデータ"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v006",
+      "word": "クラス",
+      "reading": "クラス",
+      "meaning_vi": "lớp, hạng, loại (trong phân loại)",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "365のクラスがあります。",
+      "context_reading": "365のクラスがあります。",
+      "context_meaning_vi": "Có 365 lớp (loại).",
+      "usage_note": "Trong ngữ cảnh ML, 'class' được dùng để chỉ các loại đối tượng cần phân loại.",
+      "collocations": [
+        "クラスを追加",
+        "クラス数",
+        "新しいクラス"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 18
+    },
+    {
+      "id": "v007",
+      "word": "教師データ",
+      "reading": "きょうしデータ",
+      "meaning_vi": "dữ liệu huấn luyện, dữ liệu đã gán nhãn",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "教師データを作成しています。",
+      "context_reading": "きょうしデータをさくせいしています。",
+      "context_meaning_vi": "Chúng tôi đang tạo dữ liệu huấn luyện.",
+      "usage_note": "Thuật ngữ chuyên ngành ML, hay gặp trong cuộc họp về AI.",
+      "collocations": [
+        "教師データを作る",
+        "教師データの品質",
+        "教師データセット"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 10
+    },
+    {
+      "id": "v008",
+      "word": "画面",
+      "reading": "がめん",
+      "meaning_vi": "màn hình, screen",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "画面を共有します。",
+      "context_reading": "がめんをきょうゆうします。",
+      "context_meaning_vi": "Tôi chia sẻ màn hình.",
+      "usage_note": "N3, hay dùng trong meeting online và công thức làm việc.",
+      "collocations": [
+        "画面を共有",
+        "画面を見る",
+        "画面の上"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v009",
+      "word": "共有",
+      "reading": "きょうゆう",
+      "meaning_vi": "chia sẻ, dùng chung",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "結果を共有させていただきます。",
+      "context_reading": "けっかをきょうゆうさせていただきます。",
+      "context_meaning_vi": "Tôi xin phép chia sẻ kết quả.",
+      "usage_note": "N3, hay gặp trong business khi thảo luận về việc chia sẻ thông tin.",
+      "collocations": [
+        "共有する",
+        "共有させていただく",
+        "共有します"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v010",
+      "word": "確認",
+      "reading": "かくにん",
+      "meaning_vi": "xác nhận, kiểm tra",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "確認をしてください。",
+      "context_reading": "かくにんをしてください。",
+      "context_meaning_vi": "Hãy xác nhận một chút.",
+      "usage_note": "N3, từ N3 nhưng dùng trong business rất thường xuyên.",
+      "collocations": [
+        "確認する",
+        "確認いただく",
+        "確認しました"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v011",
+      "word": "基づいて",
+      "reading": "もとづいて",
+      "meaning_vi": "dựa trên, căn cứ vào",
+      "type": "vocab",
+      "jlpt": "N2",
+      "context_sentence": "このデータに基づいて、モデルを開発しました。",
+      "context_reading": "このデータにもとづいて、モデルをかいはつしました。",
+      "context_meaning_vi": "Dựa trên dữ liệu này, chúng tôi đã phát triển mô hình.",
+      "usage_note": "N2, hay gặp trong business reports khi nói về cơ sở của quyết định.",
+      "collocations": [
+        "～に基づいて",
+        "～を基に"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v012",
+      "word": "対応",
+      "reading": "たいおう",
+      "meaning_vi": "đối ứng, xử lý, giải quyết",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "このの課題に対応する必要があります。",
+      "context_reading": "こののかだいにたいおうするひつようがあります。",
+      "context_meaning_vi": "Chúng tôi cần giải quyết vấn đề này.",
+      "usage_note": "N3, từ rất phổ biến trong business contexts.",
+      "collocations": [
+        "対応する",
+        "対応案",
+        "対応状況"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 4
+    },
+    {
+      "id": "v013",
+      "word": "活用",
+      "reading": "かつよう",
+      "meaning_vi": "sử dụng, ứng dụng, khai thác",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "このデータセットを活用してモデルを作りました。",
+      "context_reading": "このデータセットをかつようしてモデルをつくりました。",
+      "context_meaning_vi": "Chúng tôi đã sử dụng tập dữ liệu này để tạo mô hình.",
+      "usage_note": "N3, khác với \"使う\" ở chỗ có ý nghĩa 'sử dụng hiệu quả'.",
+      "collocations": [
+        "活用する",
+        "活用できる",
+        "活用例"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 7
+    },
+    {
+      "id": "v014",
+      "word": "検出",
+      "reading": "けんしゅつ",
+      "meaning_vi": "phát hiện, dò tìm",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "オブジェクト検出できます。",
+      "context_reading": "オブジェクトけんしゅつできます。",
+      "context_meaning_vi": "Chúng tôi có thể phát hiện các vật thể.",
+      "usage_note": "N3, từ chuyên ngành trong AI/ML, đặc biệt là computer vision.",
+      "collocations": [
+        "物体検出",
+        "検出モデル",
+        "検出精度"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v015",
+      "word": "データセット",
+      "reading": "データセット",
+      "meaning_vi": "tập dữ liệu",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "新しいデータセットを使っています。",
+      "context_reading": "あたらしいデータセットをつかっています。",
+      "context_meaning_vi": "Chúng tôi đang sử dụng tập dữ liệu mới.",
+      "usage_note": "Thuật ngữ chuyên ngành, hay gặp trong ngành khoa học dữ liệu.",
+      "collocations": [
+        "データセット",
+        "トレーニングセット",
+        "テストセット"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v016",
+      "word": "課題",
+      "reading": "かだい",
+      "meaning_vi": "bài toán, vấn đề, thách thức",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "いくつかの課題があります。",
+      "context_reading": "いくつかのかだいがあります。",
+      "context_meaning_vi": "Có một số vấn đề.",
+      "usage_note": "N3, rất hay gặp trong business khi thảo luận về các thách thức.",
+      "collocations": [
+        "課題がある",
+        "課題を解決",
+        "課題感"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 9
+    },
+    {
+      "id": "v017",
+      "word": "標識",
+      "reading": "ひょうしき",
+      "meaning_vi": "biển báo, dấu hiệu, ký hiệu",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "道路の標識を認識します。",
+      "context_reading": "どうろのひょうしきをにんしきします。",
+      "context_meaning_vi": "Chúng tôi nhận dạng các biển báo giao thông.",
+      "usage_note": "N3, hay gặp trong ngữ cảnh giao thông và công nghệ.",
+      "collocations": [
+        "標識認識",
+        "標識データ",
+        "標識の種類"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 8
+    },
+    {
+      "id": "v018",
+      "word": "道路",
+      "reading": "どうろ",
+      "meaning_vi": "đường, đường phố",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "道路の画像を分析します。",
+      "context_reading": "どうろのがぞうをぶんせきします。",
+      "context_meaning_vi": "Chúng tôi phân tích hình ảnh đường.",
+      "usage_note": "N3, từ cơ bản nhưng trong context này dùng với các thuật ngữ chuyên ngành.",
+      "collocations": [
+        "道路標識",
+        "道路画像",
+        "一般道"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 5
+    },
+    {
+      "id": "v019",
+      "word": "評価",
+      "reading": "ひょうか",
+      "meaning_vi": "đánh giá, lượng giá",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "モデルの精度を評価しました。",
+      "context_reading": "モデルのせいどをひょうかしました。",
+      "context_meaning_vi": "Chúng tôi đã đánh giá độ chính xác của mô hình.",
+      "usage_note": "N3, từ hay gặp trong business khi nói về việc đánh giá hiệu suất.",
+      "collocations": [
+        "評価する",
+        "評価結果",
+        "精度評価"
+      ],
+      "formality": "formal",
+      "frequency_in_meeting": 6
+    },
+    {
+      "id": "v020",
+      "word": "フィルター",
+      "reading": "フィルター",
+      "meaning_vi": "bộ lọc, lọc",
+      "type": "vocab",
+      "jlpt": "N3",
+      "context_sentence": "人が写っている写真は表示させないようなフィルターをかけています。",
+      "context_reading": "ひとがうつっているしゃしんはひょうじさせないようなフィルターをかけています。",
+      "context_meaning_vi": "Chúng tôi áp dụng bộ lọc để không hiển thị hình ảnh có người.",
+      "usage_note": "Từ vay mượn từ Anh ngữ, dùng trong lĩnh vực kỹ thuật.",
+      "collocations": [
+        "フィルターをかける",
+        "フィルター処理",
+        "フィルター機能"
+      ],
+      "formality": "neutral",
+      "frequency_in_meeting": 3
+    }
+  ],
+  "phrases": [
+    {
+      "id": "p001",
+      "phrase": "～について報告する",
+      "reading": "～についてほうこくする",
+      "meaning_vi": "báo cáo về ~",
+      "type": "phrase",
+      "context_sentence": "進捗について報告したいと思います。",
+      "context_reading": "しんちょくについてほうこくしたいとおもいます。",
+      "context_meaning_vi": "Tôi muốn báo cáo về tiến độ.",
+      "usage_note": "Cụm từ hay gặp trong meeting để mở đầu khi báo cáo các thông tin.",
+      "casual_equivalent": "～について話す、～のことを報告する",
+      "formality": "formal"
+    },
+    {
+      "id": "p002",
+      "phrase": "画面を共有する",
+      "reading": "がめんをきょうゆうする",
+      "meaning_vi": "chia sẻ màn hình",
+      "type": "phrase",
+      "context_sentence": "画面を共有します。",
+      "context_reading": "がめんをきょうゆうします。",
+      "context_meaning_vi": "Tôi chia sẻ màn hình.",
+      "usage_note": "Cụm từ hay gặp trong online meetings khi cần trình bày nội dung trực quan.",
+      "casual_equivalent": "スクリーン共有する、画面を見てもらう",
+      "formality": "neutral"
+    },
+    {
+      "id": "p003",
+      "phrase": "よろしくお願いします",
+      "reading": "よろしくおねがいします",
+      "meaning_vi": "xin lỗi, tôi mong được sự hợp tác",
+      "type": "phrase",
+      "context_sentence": "今後ともよろしくお願いいたします。",
+      "context_reading": "こんごともよろしくおねがいいたします。",
+      "context_meaning_vi": "Mong được sự hợp tác của bạn từ nay về sau.",
+      "usage_note": "Cụm từ lịch sự Nhật Bản, rất hay dùng ở cuối presentation hoặc khi gặp gỡ người mới.",
+      "casual_equivalent": "よろしくね、今後もお願いします",
+      "formality": "formal"
+    },
+    {
+      "id": "p004",
+      "phrase": "～かなと思っている",
+      "reading": "～かなとおもっている",
+      "meaning_vi": "tôi nghĩ rằng ~, tôi cảm thấy ~",
+      "type": "phrase",
+      "context_sentence": "この方法がいいかなと思っています。",
+      "context_reading": "このほうほうがいいかなとおもっています。",
+      "context_meaning_vi": "Tôi cảm thấy phương pháp này có vẻ tốt.",
+      "usage_note": "Cụm từ mềm mỏng, dùng khi muốn bộc lộ ý kiến nhưng không quá chắc chắn.",
+      "casual_equivalent": "～と思う、～かもしれない",
+      "formality": "informal"
+    },
+    {
+      "id": "p005",
+      "phrase": "承知しました",
+      "reading": "しょうちしました",
+      "meaning_vi": "tôi hiểu rồi, đã ghi nhận",
+      "type": "phrase",
+      "context_sentence": "承知しました。",
+      "context_reading": "しょうちしました。",
+      "context_meaning_vi": "Tôi đã hiểu.",
+      "usage_note": "Cách nói lịch sự để xác nhận rằng bạn đã hiểu lệnh hoặc yêu cầu.",
+      "casual_equivalent": "わかりました、了解です",
+      "formality": "formal"
+    },
+    {
+      "id": "p006",
+      "phrase": "～ことが分かりました",
+      "reading": "～ことがわかりました",
+      "meaning_vi": "chúng tôi hiểu rằng ~, chúng tôi phát hiện ra ~",
+      "type": "phrase",
+      "context_sentence": "このモデルの精度が高いことが分かりました。",
+      "context_reading": "このモデルのせいどがたかいことがわかりました。",
+      "context_meaning_vi": "Chúng tôi phát hiện ra rằng độ chính xác của mô hình này cao.",
+      "usage_note": "Cụm từ hay dùng trong business khi báo cáo kết quả của nghiên cứu hoặc phân tích.",
+      "casual_equivalent": "～だと分かった、～ということがわかった",
+      "formality": "formal"
+    },
+    {
+      "id": "p007",
+      "phrase": "～に基づいて",
+      "reading": "～にもとづいて",
+      "meaning_vi": "dựa trên ~, căn cứ vào ~",
+      "type": "phrase",
+      "context_sentence": "このデータに基づいて、分析を進めます。",
+      "context_reading": "このデータにもとづいて、ぶんせきをすすめます。",
+      "context_meaning_vi": "Dựa trên dữ liệu này, chúng tôi tiếp tục phân tích.",
+      "usage_note": "Cụm từ N2, hay gặp trong business reports và presentations.",
+      "casual_equivalent": "～を基にして、～に基いて",
+      "formality": "formal"
+    },
+    {
+      "id": "p008",
+      "phrase": "～わけですね",
+      "reading": "～わけですね",
+      "meaning_vi": "vậy là ~, tức là ~, đó là lý do ~",
+      "type": "phrase",
+      "context_sentence": "そういうわけですね。",
+      "context_reading": "そういうわけですね。",
+      "context_meaning_vi": "Vậy là thế đó nhỉ.",
+      "usage_note": "Cách nói để xác nhận sự hiểu biết của mình về tình hình.",
+      "casual_equivalent": "～ってわけだ、～ということか",
+      "formality": "neutral"
+    },
+    {
+      "id": "p009",
+      "phrase": "～いただく",
+      "reading": "～いただく",
+      "meaning_vi": "nhận được sự giúp đỡ từ, được ~ (form lịch sự)",
+      "type": "phrase",
+      "context_sentence": "ご質問いただけますか。",
+      "context_reading": "ごしつもんいただけますか。",
+      "context_meaning_vi": "Bạn có thể đặt câu hỏi không?",
+      "usage_note": "Form keigo của \"もらう\", dùng để tỏ lòng biết ơn hoặc yêu cầu một cách lịch sự.",
+      "casual_equivalent": "もらう、～てくれる",
+      "formality": "formal"
+    },
+    {
+      "id": "p010",
+      "phrase": "ご～いただけますか",
+      "reading": "ご～いただけますか",
+      "meaning_vi": "bạn có thể vui lòng ~ không?",
+      "type": "phrase",
+      "context_sentence": "ご確認いただけますか。",
+      "context_reading": "ごかくにんいただけますか。",
+      "context_meaning_vi": "Bạn có thể vui lòng xác nhận không?",
+      "usage_note": "Cụm từ keigo rất phổ biến trong business, dùng để yêu cầu một cách lịch sự.",
+      "casual_equivalent": "～してくれる？、～できる？",
+      "formality": "formal"
+    },
+    {
+      "id": "p011",
+      "phrase": "～について",
+      "reading": "～について",
+      "meaning_vi": "về ~, liên quan đến ~",
+      "type": "phrase",
+      "context_sentence": "これについて何か質問がありますか。",
+      "context_reading": "これについてなにかしつもんがありますか。",
+      "context_meaning_vi": "Về vấn đề này, bạn có câu hỏi gì không?",
+      "usage_note": "Cụm từ hay gặp để giới thiệu topic hoặc vấn đề cần thảo luận.",
+      "casual_equivalent": "～のことについて、～に関して",
+      "formality": "neutral"
+    }
+  ],
+  "grammar": [
+    {
+      "id": "g001",
+      "pattern": "～ことになる",
+      "reading": "～ことになる",
+      "meaning_vi": "diễn ra, được quy định, kết thúc là ~",
+      "type": "grammar",
+      "jlpt": "N3",
+      "explanation_vi": "Grammar N3 dùng để nói về kết quả cuối cùng của một sự kiện, hoặc sự thay đổi tình trạng.",
+      "examples_from_meeting": [
+        {
+          "ja": "このモデルは425のクラスがあることになりました。",
+          "reading": "このモデルは425のクラスがあることになりました。",
+          "vi": "Mô hình này kết thúc là có 425 lớp."
+        }
+      ],
+      "common_mistakes": "Hay nhầm với ～ようになる (dần dần trở thành)"
+    },
+    {
+      "id": "g002",
+      "pattern": "～ようにする",
+      "reading": "～ようにする",
+      "meaning_vi": "cố gắng để ~, đảm bảo ~, hướng tới ~",
+      "type": "grammar",
+      "jlpt": "N4",
+      "explanation_vi": "Grammar N4 nhưng trong business dùng rất nhiều. Nó chỉ ý định hoặc hành động cụ thể hướng tới một mục đích.",
+      "examples_from_meeting": [
+        {
+          "ja": "人が写っている写真は表示させないようなフィルターかけてます。",
+          "reading": "ひとがうつっているしゃしんはひょうじさせないようなふぃるたーかけてます。",
+          "vi": "Chúng tôi áp dụng bộ lọc để không hiển thị hình ảnh có người."
+        }
+      ],
+      "common_mistakes": "Hay nhầm với ～ようになる (trở nên ~, thay đổi tự nhiên)"
+    },
+    {
+      "id": "g003",
+      "pattern": "～を踏まえて",
+      "reading": "～をふまえて",
+      "meaning_vi": "xem xét, cân nhắc, dựa trên ~",
+      "type": "grammar",
+      "jlpt": "N2",
+      "explanation_vi": "Grammar N2 hay gặp trong business khi muốn nói rằng bạn xem xét một yếu tố nào đó trước khi đưa ra quyết định.",
+      "examples_from_meeting": [
+        {
+          "ja": "これを踏まえて、次のステップに進みます。",
+          "reading": "これをふまえて、つぎのすてっぷにすすみます。",
+          "vi": "Xem xét điểm này, chúng tôi chuyển sang bước tiếp theo."
+        }
+      ],
+      "common_mistakes": "Hay nhầm với ～に基づいて (dựa trên, căn cứ vào)"
+    },
+    {
+      "id": "g004",
+      "pattern": "～ということ",
+      "reading": "～ということ",
+      "meaning_vi": "cái tên/sự thật là ~, điều này có nghĩa là ~",
+      "type": "grammar",
+      "jlpt": "N3",
+      "explanation_vi": "Grammar N3 dùng để nói lại hoặc giải thích một điều gì đó đã nói trước đó.",
+      "examples_from_meeting": [
+        {
+          "ja": "つまり、このモデルはより多くのデータで学習したということです。",
+          "reading": "つまり、このモデルはよりおおくのでーたでがくしゅうしたということです。",
+          "vi": "Nói cách khác, mô hình này được học với nhiều dữ liệu hơn."
+        }
+      ],
+      "common_mistakes": "Hay nhầm với ～という (cái tên là ~)"
+    },
+    {
+      "id": "g005",
+      "pattern": "～かどうか",
+      "reading": "～かどうか",
+      "meaning_vi": "hay không, liệu có ~ không, bất kể ~",
+      "type": "grammar",
+      "jlpt": "N3",
+      "explanation_vi": "Grammar N3 dùng khi muốn nói về sự không chắc chắn hoặc lựa chọn giữa hai khả năng.",
+      "examples_from_meeting": [
+        {
+          "ja": "精度が出ているかどうか確認する必要があります。",
+          "reading": "せいどがでているかどうかかくにんするひつようがあります。",
+          "vi": "Chúng tôi cần kiểm tra liệu độ chính xác có được cải thiện không."
+        }
+      ],
+      "common_mistakes": "Hay quên thêm か trước どうか"
+    }
+  ],
+  "exercises": {
+    "translate_vj": [
+      {
+        "id": "tvj001",
+        "prompt_vi": "Tôi muốn báo cáo về tiến độ.",
+        "acceptable_answers": [
+          "進捗について報告したいと思います。",
+          "進捗状況を報告させていただきたいと思います。"
+        ],
+        "key_points": [
+          "進捗",
+          "報告する",
+          "～たいと思う"
+        ],
+        "difficulty": "easy",
+        "ref_id": "p001"
+      },
+      {
+        "id": "tvj002",
+        "prompt_vi": "Tôi chia sẻ màn hình.",
+        "acceptable_answers": [
+          "画面を共有します。",
+          "画面を共有させていただきます。"
+        ],
+        "key_points": [
+          "画面",
+          "共有"
+        ],
+        "difficulty": "easy",
+        "ref_id": "p002"
+      },
+      {
+        "id": "tvj003",
+        "prompt_vi": "Chúng tôi phát triển mô hình dựa trên dữ liệu này.",
+        "acceptable_answers": [
+          "このデータに基づいて、モデルを開発しました。",
+          "このデータを基に、モデルを開発しました。"
+        ],
+        "key_points": [
+          "データ",
+          "基づく",
+          "モデル",
+          "開発"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "p007"
+      },
+      {
+        "id": "tvj004",
+        "prompt_vi": "Bạn có thể vui lòng xác nhận không?",
+        "acceptable_answers": [
+          "ご確認いただけますか。",
+          "ご確認いただけますでしょうか。"
+        ],
+        "key_points": [
+          "ご～いただける",
+          "確認"
+        ],
+        "difficulty": "intermediate",
+        "ref_id": "p010"
+      },
+      {
+        "id": "tvj005",
+        "prompt_vi": "Độ chính xác của mô hình này cao.",
+        "acceptable_answers": [
+          "このモデルの精度は高いです。",
+          "このモデルの精度が高いです。"
+        ],
+        "key_points": [
+          "精度",
+          "高い"
+        ],
+        "difficulty": "easy",
+        "ref_id": "v004"
+      }
+    ],
+    "translate_jv": [
+      {
+        "id": "tjv001",
+        "prompt_ja": "進捗について報告したいと思います。",
+        "prompt_reading": "しんちょくについてほうこくしたいとおもいます。",
+        "acceptable_keywords_vi": [
+          "tiến độ",
+          "báo cáo",
+          "muốn"
+        ],
+        "reference_answer_vi": "Tôi muốn báo cáo về tiến độ.",
+        "ref_id": "p001"
+      },
+      {
+        "id": "tjv002",
+        "prompt_ja": "画面を共有します。",
+        "prompt_reading": "がめんをきょうゆうします。",
+        "acceptable_keywords_vi": [
+          "chia sẻ",
+          "màn hình"
+        ],
+        "reference_answer_vi": "Tôi chia sẻ màn hình.",
+        "ref_id": "p002"
+      },
+      {
+        "id": "tjv003",
+        "prompt_ja": "このデータに基づいて、モデルを開発しました。",
+        "prompt_reading": "このデータにもとづいて、モデルをかいはつしました。",
+        "acceptable_keywords_vi": [
+          "dựa trên",
+          "dữ liệu",
+          "mô hình",
+          "phát triển"
+        ],
+        "reference_answer_vi": "Chúng tôi đã phát triển mô hình dựa trên dữ liệu này.",
+        "ref_id": "p007"
+      },
+      {
+        "id": "tjv004",
+        "prompt_ja": "モデルの精度が高いです。",
+        "prompt_reading": "モデルのせいどがたかいです。",
+        "acceptable_keywords_vi": [
+          "mô hình",
+          "độ chính xác",
+          "cao"
+        ],
+        "reference_answer_vi": "Độ chính xác của mô hình cao.",
+        "ref_id": "v004"
+      },
+      {
+        "id": "tjv005",
+        "prompt_ja": "今後ともよろしくお願いいたします。",
+        "prompt_reading": "こんごともよろしくおねがいいたします。",
+        "acceptable_keywords_vi": [
+          "từ nay về sau",
+          "hợp tác",
+          "mong"
+        ],
+        "reference_answer_vi": "Mong được sự hợp tác của bạn từ nay về sau.",
+        "ref_id": "p003"
+      }
+    ],
+    "fill_blank": [
+      {
+        "id": "fb001",
+        "sentence": "[人物C]が___について報告したいと思います。",
+        "sentence_reading": "[じんぶつC]が___についてほうこくしたいとおもいます。",
+        "answer": "進捗",
+        "options": [
+          "進捗",
+          "報告",
+          "共有",
+          "確認"
+        ],
+        "hint_vi": "tiến độ",
+        "ref_id": "v001"
+      },
+      {
+        "id": "fb002",
+        "sentence": "画面を___します。",
+        "sentence_reading": "がめんを___します。",
+        "answer": "共有",
+        "options": [
+          "共有",
+          "確認",
+          "開発",
+          "評価"
+        ],
+        "hint_vi": "chia sẻ",
+        "ref_id": "v009"
+      },
+      {
+        "id": "fb003",
+        "sentence": "このモデルの___が高いです。",
+        "sentence_reading": "このモデルの___がたかいです。",
+        "answer": "精度",
+        "options": [
+          "精度",
+          "課題",
+          "評価",
+          "共有"
+        ],
+        "hint_vi": "độ chính xác",
+        "ref_id": "v004"
+      },
+      {
+        "id": "fb004",
+        "sentence": "教師データを___しています。",
+        "sentence_reading": "きょうしデータを___しています。",
+        "answer": "作成",
+        "options": [
+          "作成",
+          "確認",
+          "共有",
+          "評価"
+        ],
+        "hint_vi": "tạo",
+        "ref_id": "v007"
+      },
+      {
+        "id": "fb005",
+        "sentence": "このデータに___して、分析を進めます。",
+        "sentence_reading": "このデータに___して、ぶんせきをすすめます。",
+        "answer": "基づい",
+        "options": [
+          "基づい",
+          "対応",
+          "活用",
+          "配置"
+        ],
+        "hint_vi": "dựa trên",
+        "ref_id": "p007"
+      }
+    ],
+    "reorder": [
+      {
+        "id": "ro001",
+        "fragments": [
+          "報告したいと思います",
+          "進捗について",
+          "[人物C]が"
+        ],
+        "correct_order": [
+          "[人物C]が",
+          "進捗について",
+          "報告したいと思います"
+        ],
+        "meaning_vi": "[Người C] muốn báo cáo về tiến độ.",
+        "ref_id": "v001"
+      },
+      {
+        "id": "ro002",
+        "fragments": [
+          "共有します",
+          "画面を"
+        ],
+        "correct_order": [
+          "画面を",
+          "共有します"
+        ],
+        "meaning_vi": "Tôi chia sẻ màn hình.",
+        "ref_id": "p002"
+      },
+      {
+        "id": "ro003",
+        "fragments": [
+          "モデルを開発しました",
+          "基づいて",
+          "このデータに"
+        ],
+        "correct_order": [
+          "このデータに",
+          "基づいて",
+          "モデルを開発しました"
+        ],
+        "meaning_vi": "Dựa trên dữ liệu này, chúng tôi đã phát triển mô hình.",
+        "ref_id": "p007"
+      },
+      {
+        "id": "ro004",
+        "fragments": [
+          "高いです",
+          "精度が",
+          "モデルの"
+        ],
+        "correct_order": [
+          "モデルの",
+          "精度が",
+          "高いです"
+        ],
+        "meaning_vi": "Độ chính xác của mô hình cao.",
+        "ref_id": "v004"
+      },
+      {
+        "id": "ro005",
+        "fragments": [
+          "いただけますか",
+          "確認",
+          "ご"
+        ],
+        "correct_order": [
+          "ご",
+          "確認",
+          "いただけますか"
+        ],
+        "meaning_vi": "Bạn có thể vui lòng xác nhận không?",
+        "ref_id": "p010"
+      }
+    ]
+  }
+}
